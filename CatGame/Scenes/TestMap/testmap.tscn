@@ -1,3 +1,24 @@
-[gd_scene format=3 uid="uid://bxs4jghpvjcj0"]
+[gd_scene load_steps=4 format=3 uid="uid://bxs4jghpvjcj0"]
+
+[ext_resource type="Texture2D" uid="uid://byanntvccsiiw" path="res://Scenes/Assets/Backgrounds/LivingRoom1.png" id="1_yom8h"]
+[ext_resource type="PackedScene" uid="uid://co6k5kudklti2" path="res://Scenes/Player/player.tscn" id="2_xwafl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnkxb"]
+size = Vector2(960, 20)
 
 [node name="Testmap" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(5, 5)
+texture = ExtResource("1_yom8h")
+
+[node name="Player" parent="." instance=ExtResource("2_xwafl")]
+position = Vector2(209, 158)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(479, 530)
+shape = SubResource("RectangleShape2D_qnkxb")
