@@ -11,5 +11,16 @@ config_version=5
 [application]
 
 config/name="CatGame"
+run/main_scene="res://Scenes/MainMap/map.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=960
+window/size/viewport_height=540
+window/stretch/aspect="keep_height"
+
+[dotnet]
+
+project/assembly_name="CatGame"
