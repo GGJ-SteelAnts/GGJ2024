@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://coq6sqjnkcerx"]
+[gd_scene load_steps=54 format=3 uid="uid://coq6sqjnkcerx"]
 
 [ext_resource type="Script" path="res://Scenes/Enemy/enemy.gd" id="1_rshr1"]
 [ext_resource type="Texture2D" uid="uid://bjkddt0n6leda" path="res://Scenes/Assets/Human/HumanCleaning10.png" id="2_ccq5t"]
@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://cw072ehyt0nd8" path="res://Scenes/Assets/Human/HumanCleaning13.png" id="5_sentj"]
 [ext_resource type="Texture2D" uid="uid://cm5pktg8l6e6y" path="res://Scenes/Assets/Human/HumanWalking1.png" id="6_6n4xb"]
 [ext_resource type="Texture2D" uid="uid://b4uawcag5gsat" path="res://Scenes/Assets/Human/HumanWalkingStart1.png" id="6_fxspj"]
-[ext_resource type="AudioStream" uid="uid://pk2tewhuwbhi" path="res://Scenes/Sounds/Human/Human WalkingWood06.wav" id="6_j7wac"]
 [ext_resource type="Texture2D" uid="uid://c5l3mt2ssokeu" path="res://Scenes/Assets/Human/HumanCleaning14.png" id="6_v7u3r"]
 [ext_resource type="Texture2D" uid="uid://dhh7866gl57bq" path="res://Scenes/Assets/Human/HumanCleaning2.png" id="6_w4rbm"]
 [ext_resource type="Texture2D" uid="uid://de8o7gbsdlrbk" path="res://Scenes/Assets/Human/HumanWalking2.png" id="7_3klgr"]
@@ -39,12 +38,14 @@
 [ext_resource type="AudioStream" uid="uid://ctlqte2bnotvw" path="res://Scenes/Sounds/Human/HumanAngry02.wav" id="13_1gwkj"]
 [ext_resource type="Texture2D" uid="uid://d0ncket64xtx5" path="res://Scenes/Assets/Human/HumanWalking8.png" id="13_7u5gc"]
 [ext_resource type="Texture2D" uid="uid://dhew83g0pleeh" path="res://Scenes/Assets/Human/HumanCleaning9.png" id="13_ivop7"]
+[ext_resource type="AudioStream" uid="uid://wa7u1un1mgm1" path="res://Scenes/Sounds/Human/HumanHumming01.wav" id="14_g2akx"]
 [ext_resource type="Texture2D" uid="uid://cwthipunpl3pk" path="res://Scenes/Assets/Human/HumanWalking9.png" id="14_pj87b"]
 [ext_resource type="AudioStream" uid="uid://csf8ptikgj5vq" path="res://Scenes/Sounds/Human/HumanAngry03.wav" id="14_tfcg1"]
 [ext_resource type="Texture2D" uid="uid://1ysg2b436nfi" path="res://Scenes/Assets/Human/HumanWalking10.png" id="15_fjoed"]
-[ext_resource type="AudioStream" uid="uid://doqdrlman4qb5" path="res://Scenes/Sounds/Human/HumanMumbling01.wav" id="15_spo8r"]
+[ext_resource type="AudioStream" uid="uid://d3wf7wly4c0c" path="res://Scenes/Sounds/Human/HumanHumming02.wav" id="15_wglqd"]
 [ext_resource type="AudioStream" uid="uid://cab3h6lsxkw8y" path="res://Scenes/Sounds/Human/HumanMumbling02.wav" id="16_5yqha"]
 [ext_resource type="Texture2D" uid="uid://r0q1xtg8lgen" path="res://Scenes/Assets/Human/HumanWatching1.png" id="16_qaved"]
+[ext_resource type="AudioStream" uid="uid://dq7th6r0mdwgf" path="res://Scenes/Sounds/Human/HumanHumming03.wav" id="16_y0n7f"]
 [ext_resource type="Texture2D" uid="uid://o8rt7tswvcfc" path="res://Scenes/Assets/Human/HumanWatching2.png" id="17_1kpts"]
 [ext_resource type="AudioStream" uid="uid://dcjjpg2m7cpt6" path="res://Scenes/Sounds/Human/HumanMumbling03.wav" id="17_enxwe"]
 [ext_resource type="Texture2D" uid="uid://r2k54jat57oh" path="res://Scenes/Assets/Human/HumanWatching4.png" id="18_kktk1"]
@@ -188,11 +189,11 @@ size = Vector2(1, 1)
 
 [node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
 script = ExtResource("1_rshr1")
-walkWoodSounds = [ExtResource("2_l8syt"), ExtResource("3_11jgn"), ExtResource("4_y6jr6"), ExtResource("5_n77ml"), ExtResource("6_j7wac")]
+walkWoodSounds = [ExtResource("2_l8syt"), ExtResource("3_11jgn"), ExtResource("4_y6jr6"), ExtResource("5_n77ml")]
 walkKitchenSounds = [ExtResource("7_nnjqi"), ExtResource("8_hpcva"), ExtResource("9_8si6n"), ExtResource("10_kgkch"), ExtResource("11_iioxx")]
 angrySounds = [ExtResource("12_is728"), ExtResource("13_1gwkj"), ExtResource("14_tfcg1")]
-happySounds = [ExtResource("15_spo8r"), ExtResource("16_5yqha"), ExtResource("17_enxwe")]
-mumblingSounds = [ExtResource("15_spo8r"), ExtResource("16_5yqha"), ExtResource("17_enxwe")]
+happySounds = [ExtResource("14_g2akx"), ExtResource("15_wglqd"), ExtResource("16_y0n7f")]
+mumblingSounds = [ExtResource("16_5yqha"), ExtResource("17_enxwe")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 3
@@ -212,6 +213,8 @@ one_way_collision = true
 autostart = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+autoplay = true
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
