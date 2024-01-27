@@ -7,8 +7,7 @@ extends CharacterBody2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _physics_process(delta):
-	$AnimatedSprite2D.animation = "idle"
-	$AnimatedSprite2D.play()
+	#$AnimatedSprite2D.animation = "idle"
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -16,7 +15,8 @@ func _physics_process(delta):
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		$AnimatedSprite2D.animation = "jump"
+		#$AnimatedSprite2D.animation = "jump"
+				
 		velocity.y = -JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -27,8 +27,12 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 		$AnimatedSprite2D.flip_h = velocity.x < 0		
 		$AnimatedSprite2D.animation = "walk"
+		$AnimatedSprite2D.play()
+		
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		$AnimatedSprite2D.animation = "idle"
+		$AnimatedSprite2D.play()
 		
 	move_and_slide()
 	
