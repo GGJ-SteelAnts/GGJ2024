@@ -11,6 +11,8 @@ enum ObjectsTypes {Eat, EatAndDrop, EatGood, Drop, Nothing = -1}
 @export var spriteAction : Texture
 
 @export var particles : GPUParticles2D
+@export var respawner : float = 10.0
+var actualRespawner : float = 0.0
 
 @onready var label = get_node("Label")
 @onready var sprite = get_node("Sprite2D")
@@ -21,9 +23,22 @@ var onGround = true
 var num = 0
 
 func _process(delta):
+	actualRespawner += delta
+	if type == ObjectsTypes.EatGood:
+		if spriteAction != null:
+			if actualRespawner > respawner && !canInteract:
+				canInteract = true
+				sprite.texture = spriteNormal
+				actualRespawner = 0
+			elif actualRespawner > respawner && canInteract:
+				canInteract = false
+				sprite.texture = spriteAction
+				actualRespawner = 0
+		
 	if interactable && Input.is_action_just_released("Interact") && canInteract:
-		Interaction()
-		interactable = false
+		Interaction(delta)
+		
+		
 	if !onGround:
 		position = position.move_toward(Vector2(position.x,602), delta * (100 + num))
 		num += 10
@@ -42,13 +57,15 @@ func _on_area_2d_body_exited(body):
 		label.visible = false
 		interactable = false
 
-func Interaction():
+func Interaction(delta):
 	if type == ObjectsTypes.Eat:
 		if spriteAction != null:
 			sprite.texture = spriteAction
 			canInteract = false
 			add_to_group("Issues")
 			enemy.makeHimAngry(angerDamage)
+			interactable = false
+			label.visible = false
 	elif type == ObjectsTypes.EatAndDrop:
 		if spriteAction != null:
 			sprite.texture = spriteAction
@@ -59,7 +76,12 @@ func Interaction():
 			sprite.texture = spriteAction
 			canInteract = false
 			enemy.makeHimAngry(angerDamage)
+			actualRespawner = 0
+			interactable = false
+			label.visible = false
 	elif type == ObjectsTypes.Drop:
 		onGround = false
 		canInteract = false
 		num = 0
+		interactable = false
+		label.visible = false
