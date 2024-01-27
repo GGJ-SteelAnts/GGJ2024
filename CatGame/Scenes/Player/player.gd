@@ -30,9 +30,9 @@ func _physics_process(delta):
 		$AnimatedSprite2D.play("jump")	
 		
 		if $AnimatedSprite2D.flip_h:
-			velocity.x = (-3 * SPEED)	
+			velocity.x = (-100 * SPEED * delta)	
 		else:
-			velocity.x = (3 * SPEED)	
+			velocity.x = (100 * SPEED * delta)	
 			
 		velocity.y = -(JUMP_VELOCITY + jumpCoeficient)
 		jumpCoeficient = 0

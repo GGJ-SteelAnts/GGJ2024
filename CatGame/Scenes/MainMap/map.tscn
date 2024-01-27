@@ -13,10 +13,10 @@
 size = Vector2(1201, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v05w1"]
-size = Vector2(26, 540)
+size = Vector2(26, 587)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i131g"]
-size = Vector2(24, 541)
+size = Vector2(24, 581)
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_55qa7")
@@ -30,38 +30,38 @@ texture = ExtResource("1_07ief")
 
 [node name="Player" parent="." instance=ExtResource("2_gmhjk")]
 z_index = 1
-position = Vector2(409, 484)
+position = Vector2(409, 528)
 SPEED = 400.0
 
 [node name="Flore" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Flore"]
-position = Vector2(600, 557)
+position = Vector2(600, 602)
 shape = SubResource("RectangleShape2D_5v4xx")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(13, 270)
+position = Vector2(13, 293.5)
 shape = SubResource("RectangleShape2D_v05w1")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(1188, 271.5)
+position = Vector2(1188, 291.5)
 shape = SubResource("RectangleShape2D_i131g")
 
 [node name="Sofa1" parent="." instance=ExtResource("3_riua0")]
-position = Vector2(712, 429)
+position = Vector2(712, 464)
 
 [node name="Fish1" parent="." instance=ExtResource("4_vb21r")]
-position = Vector2(1088, 544)
+position = Vector2(1088, 579)
 
 [node name="Bookshelf1" parent="." instance=ExtResource("6_rpyoh")]
-position = Vector2(203, 546)
+position = Vector2(203, 581)
 
 [node name="Shelf1" parent="." instance=ExtResource("7_4mk2a")]
-position = Vector2(711, 233)
+position = Vector2(711, 268)
 
 [node name="Painting1" parent="." instance=ExtResource("8_f22p1")]
 position = Vector2(1050, 218)
