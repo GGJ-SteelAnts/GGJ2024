@@ -12,6 +12,7 @@ enum ObjectsTypes {Eat, Drop, Nothing = -1}
 
 @onready var label = get_node("Label")
 @onready var sprite = get_node("Sprite2D")
+@onready var enemy = get_tree().get_first_node_in_group("Enemy")
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var onGround = true
@@ -27,6 +28,7 @@ func _process(delta):
 	
 	if position == Vector2(position.x,602) && !canInteract:
 		add_to_group("Issues")
+		enemy.makeHimAngry()
 
 func _on_area_2d_body_entered(body):
 	if body.name == "Player" && canInteract:
@@ -44,6 +46,7 @@ func Interaction():
 			sprite.texture = spriteAction
 			canInteract = false
 			add_to_group("Issues")
+			enemy.makeHimAngry()
 	if type == ObjectsTypes.Drop:
 		onGround = false
 		canInteract = false

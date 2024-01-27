@@ -113,7 +113,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ai8qx"]
 size = Vector2(1, 1)
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
 script = ExtResource("1_rshr1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -122,7 +122,7 @@ texture_filter = 1
 position = Vector2(0, -183)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_jccfo")
-animation = &"StartWalking"
+animation = &"Cleaning"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -175.5)
