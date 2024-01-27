@@ -11,7 +11,7 @@ height = 88.0
 
 [node name="Fish1" type="Node2D"]
 script = ExtResource("1_5v8i8")
-type = 0
+type = 1
 spriteNormal = ExtResource("1_0kdg7")
 spriteAction = ExtResource("3_n4r2q")
 

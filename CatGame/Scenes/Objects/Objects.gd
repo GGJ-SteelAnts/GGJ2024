@@ -21,7 +21,7 @@ var onGround = true
 var num = 0
 
 func _process(delta):
-	if interactable && Input.is_action_pressed("Interact") && canInteract:
+	if interactable && Input.is_action_just_released("Interact") && canInteract:
 		Interaction()
 		interactable = false
 	if !onGround:
@@ -49,7 +49,17 @@ func Interaction():
 			canInteract = false
 			add_to_group("Issues")
 			enemy.makeHimAngry(angerDamage)
-	if type == ObjectsTypes.Drop:
+	elif type == ObjectsTypes.EatAndDrop:
+		if spriteAction != null:
+			sprite.texture = spriteAction
+			enemy.makeHimAngry(angerDamage)
+			type = ObjectsTypes.Drop
+	elif type == ObjectsTypes.EatGood:
+		if spriteAction != null:
+			sprite.texture = spriteAction
+			canInteract = false
+			enemy.makeHimAngry(angerDamage)
+	elif type == ObjectsTypes.Drop:
 		onGround = false
 		canInteract = false
 		num = 0
