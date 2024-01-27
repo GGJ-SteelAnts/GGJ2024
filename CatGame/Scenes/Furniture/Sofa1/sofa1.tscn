@@ -1,21 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3ck08xs0x5bi"]
+[gd_scene load_steps=6 format=3 uid="uid://c3ck08xs0x5bi"]
 
 [ext_resource type="Texture2D" uid="uid://g4216yjworoi" path="res://Scenes/Assets/Furniture/Sofa1.png" id="1_xuddi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_od5lk"]
 size = Vector2(416, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhfth"]
-size = Vector2(43.5, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0mx1"]
-size = Vector2(43.5, 20)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s1jch"]
 size = Vector2(55, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pfwxf"]
-size = Vector2(376.5, 20)
+size = Vector2(170.907, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nptyh"]
+size = Vector2(170.907, 20)
 
 [node name="Sofa1" type="Node2D"]
 
@@ -31,18 +28,6 @@ position = Vector2(-7, 45)
 shape = SubResource("RectangleShape2D_od5lk")
 one_way_collision = true
 
-[node name="SideLeft" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-225, 10.75)
-rotation = 1.5708
-shape = SubResource("RectangleShape2D_vhfth")
-one_way_collision = true
-
-[node name="SideRight" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(211, 11)
-rotation = -1.5708
-shape = SubResource("RectangleShape2D_g0mx1")
-one_way_collision = true
-
 [node name="TopLeft" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-245, -2)
 shape = SubResource("RectangleShape2D_s1jch")
@@ -53,7 +38,14 @@ position = Vector2(235, -5)
 shape = SubResource("RectangleShape2D_s1jch")
 one_way_collision = true
 
-[node name="TopMain" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-10, -86)
+[node name="TopMainLeft" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-118, -86)
+rotation = -0.0523599
 shape = SubResource("RectangleShape2D_pfwxf")
+one_way_collision = true
+
+[node name="TopMainRight" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(95, -92)
+rotation = -0.0523599
+shape = SubResource("RectangleShape2D_nptyh")
 one_way_collision = true
