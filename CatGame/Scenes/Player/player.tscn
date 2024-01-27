@@ -135,3 +135,8 @@ initial_velocity_max = 80.0
 color = Color(0.870588, 0.870588, 0.870588, 1)
 
 [node name="Gui" parent="." instance=ExtResource("19_10dfo")]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(288, 128)
+texture = ExtResource("19_3ckti")
