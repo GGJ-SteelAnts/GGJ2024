@@ -1,9 +1,11 @@
 extends Node2D
 
-enum ObjectsTypes {Eat, Drop, Nothing = -1}
+enum ObjectsTypes {Eat, EatAndDrop, EatGood, Drop, Nothing = -1}
 @export var type = ObjectsTypes.Nothing
 @export var interactable = false
 @export var canInteract = true
+
+@export var angerDamage = 15
 
 @export var spriteNormal : Texture
 @export var spriteAction : Texture
@@ -12,13 +14,14 @@ enum ObjectsTypes {Eat, Drop, Nothing = -1}
 
 @onready var label = get_node("Label")
 @onready var sprite = get_node("Sprite2D")
+@onready var enemy = get_tree().get_first_node_in_group("Enemy")
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var onGround = true
 var num = 0
 
 func _process(delta):
-	if interactable && Input.is_action_pressed("Interact") && canInteract:
+	if interactable && Input.is_action_just_released("Interact") && canInteract:
 		Interaction()
 		interactable = false
 	if !onGround:
@@ -27,6 +30,7 @@ func _process(delta):
 	
 	if position == Vector2(position.x,602) && !canInteract:
 		add_to_group("Issues")
+		enemy.makeHimAngry(angerDamage)
 
 func _on_area_2d_body_entered(body):
 	if body.name == "Player" && canInteract:
@@ -44,7 +48,18 @@ func Interaction():
 			sprite.texture = spriteAction
 			canInteract = false
 			add_to_group("Issues")
-	if type == ObjectsTypes.Drop:
+			enemy.makeHimAngry(angerDamage)
+	elif type == ObjectsTypes.EatAndDrop:
+		if spriteAction != null:
+			sprite.texture = spriteAction
+			enemy.makeHimAngry(angerDamage)
+			type = ObjectsTypes.Drop
+	elif type == ObjectsTypes.EatGood:
+		if spriteAction != null:
+			sprite.texture = spriteAction
+			canInteract = false
+			enemy.makeHimAngry(angerDamage)
+	elif type == ObjectsTypes.Drop:
 		onGround = false
 		canInteract = false
 		num = 0
