@@ -76,12 +76,12 @@ func _physics_process(delta):
 		if is_on_floor() and not isJumping and not isCharging:
 			$AnimatedSprite2D.play("idle")
 	
-	var isLevel = $CollisionShape2D.get_parent().is_in_group('level')		
-	if Input.is_action_just_pressed("Down") and isLevel:
-		$CollisionShape2D.disabled = true;
+	var collision_info = move_and_collide(velocity * delta)
+	if collision_info:
+		if Input.is_action_just_pressed("Down"):
+			collision_info.get_collider().disabled = true;
 		
-	if Input.is_action_just_released("Down"):
-		$CollisionShape2D.disabled = false;
-		
+		if Input.is_action_just_released("Down"):
+			collision_info.get_collider().disabled = false;
 		
 	move_and_slide()
