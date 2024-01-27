@@ -23,29 +23,29 @@ texture = ExtResource("1_xuddi")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="Main" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Main" type="CollisionShape2D" parent="StaticBody2D" groups=["Fall"]]
 position = Vector2(-7, 45)
 shape = SubResource("RectangleShape2D_od5lk")
 one_way_collision = true
 
-[node name="TopLeft" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="TopLeft" type="CollisionShape2D" parent="StaticBody2D" groups=["Fall"]]
 position = Vector2(-245, -2)
 shape = SubResource("RectangleShape2D_s1jch")
 one_way_collision = true
 
-[node name="TopRight" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="TopRight" type="CollisionShape2D" parent="StaticBody2D" groups=["Fall"]]
 position = Vector2(235, -5)
 shape = SubResource("RectangleShape2D_s1jch")
 one_way_collision = true
 
-[node name="TopMainLeft" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="TopMainLeft" type="CollisionShape2D" parent="StaticBody2D" groups=["Fall"]]
 position = Vector2(-118, -86)
 rotation = -0.0523599
 shape = SubResource("RectangleShape2D_pfwxf")
 one_way_collision = true
 one_way_collision_margin = 0.5
 
-[node name="TopMainRight" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="TopMainRight" type="CollisionShape2D" parent="StaticBody2D" groups=["Fall"]]
 position = Vector2(95, -92)
 rotation = -0.0523599
 shape = SubResource("RectangleShape2D_nptyh")

@@ -15,32 +15,32 @@ texture = ExtResource("1_053pw")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="Shelf1" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Shelf1" type="CollisionShape2D" parent="StaticBody2D" groups=["Fall"]]
 position = Vector2(0.5, -15)
 shape = SubResource("RectangleShape2D_k0ojt")
 one_way_collision = true
 
-[node name="Shelf2" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Shelf2" type="CollisionShape2D" parent="StaticBody2D" groups=["Fall"]]
 position = Vector2(0, -129)
 rotation = -0.0349066
 shape = SubResource("RectangleShape2D_k0ojt")
 one_way_collision = true
 
-[node name="Shelf3" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Shelf3" type="CollisionShape2D" parent="StaticBody2D" groups=["Fall"]]
 position = Vector2(4.76837e-07, -252)
 rotation = -0.0349066
 shape = SubResource("RectangleShape2D_k0ojt")
 one_way_collision = true
 one_way_collision_margin = 0.5
 
-[node name="Shelf4" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Shelf4" type="CollisionShape2D" parent="StaticBody2D" groups=["Fall"]]
 position = Vector2(-4.76837e-07, -370)
 rotation = -0.0349066
 shape = SubResource("RectangleShape2D_k0ojt")
 one_way_collision = true
 one_way_collision_margin = 0.5
 
-[node name="Shelf5" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Shelf5" type="CollisionShape2D" parent="StaticBody2D" groups=["Fall"]]
 position = Vector2(4.76837e-07, -487)
 rotation = -0.0174533
 shape = SubResource("RectangleShape2D_k0ojt")
