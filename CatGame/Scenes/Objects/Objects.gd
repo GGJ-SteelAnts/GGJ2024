@@ -1,6 +1,6 @@
 extends Node2D
 
-enum ObjectsTypes {Fish,Nothing = -1}
+enum ObjectsTypes {Eat,Nothing = -1}
 @export var type = ObjectsTypes.Nothing
 @export var interactable = false
 @export var canInteract = true
@@ -29,7 +29,7 @@ func _on_area_2d_body_exited(body):
 		interactable = false
 
 func Interaction():
-	if type == ObjectsTypes.Fish:
+	if type == ObjectsTypes.Eat:
 		if spriteAction != null:
 			sprite.texture = spriteAction
 			canInteract = false
