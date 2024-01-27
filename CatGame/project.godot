@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-TaskTypeEnum="*res://Singleton/TaskTypeEnum.gd"
+Enums="*res://Singleton/Enums.gd"
 
 [display]
 

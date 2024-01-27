@@ -1,6 +1,7 @@
 extends Node
 
-enum TaskTypeEnum {Empty, Hungry , Sleepy, Catnipy, Shitty}
+enum TaskTypeEnum {Empty, BreakItem, DontBreak, CatchMouse, PottyPotty}
+enum ItemTypeEnum {Empty, Vase, Laptop, FishTank, Glass}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
