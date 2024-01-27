@@ -1,16 +1,16 @@
 [gd_scene load_steps=7 format=3 uid="uid://p5m8spmw6ype"]
 
-[ext_resource type="Script" path="res://Scenes/Objects/Objects.gd" id="1_62rbr"]
-[ext_resource type="Texture2D" uid="uid://ftr6iu7t5mxp" path="res://Scenes/Assets/Furniture/CatShitter1.png" id="1_gswx4"]
+[ext_resource type="Texture2D" uid="uid://cuucgwjqni7ha" path="res://Scenes/Assets/Furniture/CatShitter1.png" id="1_gswx4"]
+[ext_resource type="Script" path="res://Scenes/Objects/CatShitter1/catShitter1.gd" id="1_inili"]
 [ext_resource type="LabelSettings" uid="uid://b5smbjexhppw" path="res://Scenes/Assets/Fonts/Interact_Font.tres" id="2_6uys1"]
-[ext_resource type="Texture2D" uid="uid://cx084gmlf2ukr" path="res://Scenes/Assets/Furniture/CatShitter2.png" id="3_rsety"]
-[ext_resource type="Texture2D" uid="uid://by5w3d5huuc7g" path="res://Scenes/Assets/Furniture/CatShitter3.png" id="4_73t87"]
+[ext_resource type="Texture2D" uid="uid://dlrp6jm67ii5i" path="res://Scenes/Assets/Furniture/CatShitter2.png" id="3_rsety"]
+[ext_resource type="Texture2D" uid="uid://cmcrxyyxf201t" path="res://Scenes/Assets/Furniture/CatShitter3.png" id="4_73t87"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aqhxf"]
 radius = 47.0106
 
 [node name="CatShitter1" type="Node2D"]
-script = ExtResource("1_62rbr")
+script = ExtResource("1_inili")
 type = 4
 angerDamage = 0
 spriteNormal = ExtResource("1_gswx4")
@@ -49,5 +49,16 @@ label_settings = ExtResource("2_6uys1")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Timer" type="Timer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+offset_left = -54.0
+offset_top = -71.0
+offset_right = 55.0
+offset_bottom = -44.0
+max_value = 10.0
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
