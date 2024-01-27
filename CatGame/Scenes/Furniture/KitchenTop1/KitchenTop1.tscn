@@ -18,3 +18,4 @@ texture = ExtResource("1_kjvka")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-4, -209)
 shape = SubResource("RectangleShape2D_e3nba")
+one_way_collision = true
