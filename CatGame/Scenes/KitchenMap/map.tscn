@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://36uyxcoevafq"]
+[gd_scene load_steps=7 format=3 uid="uid://36uyxcoevafq"]
 
 [ext_resource type="Texture2D" uid="uid://n7ftj4xk0t35" path="res://Scenes/Assets/Backgrounds/KitchenRoom1.png" id="1_0a1lg"]
 [ext_resource type="PackedScene" uid="uid://bsbiocpmc16yf" path="res://Scenes/Furniture/Fridge1/fridge1.tscn" id="2_v6usi"]
 [ext_resource type="PackedScene" uid="uid://cgok21pcuwjm3" path="res://Scenes/Furniture/KitchenTop1/KitchenTop1.tscn" id="3_r7gtt"]
 [ext_resource type="PackedScene" uid="uid://d3rkv73dmcd33" path="res://Scenes/Furniture/FumeExtractor1/FumeExtractor1.tscn" id="4_qu0xg"]
 [ext_resource type="PackedScene" uid="uid://b2xvpqdlvnnw2" path="res://Scenes/Furniture/Shelf2/Shelf2.tscn" id="5_llwkv"]
+[ext_resource type="PackedScene" uid="uid://kgugbx4uh4id" path="res://Scenes/Furniture/Garbage1/Garbage1.tscn" id="6_opv6y"]
 
 [node name="Map" type="Node2D"]
 
@@ -25,13 +26,14 @@ position = Vector2(538, 538)
 [node name="Node2D3" parent="." instance=ExtResource("4_qu0xg")]
 position = Vector2(393, 170)
 
-[node name="Shelfs" type="Node" parent="."]
+[node name="Node2D4" parent="." instance=ExtResource("6_opv6y")]
+position = Vector2(901, 544)
 
-[node name="Node2D4" parent="Shelfs" instance=ExtResource("5_llwkv")]
+[node name="Node2D5" parent="." instance=ExtResource("5_llwkv")]
 position = Vector2(947, 151)
 
-[node name="Node2D5" parent="Shelfs" instance=ExtResource("5_llwkv")]
+[node name="Node2D6" parent="." instance=ExtResource("5_llwkv")]
 position = Vector2(947, 211)
 
-[node name="Node2D6" parent="Shelfs" instance=ExtResource("5_llwkv")]
+[node name="Node2D7" parent="." instance=ExtResource("5_llwkv")]
 position = Vector2(947, 277)
