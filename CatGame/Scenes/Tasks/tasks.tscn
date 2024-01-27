@@ -9,7 +9,8 @@ script = ExtResource("1_e6kpr")
 
 [node name="Icon" type="TextureRect" parent="."]
 texture_filter = 1
-custom_minimum_size = Vector2(40, 40)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 20.0
+offset_bottom = 20.0
+scale = Vector2(2, 2)
+stretch_mode = 3
