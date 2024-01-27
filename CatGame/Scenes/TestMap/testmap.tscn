@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxs4jghpvjcj0"]
+[gd_scene load_steps=7 format=3 uid="uid://bxs4jghpvjcj0"]
 
 [ext_resource type="Texture2D" uid="uid://byanntvccsiiw" path="res://Scenes/Assets/Backgrounds/LivingRoom1.png" id="1_yom8h"]
 [ext_resource type="PackedScene" uid="uid://co6k5kudklti2" path="res://Scenes/Player/player.tscn" id="2_xwafl"]
+[ext_resource type="PackedScene" uid="uid://c3ck08xs0x5bi" path="res://Scenes/Furniture/Sofa1/sofa1.tscn" id="3_aqax1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qnkxb"]
 size = Vector2(1201, 26)
@@ -21,7 +22,9 @@ scale = Vector2(5, 5)
 texture = ExtResource("1_yom8h")
 
 [node name="Player" parent="." instance=ExtResource("2_xwafl")]
+z_index = 1
 position = Vector2(209, 158)
+SPEED = 400.0
 
 [node name="Flore" type="StaticBody2D" parent="."]
 
@@ -40,3 +43,6 @@ shape = SubResource("RectangleShape2D_ydtg1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(1188, 261)
 shape = SubResource("RectangleShape2D_57hb6")
+
+[node name="Sofa1" parent="." instance=ExtResource("3_aqax1")]
+position = Vector2(712, 400)
