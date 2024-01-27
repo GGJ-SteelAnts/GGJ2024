@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://djybb54c4v8ua"]
+[gd_scene load_steps=20 format=3 uid="uid://djybb54c4v8ua"]
 
 [ext_resource type="Texture2D" uid="uid://byanntvccsiiw" path="res://Scenes/Assets/Backgrounds/LivingRoom1.png" id="1_07ief"]
 [ext_resource type="Script" path="res://Scenes/MainMap/Map.gd" id="1_55qa7"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dnhb7mu0hpubn" path="res://Scenes/Furniture/Painting2/painting2.tscn" id="10_put2t"]
 [ext_resource type="PackedScene" uid="uid://5mmk2nnmbnjm" path="res://Scenes/Objects/MouseHole1/mouseHole1.tscn" id="12_pnka2"]
 [ext_resource type="PackedScene" uid="uid://rwdke2n6nxc6" path="res://Scenes/Furniture/Table1/table1.tscn" id="13_dwrgd"]
+[ext_resource type="PackedScene" uid="uid://p5m8spmw6ype" path="res://Scenes/Objects/CatShitter1/catShitter1.tscn" id="15_xwyhw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5v4xx"]
 size = Vector2(3839.5, 26)
@@ -109,3 +110,6 @@ position = Vector2(1445, 321)
 
 [node name="MouseHole1" parent="." instance=ExtResource("12_pnka2")]
 position = Vector2(1594, 546)
+
+[node name="CatShitter1" parent="." instance=ExtResource("15_xwyhw")]
+position = Vector2(1770, 527)

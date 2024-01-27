@@ -1,14 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://p5m8spmw6ype"]
+[gd_scene load_steps=7 format=3 uid="uid://p5m8spmw6ype"]
 
 [ext_resource type="Script" path="res://Scenes/Objects/Objects.gd" id="1_62rbr"]
 [ext_resource type="Texture2D" uid="uid://ftr6iu7t5mxp" path="res://Scenes/Assets/Furniture/CatShitter1.png" id="1_gswx4"]
 [ext_resource type="LabelSettings" uid="uid://b5smbjexhppw" path="res://Scenes/Assets/Fonts/Interact_Font.tres" id="2_6uys1"]
+[ext_resource type="Texture2D" uid="uid://cx084gmlf2ukr" path="res://Scenes/Assets/Furniture/CatShitter2.png" id="3_rsety"]
+[ext_resource type="Texture2D" uid="uid://by5w3d5huuc7g" path="res://Scenes/Assets/Furniture/CatShitter3.png" id="4_73t87"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aqhxf"]
 radius = 47.0106
 
 [node name="CatShitter1" type="Node2D"]
 script = ExtResource("1_62rbr")
+type = 4
+angerDamage = 0
+spriteNormal = ExtResource("1_gswx4")
+spriteAction = ExtResource("3_rsety")
+spriteAction2 = ExtResource("4_73t87")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

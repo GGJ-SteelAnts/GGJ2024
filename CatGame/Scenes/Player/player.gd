@@ -8,7 +8,7 @@ extends CharacterBody2D
 @onready var soundPlayer : AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 @export var catSounds : Dictionary
-
+@export var canMove = true
 @export var soundTimer = 10
 var actualSoundTimer = 0
 
@@ -41,6 +41,8 @@ func _process(delta):
 	$Sprite2D.global_position = Vector2(global_position.x, $Sprite2D.texture.get_height())
 
 func _physics_process(delta):
+	if !canMove:
+		return
 	# Add the gravity.
 	fallDuration += 1
 	if not is_on_floor():
