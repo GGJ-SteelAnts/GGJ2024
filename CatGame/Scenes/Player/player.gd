@@ -4,7 +4,13 @@ extends CharacterBody2D
 @export var JUMP_VELOCITY = 540.0
 @export var JUMP_LIMIT = 500.0
 
-@onready var fallparticle : CPUParticles2D = get_node("CPUParticles2D")
+@onready var fallparticle : CPUParticles2D = $CPUParticles2D
+@onready var soundPlayer : AudioStreamPlayer2D = $AudioStreamPlayer2D
+
+@export var catSounds : Dictionary
+
+@export var soundTimer = 10
+var actualSoundTimer = 0
 
 var isJumping = false
 var isCharging = false
@@ -24,6 +30,13 @@ func _process(delta):
 		indicator.visible = true
 	else:
 		indicator.visible = false
+		
+	if actualSoundTimer > soundTimer:
+		var rng = RandomNumberGenerator.new()
+		var my_random_number = rng.randi_range(0, catSounds.size()-1)
+		soundPlayer.stream = catSounds[my_random_number]
+		soundPlayer.playing = true
+		actualSoundTimer = 0
 		
 	$Sprite2D.global_position = Vector2(global_position.x, $Sprite2D.texture.get_height())
 
@@ -75,13 +88,17 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		if is_on_floor() and not isJumping and not isCharging:
 			$AnimatedSprite2D.play("idle")
+			
+	if Input.is_action_just_pressed("Down"):
+			for node in get_tree().get_nodes_in_group("Fall"):
+				node.disabled = true
 	
-	var isLevel = $CollisionShape2D.get_parent().is_in_group('level')		
-	if Input.is_action_just_pressed("Down") and isLevel:
-		$CollisionShape2D.disabled = true;
-		
 	if Input.is_action_just_released("Down"):
-		$CollisionShape2D.disabled = false;
-		
-		
+		for node in get_tree().get_nodes_in_group("Fall"):
+			node.disabled = false
+	
 	move_and_slide()
+
+
+func _on_timer_timeout():
+	actualSoundTimer += 1

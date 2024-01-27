@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://btlske0d35xyv"]
+[gd_scene load_steps=17 format=3 uid="uid://djybb54c4v8ua"]
 
 [ext_resource type="Texture2D" uid="uid://byanntvccsiiw" path="res://Scenes/Assets/Backgrounds/LivingRoom1.png" id="1_07ief"]
 [ext_resource type="Script" path="res://Scenes/MainMap/Map.gd" id="1_55qa7"]
@@ -41,53 +41,53 @@ SPEED = 400.0
 position = Vector2(607, 590)
 bookSpot = Vector2(607, 590)
 
-[node name="Flore" type="StaticBody2D" parent="." groups=["Level"]]
+[node name="Flore" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Flore"]
 position = Vector2(958.75, 602)
 shape = SubResource("RectangleShape2D_5v4xx")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Level"]]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(12.5, 201)
 shape = SubResource("RectangleShape2D_v05w1")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="." groups=["Level"]]
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(1908, 160.25)
 shape = SubResource("RectangleShape2D_i131g")
 
-[node name="Sofa1" parent="." groups=["Level"] instance=ExtResource("3_riua0")]
+[node name="Sofa1" parent="." instance=ExtResource("3_riua0")]
 position = Vector2(712, 464)
 
-[node name="table1" parent="." groups=["Level"] instance=ExtResource("13_dwrgd")]
+[node name="table1" parent="." instance=ExtResource("13_dwrgd")]
 position = Vector2(1123, 583)
 
-[node name="Bookshelf1" parent="." groups=["Level"] instance=ExtResource("6_rpyoh")]
+[node name="Bookshelf1" parent="." instance=ExtResource("6_rpyoh")]
 position = Vector2(203, 581)
 
-[node name="Shelf1" parent="." groups=["Level"] instance=ExtResource("7_4mk2a")]
+[node name="Shelf1" parent="." instance=ExtResource("7_4mk2a")]
 position = Vector2(711, 268)
 
-[node name="Painting1" parent="." groups=["level"] instance=ExtResource("8_f22p1")]
+[node name="Painting1" parent="." instance=ExtResource("8_f22p1")]
 position = Vector2(1049, 217)
 
-[node name="Painting2" parent="." groups=["level"] instance=ExtResource("10_put2t")]
+[node name="Painting2" parent="." instance=ExtResource("10_put2t")]
 position = Vector2(1790, 240)
 
-[node name="Bookshelf2" parent="." groups=["Level"] instance=ExtResource("6_rpyoh")]
+[node name="Bookshelf2" parent="." instance=ExtResource("6_rpyoh")]
 position = Vector2(1403, 581)
 
-[node name="Fish1" parent="." groups=["level"] instance=ExtResource("4_vb21r")]
+[node name="Fish1" parent="." instance=ExtResource("4_vb21r")]
 position = Vector2(1119, 395)
 
-[node name="Plant1" parent="." groups=["level"] instance=ExtResource("9_gqpuv")]
+[node name="Plant1" parent="." instance=ExtResource("9_gqpuv")]
 position = Vector2(810, 240)
 
-[node name="Plant2" parent="." groups=["level"] instance=ExtResource("9_gqpuv")]
+[node name="Plant2" parent="." instance=ExtResource("9_gqpuv")]
 position = Vector2(1445, 321)
 
-[node name="MouseHole1" parent="." groups=["level"] instance=ExtResource("12_pnka2")]
+[node name="MouseHole1" parent="." instance=ExtResource("12_pnka2")]
 position = Vector2(1594, 546)
