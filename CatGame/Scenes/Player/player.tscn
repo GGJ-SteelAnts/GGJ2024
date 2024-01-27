@@ -135,5 +135,6 @@ initial_velocity_max = 80.0
 color = Color(0.870588, 0.870588, 0.870588, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(288, 128)
 texture = ExtResource("19_3ckti")

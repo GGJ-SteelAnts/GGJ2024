@@ -19,7 +19,12 @@ func _ready():
 	pass
 
 func _process(delta):
-	$Sprite2D.global_position = Vector2(global_position.x, -2)
+	if global_position.y < 0:
+		indicator.visible = true
+	else:
+		indicator.visible = false
+		
+	$Sprite2D.global_position = Vector2(global_position.x, $Sprite2D.texture.get_height())
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -37,7 +42,7 @@ func _physics_process(delta):
 		$AnimatedSprite2D.play("charge")
 		isCharging = true
 		
-	if Input.is_action_pressed("Jump") and is_on_floor() and isCharging:
+	if Input.is_action_pressed("Jump") and is_on_floor() and isCharging and jumpCoeficient <= 400:
 		jumpCoeficient = (jumpCoeficient + 2)
 		print(jumpCoeficient)
 		
