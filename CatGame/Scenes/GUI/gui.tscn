@@ -5,7 +5,7 @@
 
 [node name="Gui" type="CanvasLayer"]
 script = ExtResource("1_lab6h")
-NewTaskTime = 10.0
+NewTaskTime = 5.0
 
 [node name="Task" parent="." instance=ExtResource("2_tj81g")]
 offset_left = 20.0
