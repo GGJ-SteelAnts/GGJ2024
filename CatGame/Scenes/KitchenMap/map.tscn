@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://36uyxcoevafq"]
+
+[ext_resource type="Texture2D" uid="uid://durq8bbopk7ar" path="res://Scenes/Assets/Backgrounds/KitchenRoom1.png" id="1_0a1lg"]
+[ext_resource type="PackedScene" uid="uid://rwdke2n6nxc6" path="res://Scenes/Furniture/Table1/table1.tscn" id="2_y2csp"]
+
+[node name="Map" type="Node2D"]
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Background" type="TextureRect" parent="Environment"]
+offset_right = 240.0
+offset_bottom = 135.0
+scale = Vector2(8, 5)
+texture = ExtResource("1_0a1lg")
+
+[node name="Kitchen table" type="Node2D" parent="Environment"]
+position = Vector2(682, 560)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="table1" parent="Environment/Kitchen table" instance=ExtResource("2_y2csp")]
+
+[node name="table2" parent="Environment/Kitchen table" instance=ExtResource("2_y2csp")]
+position = Vector2(156, 0)
