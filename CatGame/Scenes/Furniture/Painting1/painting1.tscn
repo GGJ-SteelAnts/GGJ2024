@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://coal31e877tjb"]
+
+[ext_resource type="Texture2D" uid="uid://cdnoa7181yxxv" path="res://Scenes/Assets/Furniture/Painting1.png" id="1_jsxgh"]
+
+[node name="Painting1" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("1_jsxgh")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://djybb54c4v8ua"]
+[gd_scene load_steps=12 format=3 uid="uid://djybb54c4v8ua"]
 
 [ext_resource type="Texture2D" uid="uid://byanntvccsiiw" path="res://Scenes/Assets/Backgrounds/LivingRoom1.png" id="1_07ief"]
 [ext_resource type="Script" path="res://Scenes/MainMap/Map.gd" id="1_55qa7"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bf3bbgx3n6bd7" path="res://Scenes/Objects/Fish1/fish1.tscn" id="4_vb21r"]
 [ext_resource type="PackedScene" uid="uid://chul2y7kx1iuu" path="res://Scenes/Furniture/Bookshelf1/bookshelf1.tscn" id="6_rpyoh"]
 [ext_resource type="PackedScene" uid="uid://bf4un0m43cuas" path="res://Scenes/Furniture/Shelf1/shelf1.tscn" id="7_4mk2a"]
+[ext_resource type="PackedScene" uid="uid://coal31e877tjb" path="res://Scenes/Furniture/Painting1/painting1.tscn" id="8_f22p1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5v4xx"]
 size = Vector2(1201, 26)
@@ -60,3 +61,6 @@ position = Vector2(203, 546)
 
 [node name="Shelf1" parent="." instance=ExtResource("7_4mk2a")]
 position = Vector2(711, 233)
+
+[node name="Painting1" parent="." instance=ExtResource("8_f22p1")]
+position = Vector2(1050, 218)
