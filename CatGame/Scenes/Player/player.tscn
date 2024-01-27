@@ -1,7 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://co6k5kudklti2"]
+[gd_scene load_steps=10 format=3 uid="uid://co6k5kudklti2"]
 
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_mr8sf"]
+[ext_resource type="Texture2D" uid="uid://dt6xnu2xcn2nb" path="res://Scenes/Assets/Cat/CatIdle1.png" id="2_2nexp"]
 [ext_resource type="Texture2D" uid="uid://cfsixidiult7q" path="res://Scenes/Assets/Cat/Cat1.png" id="2_mr0ck"]
+[ext_resource type="Texture2D" uid="uid://dvkmrmv2frkl8" path="res://Scenes/Assets/Cat/CatIdle2.png" id="3_guttl"]
+[ext_resource type="Texture2D" uid="uid://g4216yjworoi" path="res://Scenes/Assets/Furniture/Sofa1.png" id="3_s7kcd"]
+[ext_resource type="Texture2D" uid="uid://bypmidearcpbu" path="res://Scenes/Assets/Cat/CatIdle3.png" id="4_b1jrc"]
+[ext_resource type="Texture2D" uid="uid://cojuxmo17irwc" path="res://Scenes/Assets/Cat/CatIdle4.png" id="5_v6upc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mgvdp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2nexp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_guttl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_b1jrc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_v6upc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mr0ck")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_s7kcd")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_crlfs"]
 size = Vector2(81, 37)
@@ -9,10 +45,12 @@ size = Vector2(81, 37)
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_mr8sf")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(4, 4)
-texture = ExtResource("2_mr0ck")
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_mgvdp")
+animation = &"idle"
+frame_progress = 0.657851
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_crlfs")
