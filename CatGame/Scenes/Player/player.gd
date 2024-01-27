@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var SPEED = 300.0
-@export var JUMP_VELOCITY = 400.0
+@export var JUMP_VELOCITY = 540.0
 @export var JUMP_LIMIT = 500.0
 
 @onready var fallparticle : CPUParticles2D = get_node("CPUParticles2D")
