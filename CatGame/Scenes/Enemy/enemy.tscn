@@ -1,38 +1,133 @@
-[gd_scene load_steps=4 format=3 uid="uid://coq6sqjnkcerx"]
+[gd_scene load_steps=24 format=3 uid="uid://coq6sqjnkcerx"]
 
 [ext_resource type="Script" path="res://Scenes/Enemy/enemy.gd" id="1_rshr1"]
+[ext_resource type="Texture2D" uid="uid://dx5alo0sxlyhw" path="res://Scenes/Assets/Human/HumanCleaning1.png" id="2_f6mk1"]
+[ext_resource type="Texture2D" uid="uid://giwjj815y304" path="res://Scenes/Assets/Human/HumanReading1.png" id="3_3qrb2"]
+[ext_resource type="Texture2D" uid="uid://h8lyeq77tbhx" path="res://Scenes/Assets/Human/HumanReading2.png" id="4_kfsp7"]
+[ext_resource type="Texture2D" uid="uid://b8kh5ftuxsj6k" path="res://Scenes/Assets/Human/HumanReading3.png" id="5_f56o0"]
+[ext_resource type="Texture2D" uid="uid://cm5pktg8l6e6y" path="res://Scenes/Assets/Human/HumanWalking1.png" id="6_6n4xb"]
+[ext_resource type="Texture2D" uid="uid://b4uawcag5gsat" path="res://Scenes/Assets/Human/HumanWalkingStart1.png" id="6_fxspj"]
+[ext_resource type="Texture2D" uid="uid://de8o7gbsdlrbk" path="res://Scenes/Assets/Human/HumanWalking2.png" id="7_3klgr"]
+[ext_resource type="Texture2D" uid="uid://cl6xha4dc636m" path="res://Scenes/Assets/Human/HumanWalking3.png" id="8_mvbqg"]
+[ext_resource type="Texture2D" uid="uid://cuvxodfmoictw" path="res://Scenes/Assets/Human/HumanWalking4.png" id="9_u5spo"]
+[ext_resource type="Texture2D" uid="uid://ynbdsvcax1b" path="res://Scenes/Assets/Human/HumanWalking5.png" id="10_h0am8"]
+[ext_resource type="Texture2D" uid="uid://geffwpn2x6yb" path="res://Scenes/Assets/Human/HumanWalking6.png" id="11_836jt"]
+[ext_resource type="Texture2D" uid="uid://76hc5k8dbyra" path="res://Scenes/Assets/Human/HumanWalking7.png" id="12_llqur"]
+[ext_resource type="Texture2D" uid="uid://d0ncket64xtx5" path="res://Scenes/Assets/Human/HumanWalking8.png" id="13_7u5gc"]
+[ext_resource type="Texture2D" uid="uid://cwthipunpl3pk" path="res://Scenes/Assets/Human/HumanWalking9.png" id="14_pj87b"]
+[ext_resource type="Texture2D" uid="uid://1ysg2b436nfi" path="res://Scenes/Assets/Human/HumanWalking10.png" id="15_fjoed"]
+[ext_resource type="Texture2D" uid="uid://r0q1xtg8lgen" path="res://Scenes/Assets/Human/HumanWatching1.png" id="16_qaved"]
+[ext_resource type="Texture2D" uid="uid://o8rt7tswvcfc" path="res://Scenes/Assets/Human/HumanWatching2.png" id="17_1kpts"]
+[ext_resource type="Texture2D" uid="uid://r2k54jat57oh" path="res://Scenes/Assets/Human/HumanWatching4.png" id="18_kktk1"]
+[ext_resource type="Texture2D" uid="uid://0mx3w14p2wgf" path="res://Scenes/Assets/Human/HumanWatching3.png" id="19_hdtgi"]
+[ext_resource type="Texture2D" uid="uid://dd5hi483r2ig6" path="res://Scenes/Assets/Human/HumanWatching5.png" id="20_g6gg2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jccfo"]
 animations = [{
-"frames": [],
-"loop": true,
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_f6mk1")
+}],
+"loop": false,
 "name": &"Cleaning",
 "speed": 5.0
 }, {
-"frames": [],
-"loop": true,
-"name": &"Idle",
-"speed": 5.0
+"frames": [{
+"duration": 4.0,
+"texture": ExtResource("3_3qrb2")
 }, {
-"frames": [],
-"loop": true,
-"name": &"Reacting",
-"speed": 5.0
+"duration": 4.0,
+"texture": ExtResource("4_kfsp7")
 }, {
-"frames": [],
+"duration": 4.0,
+"texture": ExtResource("5_f56o0")
+}],
 "loop": true,
 "name": &"Reading",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_fxspj")
+}],
+"loop": false,
+"name": &"StartWalking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("6_6n4xb")
+}, {
+"duration": 0.5,
+"texture": ExtResource("7_3klgr")
+}, {
+"duration": 0.5,
+"texture": ExtResource("8_mvbqg")
+}, {
+"duration": 0.5,
+"texture": ExtResource("9_u5spo")
+}, {
+"duration": 0.5,
+"texture": ExtResource("10_h0am8")
+}, {
+"duration": 0.5,
+"texture": ExtResource("11_836jt")
+}, {
+"duration": 0.5,
+"texture": ExtResource("12_llqur")
+}, {
+"duration": 0.5,
+"texture": ExtResource("13_7u5gc")
+}, {
+"duration": 0.5,
+"texture": ExtResource("14_pj87b")
+}, {
+"duration": 0.5,
+"texture": ExtResource("15_fjoed")
+}],
+"loop": true,
+"name": &"Walking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 4.0,
+"texture": ExtResource("16_qaved")
+}, {
+"duration": 4.0,
+"texture": ExtResource("17_1kpts")
+}, {
+"duration": 4.0,
+"texture": ExtResource("18_kktk1")
+}, {
+"duration": 4.0,
+"texture": ExtResource("19_hdtgi")
+}, {
+"duration": 4.0,
+"texture": ExtResource("20_g6gg2")
+}],
+"loop": false,
+"name": &"Watching",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ai8qx"]
+size = Vector2(1, 1)
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_rshr1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 3
+texture_filter = 1
+position = Vector2(0, -183)
+scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_jccfo")
-animation = &"Reading"
+animation = &"StartWalking"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -175.5)
 shape = SubResource("RectangleShape2D_ai8qx")
+disabled = true
+one_way_collision = true
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

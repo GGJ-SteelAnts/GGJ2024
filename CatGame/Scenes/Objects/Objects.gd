@@ -24,6 +24,9 @@ func _process(delta):
 	if !onGround:
 		position = position.move_toward(Vector2(position.x,602), delta * (100 + num))
 		num += 10
+	
+	if position == Vector2(position.x,602) && !canInteract:
+		add_to_group("Issues")
 
 func _on_area_2d_body_entered(body):
 	if body.name == "Player" && canInteract:
@@ -40,6 +43,7 @@ func Interaction():
 		if spriteAction != null:
 			sprite.texture = spriteAction
 			canInteract = false
+			add_to_group("Issues")
 	if type == ObjectsTypes.Drop:
 		onGround = false
 		canInteract = false
