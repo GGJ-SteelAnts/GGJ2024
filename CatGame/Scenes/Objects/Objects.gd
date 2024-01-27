@@ -17,6 +17,7 @@ var actualRespawner : float = 0.0
 @onready var label = get_node("Label")
 @onready var sprite = get_node("Sprite2D")
 @onready var enemy = get_tree().get_first_node_in_group("Enemy")
+var gui = null
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var onGround = true
@@ -49,11 +50,13 @@ func _process(delta):
 
 func _on_area_2d_body_entered(body):
 	if body.name == "Player" && canInteract:
+		gui = body.get_node("Gui")
 		label.visible = true
 		interactable = true
 
 func _on_area_2d_body_exited(body):
 	if body.name == "Player":
+		gui = null
 		label.visible = false
 		interactable = false
 
