@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://ie41gy7deuev"]
+
+[ext_resource type="Script" path="res://Scenes/Objects/Objects.gd" id="1_ynli1"]
+[ext_resource type="Texture2D" uid="uid://dr2fljm5vpj43" path="res://Scenes/Assets/Objects/Glass1.png" id="2_q2e57"]
+[ext_resource type="LabelSettings" uid="uid://b5smbjexhppw" path="res://Scenes/Assets/Fonts/Interact_Font.tres" id="3_1opf6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2j4ck"]
+size = Vector2(20, 31)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_ynli1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -18)
+scale = Vector2(4, 4)
+texture = ExtResource("2_q2e57")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -15.5)
+shape = SubResource("RectangleShape2D_2j4ck")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+z_index = 5
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -48.0
+offset_right = 28.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Press E"
+label_settings = ExtResource("3_1opf6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
