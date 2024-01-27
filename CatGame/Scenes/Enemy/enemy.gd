@@ -15,6 +15,14 @@ var actualPageTime = 0
 
 var endScreen = preload("res://Scenes/MainMap/endScreen.tscn")
 
+@onready var soundPlayer : AudioStreamPlayer2D = $AudioStreamPlayer2D
+
+@export var walkWoodSounds : Array
+@export var walkKitchenSounds : Array
+@export var angrySounds : Array
+@export var happySounds : Array
+@export var mumblingSounds : Array
+
 @export var pages = 40
 var stackPage = 0
 var actualProgress = 0
@@ -25,20 +33,32 @@ var state = "Reading"
 var actualAnger : float
 var targets = []
 var nearest : Node2D
+var player : CharacterBody2D
+var my_random_number
+var objedno = false
+var walk = true
 
 func _ready():
-	actualAnger = 0
+	actualAnger = 1000
 
 func _process(delta):
+	var rng = RandomNumberGenerator.new()
 	if actualGameTime > gameTime:
 		var end = endScreen.instantiate()
 		get_tree().get_root().get_node("Map").queue_free()
 		get_tree().get_root().add_child(end)
 		end.label.text = "You Win"
-	
+		
 	if state == "Reading" && actualPageTime > pageTime && triggered:
 		stackPage += 1
 		pages -= 1
+		if !objedno:
+			objedno = true
+			my_random_number = rng.randi_range(0, happySounds.size()-1)
+			soundPlayer.stream = happySounds[my_random_number]
+			soundPlayer.playing = true
+		else:
+			objedno = false
 		if actualAnger > 0:
 			actualAnger -= stackPage
 		else:
@@ -51,12 +71,16 @@ func _process(delta):
 		actualPageTime = 0
 
 func _physics_process(delta):
+	var rng = RandomNumberGenerator.new()
 	targets = get_tree().get_nodes_in_group("Issues")
 	for target in targets:
 		if nearest == null:
 			nearest = target
 		elif abs(global_position.x - target.global_position.x) < abs(global_position.x - nearest.global_position.x):
 			nearest = target
+	
+	if actualAnger >= 100:
+		player = get_node("/root/Map/Player")
 	
 	if nearest != null:
 		if nearest.global_position.x > global_position.x:
@@ -65,12 +89,21 @@ func _physics_process(delta):
 			animator.flip_h = true
 		
 		if state == "Reading":
+			my_random_number = rng.randi_range(0, angrySounds.size()-1)
+			soundPlayer.stream = angrySounds[my_random_number]
+			soundPlayer.playing = true
 			state = "Watching"
+			
 		
 		if abs(global_position.x - nearest.global_position.x) <= 2 && !cleaning:
 			state = "StartCleaning"
-			actualProgress = 0
 			cleaning = true
+		
+		if cleaning && state == "StartCleaning":
+			my_random_number = rng.randi_range(0, mumblingSounds.size()-1)
+			soundPlayer.stream = mumblingSounds[my_random_number]
+			soundPlayer.playing = true
+			actualProgress = 0
 		
 		if actualProgress < 100 && cleaning == true:
 			actualProgress += 10 * delta
@@ -100,12 +133,24 @@ func animation():
 		animator.play_backwards(state)
 
 func move(delta):
+	var rng = RandomNumberGenerator.new()
 	if state == "Reading":
 		global_position.x = move_toward(global_position.x, bookSpot.x, speed * delta)
 	elif state == "Walking" && nearest != null && abs(global_position.x - nearest.global_position.x) > 2:
 		global_position.x = move_toward(global_position.x, nearest.global_position.x, speed * delta)
 	elif state == "Walking" && abs(bookSpot.x - global_position.x) > 2:
 		global_position.x = move_toward(global_position.x, bookSpot.x, speed * delta)
+		
+	if state == "Walking" && walk:
+		walk = false
+		if get_node("/root/Map/Player").global_position.x <= 240 * 8:
+			my_random_number = rng.randi_range(0, walkWoodSounds.size()-1)
+			soundPlayer.stream = walkWoodSounds[my_random_number]
+			soundPlayer.playing = true
+		else:
+			my_random_number = rng.randi_range(0, walkKitchenSounds.size()-1)
+			soundPlayer.stream = walkKitchenSounds[my_random_number]
+			soundPlayer.playing = true
 	
 	move_and_slide()
 
@@ -130,3 +175,7 @@ func makeHimAngry(angerDamage):
 func _on_timer_timeout():
 	actualGameTime += 1
 	actualPageTime += 1
+
+
+func _on_audio_stream_player_2d_finished():
+	walk = true

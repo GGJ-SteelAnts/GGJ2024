@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bsbiocpmc16yf"]
 
-[ext_resource type="Texture2D" uid="uid://bbykgicj1unwk" path="res://Scenes/Assets/Furniture/Fridge1.png" id="1_gonkg"]
+[ext_resource type="Texture2D" uid="uid://rnid8t7isk66" path="res://Scenes/Assets/Furniture/Fridge1.png" id="1_gonkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fhrlv"]
 size = Vector2(146, 20)
@@ -14,6 +14,8 @@ texture = ExtResource("1_gonkg")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" groups=["Fall"]]
+texture_filter = 1
 position = Vector2(0, -400)
 shape = SubResource("RectangleShape2D_fhrlv")
+one_way_collision = true

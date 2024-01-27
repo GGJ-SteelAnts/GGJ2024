@@ -15,6 +15,8 @@ texture = ExtResource("1_kjvka")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" groups=["Fall"]]
+texture_filter = 1
 position = Vector2(-4, -209)
 shape = SubResource("RectangleShape2D_e3nba")
+one_way_collision = true

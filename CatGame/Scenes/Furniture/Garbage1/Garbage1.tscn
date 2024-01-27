@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://kgugbx4uh4id"]
+
+[ext_resource type="Texture2D" uid="uid://b702gj4sraghi" path="res://Scenes/Assets/Furniture/Garbage1.png" id="1_tqs3w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dppat"]
+size = Vector2(95.25, 20)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -79)
+scale = Vector2(4, 4)
+texture = ExtResource("1_tqs3w")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" groups=["Fall"]]
+texture_filter = 1
+position = Vector2(-0.625, -143)
+shape = SubResource("RectangleShape2D_dppat")
+one_way_collision = true
