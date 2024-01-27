@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bf3bbgx3n6bd7"]
+[gd_scene load_steps=6 format=3 uid="uid://bf3bbgx3n6bd7"]
 
 [ext_resource type="Texture2D" uid="uid://dbv3sbh5yvyre" path="res://Scenes/Assets/Objects/Fish1.png" id="1_0kdg7"]
 [ext_resource type="Script" path="res://Scenes/Objects/Objects.gd" id="1_5v8i8"]
 [ext_resource type="LabelSettings" uid="uid://b5smbjexhppw" path="res://Scenes/Assets/Fonts/Interact_Font.tres" id="3_7xg4f"]
+[ext_resource type="Texture2D" uid="uid://bfxkcwngvr55d" path="res://Scenes/Assets/Objects/Fish2.png" id="3_n4r2q"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_30w6k"]
 radius = 34.0
@@ -12,6 +13,7 @@ height = 88.0
 script = ExtResource("1_5v8i8")
 type = 0
 spriteNormal = ExtResource("1_0kdg7")
+spriteAction = ExtResource("3_n4r2q")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
