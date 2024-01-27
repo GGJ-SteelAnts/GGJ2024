@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://djybb54c4v8ua"]
+[gd_scene load_steps=22 format=3 uid="uid://djybb54c4v8ua"]
 
 [ext_resource type="Texture2D" uid="uid://byanntvccsiiw" path="res://Scenes/Assets/Backgrounds/LivingRoom1.png" id="1_07ief"]
 [ext_resource type="Script" path="res://Scenes/MainMap/Map.gd" id="1_55qa7"]
@@ -15,9 +15,11 @@
 [ext_resource type="PackedScene" uid="uid://5mmk2nnmbnjm" path="res://Scenes/Objects/MouseHole1/mouseHole1.tscn" id="12_pnka2"]
 [ext_resource type="PackedScene" uid="uid://rwdke2n6nxc6" path="res://Scenes/Furniture/Table1/table1.tscn" id="13_dwrgd"]
 [ext_resource type="PackedScene" uid="uid://p5m8spmw6ype" path="res://Scenes/Objects/CatShitter1/catShitter1.tscn" id="15_xwyhw"]
+[ext_resource type="Texture2D" uid="uid://dsftgvrachhwk" path="res://Scenes/Assets/Furniture/DoorFrame1.png" id="16_ps5c4"]
+[ext_resource type="PackedScene" uid="uid://df1sgmx4ey6i0" path="res://Scenes/Objects/Notebook1/Notebook1.tscn" id="17_5eq03"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5v4xx"]
-size = Vector2(3839.5, 26)
+size = Vector2(3134.5, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v05w1"]
 size = Vector2(27, 978)
@@ -53,7 +55,7 @@ bookSpot = Vector2(607, 590)
 [node name="Flore" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Flore"]
-position = Vector2(1919.25, 602)
+position = Vector2(1566.75, 602)
 shape = SubResource("RectangleShape2D_5v4xx")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -71,7 +73,7 @@ shape = SubResource("RectangleShape2D_i131g")
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
-position = Vector2(3827.75, 57.5)
+position = Vector2(3120, 57.5)
 shape = SubResource("RectangleShape2D_evy8c")
 
 [node name="Sofa1" parent="." instance=ExtResource("3_riua0")]
@@ -110,3 +112,12 @@ position = Vector2(1594, 546)
 
 [node name="CatShitter1" parent="." instance=ExtResource("15_xwyhw")]
 position = Vector2(1770, 527)
+
+[node name="DoorFrame1" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1918, 274)
+scale = Vector2(4, 5)
+texture = ExtResource("16_ps5c4")
+
+[node name="Node2D" parent="." instance=ExtResource("17_5eq03")]
+position = Vector2(470, 452)

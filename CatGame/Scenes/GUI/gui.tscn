@@ -28,4 +28,13 @@ offset_bottom = 20.0
 [node name="Clock" type="Timer" parent="."]
 autostart = true
 
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 297.0
+offset_top = 45.0
+offset_right = 337.0
+offset_bottom = 68.0
+text = "Score: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="timeout" from="Clock" to="." method="_on_timer_timeout"]

@@ -1,30 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://bd77c8quoffsu"]
+[gd_scene load_steps=5 format=3 uid="uid://ie41gy7deuev"]
 
-[ext_resource type="Script" path="res://Scenes/Objects/Objects.gd" id="1_0vcrd"]
-[ext_resource type="Texture2D" uid="uid://bav35qdy2bwrm" path="res://Scenes/Assets/Objects/Plant1.png" id="1_3m7op"]
-[ext_resource type="LabelSettings" uid="uid://b5smbjexhppw" path="res://Scenes/Assets/Fonts/Interact_Font.tres" id="2_or2wt"]
+[ext_resource type="Script" path="res://Scenes/Objects/Objects.gd" id="1_ynli1"]
+[ext_resource type="Texture2D" uid="uid://dr2fljm5vpj43" path="res://Scenes/Assets/Objects/Glass1.png" id="2_q2e57"]
+[ext_resource type="LabelSettings" uid="uid://b5smbjexhppw" path="res://Scenes/Assets/Fonts/Interact_Font.tres" id="3_1opf6"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e5cci"]
-radius = 19.0
-height = 38.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2j4ck"]
+size = Vector2(20, 31)
 
-[node name="Plant1" type="Node2D"]
-script = ExtResource("1_0vcrd")
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_ynli1")
 type = 3
-itemTypeEnum = 1
+itemTypeEnum = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 1
 texture_filter = 1
-position = Vector2(0, -32)
+position = Vector2(0, -18)
 scale = Vector2(4, 4)
-texture = ExtResource("1_3m7op")
+texture = ExtResource("2_q2e57")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -21)
-shape = SubResource("CapsuleShape2D_e5cci")
+position = Vector2(0, -15.5)
+shape = SubResource("RectangleShape2D_2j4ck")
 
 [node name="Label" type="Label" parent="."]
 visible = false
@@ -43,7 +41,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 text = "Press E"
-label_settings = ExtResource("2_or2wt")
+label_settings = ExtResource("3_1opf6")
 horizontal_alignment = 1
 vertical_alignment = 1
 

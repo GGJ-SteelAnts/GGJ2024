@@ -1,6 +1,6 @@
 extends Node
 
-enum TaskTypeEnum {Empty, BreakItem, DontBreak, CatchMouse, PottyPotty}
+enum TaskTypeEnum {Empty, BreakItem, DontBreak, CatchMouse, Sleep}
 enum ItemTypeEnum {Empty, Vase, Laptop, FishTank, Glass}
 
 # Called when the node enters the scene tree for the first time.
