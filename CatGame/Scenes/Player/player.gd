@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var SPEED = 300.0
 @export var JUMP_VELOCITY = 400.0
+@export var JUMP_LIMIT = 500.0
 
 @onready var fallparticle : CPUParticles2D = get_node("CPUParticles2D")
 
@@ -12,6 +13,19 @@ var fallDuration : int
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+@onready var indicator = get_node("Sprite2D") 
+
+func _ready():
+	pass
+
+func _process(delta):
+	if global_position.y < 0:
+		indicator.visible = true
+	else:
+		indicator.visible = false
+		
+	$Sprite2D.global_position = Vector2(global_position.x, $Sprite2D.texture.get_height())
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -29,7 +43,7 @@ func _physics_process(delta):
 		$AnimatedSprite2D.play("charge")
 		isCharging = true
 		
-	if Input.is_action_pressed("Jump") and is_on_floor() and isCharging:
+	if Input.is_action_pressed("Jump") and is_on_floor() and isCharging and jumpCoeficient <= JUMP_LIMIT:
 		jumpCoeficient = (jumpCoeficient + 2)
 		print(jumpCoeficient)
 		
@@ -51,7 +65,8 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	
 	var direction = Input.get_axis("Left", "Right")
-	if direction:
+	if direction:	
+		jumpCoeficient = 0
 		velocity.x = direction * SPEED
 		$AnimatedSprite2D.flip_h = velocity.x < 0	
 		if is_on_floor() and not isJumping:	
