@@ -14,7 +14,7 @@
 [node name="Background" type="TextureRect" parent="Environment"]
 offset_right = 240.0
 offset_bottom = 135.0
-scale = Vector2(8, 5)
+scale = Vector2(5, 5)
 texture = ExtResource("1_0a1lg")
 
 [node name="Node2D" parent="." instance=ExtResource("2_v6usi")]
