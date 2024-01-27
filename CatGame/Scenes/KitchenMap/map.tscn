@@ -18,16 +18,18 @@ scale = Vector2(8, 5)
 texture = ExtResource("1_0a1lg")
 
 [node name="Node2D" parent="." instance=ExtResource("2_v6usi")]
-position = Vector2(132, 542)
+texture_filter = 1
+position = Vector2(132, 580)
 
 [node name="Node2D2" parent="." instance=ExtResource("3_r7gtt")]
-position = Vector2(538, 538)
+position = Vector2(538, 576)
 
 [node name="Node2D3" parent="." instance=ExtResource("4_qu0xg")]
+texture_filter = 1
 position = Vector2(393, 170)
 
 [node name="Node2D4" parent="." instance=ExtResource("6_opv6y")]
-position = Vector2(901, 544)
+position = Vector2(901, 582)
 
 [node name="Node2D5" parent="." instance=ExtResource("5_llwkv")]
 position = Vector2(947, 151)

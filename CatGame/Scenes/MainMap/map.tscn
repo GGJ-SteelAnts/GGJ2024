@@ -75,6 +75,7 @@ position = Vector2(3827.75, 57.5)
 shape = SubResource("RectangleShape2D_evy8c")
 
 [node name="Sofa1" parent="." instance=ExtResource("3_riua0")]
+texture_filter = 1
 position = Vector2(712, 464)
 
 [node name="table1" parent="." instance=ExtResource("13_dwrgd")]
