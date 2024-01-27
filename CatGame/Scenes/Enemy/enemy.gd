@@ -10,6 +10,7 @@ extends CharacterBody2D
 var actualProgress = 0
 var cleaning = false
 var triggered = false
+var revert = false
 var state = "Reading"
 var actualAnger : float
 var targets = []
@@ -36,16 +37,17 @@ func _physics_process(delta):
 			state = "Watching"
 		
 		if abs(global_position.x - nearest.global_position.x) <= 2 && !cleaning:
-			state = "Cleaning"
+			state = "StartCleaning"
 			actualProgress = 0
 			cleaning = true
 		
 		if actualProgress < 100 && cleaning == true:
 			actualProgress += 10 * delta
 		elif actualProgress >= 100 && cleaning == true:
+			revert = true
+			state = "StartCleaning"
 			actualProgress = 0
 			cleaning = false
-			state = "Walking"
 			nearest.queue_free()
 	else:
 		if bookSpot.x > global_position.x:
@@ -60,7 +62,10 @@ func _physics_process(delta):
 	animation()
 
 func animation():
-	animator.play(state)
+	if !revert:
+		animator.play(state)
+	else:
+		animator.play_backwards(state)
 
 func move(delta):
 	if state == "Reading":
@@ -78,6 +83,11 @@ func _on_animated_sprite_2d_animation_finished():
 			state = "StartWalking"
 		elif state == "StartWalking":
 			state = "Walking"
+		elif !revert && state == "StartCleaning":
+			state = "Cleaning"
+	if revert && state == "StartCleaning":
+		state = "Walking"
+		revert = false
 
-func makeHimAngry():
-	actualAnger += 25
+func makeHimAngry(angerDamage):
+	actualAnger += angerDamage

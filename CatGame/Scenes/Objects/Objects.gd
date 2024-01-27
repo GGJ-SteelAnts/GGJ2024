@@ -1,9 +1,11 @@
 extends Node2D
 
-enum ObjectsTypes {Eat, Drop, Nothing = -1}
+enum ObjectsTypes {Eat, EatAndDrop, EatGood, Drop, Nothing = -1}
 @export var type = ObjectsTypes.Nothing
 @export var interactable = false
 @export var canInteract = true
+
+@export var angerDamage = 15
 
 @export var spriteNormal : Texture
 @export var spriteAction : Texture
@@ -28,7 +30,7 @@ func _process(delta):
 	
 	if position == Vector2(position.x,602) && !canInteract:
 		add_to_group("Issues")
-		enemy.makeHimAngry()
+		enemy.makeHimAngry(angerDamage)
 
 func _on_area_2d_body_entered(body):
 	if body.name == "Player" && canInteract:
@@ -46,7 +48,7 @@ func Interaction():
 			sprite.texture = spriteAction
 			canInteract = false
 			add_to_group("Issues")
-			enemy.makeHimAngry()
+			enemy.makeHimAngry(angerDamage)
 	if type == ObjectsTypes.Drop:
 		onGround = false
 		canInteract = false
