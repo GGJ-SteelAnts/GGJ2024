@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var SPEED = 300.0
 @export var JUMP_VELOCITY = 400.0
+@export var JUMP_LIMIT = 500
 
 @onready var fallparticle : CPUParticles2D = get_node("CPUParticles2D")
 
@@ -42,7 +43,7 @@ func _physics_process(delta):
 		$AnimatedSprite2D.play("charge")
 		isCharging = true
 		
-	if Input.is_action_pressed("Jump") and is_on_floor() and isCharging and jumpCoeficient <= 400:
+	if Input.is_action_pressed("Jump") and is_on_floor() and isCharging and jumpCoeficient <= JUMP_LIMIT:
 		jumpCoeficient = (jumpCoeficient + 2)
 		print(jumpCoeficient)
 		
