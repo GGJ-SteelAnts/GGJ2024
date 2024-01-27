@@ -13,6 +13,14 @@ var fallDuration : int
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+@onready var indicator = get_node("Sprite2D") 
+
+func _ready():
+	pass
+
+func _process(delta):
+	$Sprite2D.global_position = Vector2(global_position.x, -2)
+
 func _physics_process(delta):
 	# Add the gravity.
 	fallDuration += 1
