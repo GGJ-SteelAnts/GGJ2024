@@ -25,6 +25,7 @@ texture = ExtResource("1_yom8h")
 z_index = 1
 position = Vector2(209, 158)
 SPEED = 400.0
+JUMP_VELOCITY = 500.0
 
 [node name="Flore" type="StaticBody2D" parent="."]
 

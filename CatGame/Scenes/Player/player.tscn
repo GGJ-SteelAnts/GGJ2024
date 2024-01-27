@@ -1,12 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://co6k5kudklti2"]
+[gd_scene load_steps=12 format=3 uid="uid://co6k5kudklti2"]
 
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_mr8sf"]
 [ext_resource type="Texture2D" uid="uid://dt6xnu2xcn2nb" path="res://Scenes/Assets/Cat/CatIdle1.png" id="2_2nexp"]
-[ext_resource type="Texture2D" uid="uid://cfsixidiult7q" path="res://Scenes/Assets/Cat/Cat1.png" id="2_mr0ck"]
 [ext_resource type="Texture2D" uid="uid://dvkmrmv2frkl8" path="res://Scenes/Assets/Cat/CatIdle2.png" id="3_guttl"]
-[ext_resource type="Texture2D" uid="uid://g4216yjworoi" path="res://Scenes/Assets/Furniture/Sofa1.png" id="3_s7kcd"]
 [ext_resource type="Texture2D" uid="uid://bypmidearcpbu" path="res://Scenes/Assets/Cat/CatIdle3.png" id="4_b1jrc"]
 [ext_resource type="Texture2D" uid="uid://cojuxmo17irwc" path="res://Scenes/Assets/Cat/CatIdle4.png" id="5_v6upc"]
+[ext_resource type="Texture2D" uid="uid://bw06u3adwvqej" path="res://Scenes/Assets/Cat/CatWalk1.png" id="6_lfk67"]
+[ext_resource type="Texture2D" uid="uid://dbc2yvef1il11" path="res://Scenes/Assets/Cat/CatWalk2.png" id="7_m4dfg"]
+[ext_resource type="Texture2D" uid="uid://dwhd5wbvrwa7i" path="res://Scenes/Assets/Cat/CatWalk3.png" id="8_4gi6u"]
+[ext_resource type="Texture2D" uid="uid://45ylo0o8ql7p" path="res://Scenes/Assets/Cat/CatWalk4.png" id="9_jxq55"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mgvdp"]
 animations = [{
@@ -25,18 +27,24 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_mr0ck")
+"texture": ExtResource("6_lfk67")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_s7kcd")
+"texture": ExtResource("7_m4dfg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4gi6u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_jxq55")
 }],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_crlfs"]
@@ -50,7 +58,7 @@ texture_filter = 1
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_mgvdp")
 animation = &"idle"
-frame_progress = 0.657851
+frame_progress = 0.317247
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_crlfs")
