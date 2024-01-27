@@ -2,37 +2,37 @@
 
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_mr8sf"]
 [ext_resource type="Texture2D" uid="uid://cy55i3ryv4cvn" path="res://Scenes/Assets/Cat/CatIdle1.png" id="2_2nexp"]
-[ext_resource type="AudioStream" uid="uid://p747u6lqsnv2" path="res://Scenes/Sounds/Cat/Meow01.wav" id="2_lm3s2"]
+[ext_resource type="AudioStream" uid="uid://p747u6lqsnv2" path="res://Scenes/Sounds/Cat/Meow01.wav" id="2_be1j7"]
 [ext_resource type="Texture2D" uid="uid://cu0n0r8r5ajh0" path="res://Scenes/Assets/Cat/CatCharge1.png" id="2_ugs7s"]
-[ext_resource type="AudioStream" uid="uid://de2n7ofxmkk2w" path="res://Scenes/Sounds/Cat/Meow02.wav" id="3_3drb2"]
 [ext_resource type="Texture2D" uid="uid://csmfuaenf22cl" path="res://Scenes/Assets/Cat/CatCharge2.png" id="3_c6mtq"]
 [ext_resource type="Texture2D" uid="uid://c5r366iwx4rg1" path="res://Scenes/Assets/Cat/CatIdle2.png" id="3_guttl"]
-[ext_resource type="AudioStream" uid="uid://315neddcuv2y" path="res://Scenes/Sounds/Cat/Meow03.wav" id="4_8cfr5"]
+[ext_resource type="AudioStream" uid="uid://de2n7ofxmkk2w" path="res://Scenes/Sounds/Cat/Meow02.wav" id="3_vti8b"]
 [ext_resource type="Texture2D" uid="uid://byh2iq02hruve" path="res://Scenes/Assets/Cat/CatIdle3.png" id="4_b1jrc"]
+[ext_resource type="AudioStream" uid="uid://315neddcuv2y" path="res://Scenes/Sounds/Cat/Meow03.wav" id="4_fqonx"]
 [ext_resource type="Texture2D" uid="uid://joeapohcwef1" path="res://Scenes/Assets/Cat/CatCharge3.png" id="4_jklmw"]
-[ext_resource type="AudioStream" uid="uid://babo1q4lsawne" path="res://Scenes/Sounds/Cat/Meow04.wav" id="5_a4ol1"]
+[ext_resource type="AudioStream" uid="uid://babo1q4lsawne" path="res://Scenes/Sounds/Cat/Meow04.wav" id="5_7su1i"]
 [ext_resource type="Texture2D" uid="uid://dlbljuc3enccn" path="res://Scenes/Assets/Cat/CatCharge4.png" id="5_btdvj"]
 [ext_resource type="Texture2D" uid="uid://wmys8cm0lt25" path="res://Scenes/Assets/Cat/CatIdle4.png" id="5_v6upc"]
-[ext_resource type="AudioStream" uid="uid://bbf5mlwlh4plq" path="res://Scenes/Sounds/Cat/Meow05.wav" id="6_e266r"]
+[ext_resource type="AudioStream" uid="uid://bbf5mlwlh4plq" path="res://Scenes/Sounds/Cat/Meow05.wav" id="6_13oly"]
 [ext_resource type="Texture2D" uid="uid://dv27tmjbitxl8" path="res://Scenes/Assets/Cat/CatWalk1.png" id="6_lfk67"]
 [ext_resource type="Texture2D" uid="uid://ba52avjlanfq7" path="res://Scenes/Assets/Cat/CatCharge5.png" id="6_m1sk0"]
-[ext_resource type="AudioStream" uid="uid://bvxbh3yk5a4gj" path="res://Scenes/Sounds/Cat/PurrLong01.wav" id="7_l4n5f"]
+[ext_resource type="AudioStream" uid="uid://bvxbh3yk5a4gj" path="res://Scenes/Sounds/Cat/PurrLong01.wav" id="7_1l00x"]
 [ext_resource type="Texture2D" uid="uid://c30arc6jnmwtq" path="res://Scenes/Assets/Cat/CatWalk2.png" id="7_m4dfg"]
 [ext_resource type="Texture2D" uid="uid://p8kqj8ubf6d2" path="res://Scenes/Assets/Cat/CatWalk3.png" id="8_4gi6u"]
-[ext_resource type="AudioStream" uid="uid://cmn1nad75c6b0" path="res://Scenes/Sounds/Cat/PurrLong02.wav" id="8_krxli"]
-[ext_resource type="AudioStream" uid="uid://cno3d88bqcbhc" path="res://Scenes/Sounds/Cat/PurrLong03.wav" id="9_h8i7k"]
+[ext_resource type="AudioStream" uid="uid://cmn1nad75c6b0" path="res://Scenes/Sounds/Cat/PurrLong02.wav" id="8_qkjmo"]
 [ext_resource type="Texture2D" uid="uid://dhildaq3bn6iy" path="res://Scenes/Assets/Cat/CatWalk4.png" id="9_jxq55"]
-[ext_resource type="AudioStream" uid="uid://bdwii6yfs466s" path="res://Scenes/Sounds/Cat/PurrLong04.wav" id="10_grwx4"]
+[ext_resource type="AudioStream" uid="uid://cno3d88bqcbhc" path="res://Scenes/Sounds/Cat/PurrLong03.wav" id="9_uoqta"]
+[ext_resource type="AudioStream" uid="uid://bdwii6yfs466s" path="res://Scenes/Sounds/Cat/PurrLong04.wav" id="10_gcbrq"]
 [ext_resource type="Texture2D" uid="uid://b4q2fedf8xu3a" path="res://Scenes/Assets/Cat/CatJump1.png" id="11_aaoax"]
-[ext_resource type="AudioStream" uid="uid://c72w0mxforxfd" path="res://Scenes/Sounds/Cat/PurrLong05.wav" id="11_u18iq"]
+[ext_resource type="AudioStream" uid="uid://c72w0mxforxfd" path="res://Scenes/Sounds/Cat/PurrLong05.wav" id="11_n3mlh"]
 [ext_resource type="Texture2D" uid="uid://cswrdkjci3bx" path="res://Scenes/Assets/Cat/CatJump2.png" id="12_41enr"]
-[ext_resource type="AudioStream" uid="uid://bkimtb668r2k8" path="res://Scenes/Sounds/Cat/PurrShort01.wav" id="12_ipg0n"]
+[ext_resource type="AudioStream" uid="uid://bkimtb668r2k8" path="res://Scenes/Sounds/Cat/PurrShort01.wav" id="12_gysgo"]
 [ext_resource type="Texture2D" uid="uid://ddcnpol2wres2" path="res://Scenes/Assets/Cat/CatJump3.png" id="13_m5oxd"]
-[ext_resource type="AudioStream" uid="uid://v8fxnfyn4p1w" path="res://Scenes/Sounds/Cat/PurrShort02.wav" id="13_qqvho"]
+[ext_resource type="AudioStream" uid="uid://v8fxnfyn4p1w" path="res://Scenes/Sounds/Cat/PurrShort02.wav" id="13_s6sba"]
+[ext_resource type="AudioStream" uid="uid://33v0fncq1gfs" path="res://Scenes/Sounds/Cat/PurrShort03.wav" id="14_ma5wp"]
 [ext_resource type="Texture2D" uid="uid://cgrbc64pvnt7g" path="res://Scenes/Assets/Cat/CatJump4.png" id="14_msjgv"]
-[ext_resource type="AudioStream" uid="uid://33v0fncq1gfs" path="res://Scenes/Sounds/Cat/PurrShort03.wav" id="14_xiu17"]
-[ext_resource type="AudioStream" uid="uid://dg5luqmym4iek" path="res://Scenes/Sounds/Cat/PurrShort04.wav" id="15_83tst"]
-[ext_resource type="AudioStream" uid="uid://drdk17o4mpgpm" path="res://Scenes/Sounds/Cat/PurrShort05.wav" id="16_i8kag"]
+[ext_resource type="AudioStream" uid="uid://dg5luqmym4iek" path="res://Scenes/Sounds/Cat/PurrShort04.wav" id="15_ry5hy"]
+[ext_resource type="AudioStream" uid="uid://drdk17o4mpgpm" path="res://Scenes/Sounds/Cat/PurrShort05.wav" id="16_wohc5"]
 [ext_resource type="Texture2D" uid="uid://do8f8qav4qgo" path="res://Scenes/Assets/Cat/CatIndicator.png" id="19_3ckti"]
 [ext_resource type="PackedScene" uid="uid://c3x1jgpmvfttv" path="res://Scenes/GUI/gui.tscn" id="20_dll6w"]
 
@@ -116,26 +116,26 @@ size = Vector2(81, 37)
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_mr8sf")
 catSounds = {
-0: ExtResource("2_lm3s2"),
-1: ExtResource("3_3drb2"),
-2: ExtResource("4_8cfr5"),
-3: ExtResource("5_a4ol1"),
-4: ExtResource("6_e266r"),
-5: ExtResource("7_l4n5f"),
-6: ExtResource("8_krxli"),
-7: ExtResource("9_h8i7k"),
-8: ExtResource("10_grwx4"),
-9: ExtResource("11_u18iq"),
-10: ExtResource("12_ipg0n"),
-11: ExtResource("13_qqvho"),
-12: ExtResource("14_xiu17"),
-13: ExtResource("15_83tst"),
-14: ExtResource("16_i8kag"),
-15: ExtResource("2_lm3s2"),
-16: ExtResource("3_3drb2"),
-17: ExtResource("4_8cfr5"),
-18: ExtResource("5_a4ol1"),
-19: ExtResource("6_e266r")
+0: ExtResource("2_be1j7"),
+1: ExtResource("3_vti8b"),
+2: ExtResource("4_fqonx"),
+3: ExtResource("5_7su1i"),
+4: ExtResource("6_13oly"),
+5: ExtResource("7_1l00x"),
+6: ExtResource("8_qkjmo"),
+7: ExtResource("9_uoqta"),
+8: ExtResource("10_gcbrq"),
+9: ExtResource("11_n3mlh"),
+10: ExtResource("12_gysgo"),
+11: ExtResource("13_s6sba"),
+12: ExtResource("14_ma5wp"),
+13: ExtResource("15_ry5hy"),
+14: ExtResource("16_wohc5"),
+15: ExtResource("2_be1j7"),
+16: ExtResource("3_vti8b"),
+17: ExtResource("4_fqonx"),
+18: ExtResource("5_7su1i"),
+19: ExtResource("6_13oly")
 }
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -152,7 +152,7 @@ shape = SubResource("RectangleShape2D_crlfs")
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_left = 0
 limit_top = 0
-limit_right = 1920
+limit_right = 3840
 limit_bottom = 675
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
