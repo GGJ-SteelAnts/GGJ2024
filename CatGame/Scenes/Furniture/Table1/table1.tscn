@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://rwdke2n6nxc6"]
+
+[ext_resource type="Texture2D" uid="uid://cx553my4ec7nl" path="res://Scenes/Assets/Furniture/Table1.png" id="1_yakmd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_obdop"]
+size = Vector2(156, 12)
+
+[node name="table1" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -96)
+scale = Vector2(4, 4)
+texture = ExtResource("1_yakmd")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -182)
+shape = SubResource("RectangleShape2D_obdop")
+one_way_collision = true

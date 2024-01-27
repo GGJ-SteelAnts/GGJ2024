@@ -7,6 +7,13 @@ extends CharacterBody2D
 
 @onready var animator = get_node("AnimatedSprite2D")
 
+@export var gameTime = 180.0
+var actualGameTime = 0
+
+@export var pageTime = 3.0
+var actualPageTime = 0
+
+@export var pages = 40
 var actualProgress = 0
 var cleaning = false
 var triggered = false
@@ -18,6 +25,18 @@ var nearest : Node2D
 
 func _ready():
 	actualAnger = 0
+
+func _process(delta):
+	actualGameTime += delta
+	actualPageTime += delta
+	if actualGameTime > gameTime:
+		print("you win")
+	
+	if state == "Reading" && actualPageTime < pageTime && triggered:
+		pages -= 1
+		if pages <= 0:
+			print("Game over")
+		actualPageTime = 0
 
 func _physics_process(delta):
 	targets = get_tree().get_nodes_in_group("Issues")
@@ -57,6 +76,7 @@ func _physics_process(delta):
 		
 		if state == "Walking" && abs(bookSpot.x - global_position.x) <= 2:
 			state = "Reading"
+			actualPageTime = 0
 	
 	move(delta)
 	animation()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://djybb54c4v8ua"]
+[gd_scene load_steps=17 format=3 uid="uid://djybb54c4v8ua"]
 
 [ext_resource type="Texture2D" uid="uid://byanntvccsiiw" path="res://Scenes/Assets/Backgrounds/LivingRoom1.png" id="1_07ief"]
 [ext_resource type="Script" path="res://Scenes/MainMap/Map.gd" id="1_55qa7"]
@@ -12,15 +12,16 @@
 [ext_resource type="PackedScene" uid="uid://bd77c8quoffsu" path="res://Scenes/Objects/Plant1/Plant1.tscn" id="9_gqpuv"]
 [ext_resource type="PackedScene" uid="uid://dnhb7mu0hpubn" path="res://Scenes/Furniture/Painting2/painting2.tscn" id="10_put2t"]
 [ext_resource type="PackedScene" uid="uid://5mmk2nnmbnjm" path="res://Scenes/Objects/MouseHole1/mouseHole1.tscn" id="12_pnka2"]
+[ext_resource type="PackedScene" uid="uid://rwdke2n6nxc6" path="res://Scenes/Furniture/Table1/table1.tscn" id="13_dwrgd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5v4xx"]
 size = Vector2(1918.5, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v05w1"]
-size = Vector2(26, 587)
+size = Vector2(27, 772)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i131g"]
-size = Vector2(24, 581)
+size = Vector2(24, 854.5)
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_55qa7")
@@ -49,20 +50,20 @@ shape = SubResource("RectangleShape2D_5v4xx")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(13, 293.5)
+position = Vector2(12.5, 201)
 shape = SubResource("RectangleShape2D_v05w1")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(1908, 297)
+position = Vector2(1908, 160.25)
 shape = SubResource("RectangleShape2D_i131g")
 
 [node name="Sofa1" parent="." instance=ExtResource("3_riua0")]
 position = Vector2(712, 464)
 
-[node name="Fish1" parent="." instance=ExtResource("4_vb21r")]
-position = Vector2(1088, 579)
+[node name="table1" parent="." instance=ExtResource("13_dwrgd")]
+position = Vector2(1123, 583)
 
 [node name="Bookshelf1" parent="." instance=ExtResource("6_rpyoh")]
 position = Vector2(203, 581)
@@ -71,16 +72,19 @@ position = Vector2(203, 581)
 position = Vector2(711, 268)
 
 [node name="Painting1" parent="." instance=ExtResource("8_f22p1")]
-position = Vector2(1050, 237)
-
-[node name="Plant1" parent="." instance=ExtResource("9_gqpuv")]
-position = Vector2(810, 240)
+position = Vector2(1049, 217)
 
 [node name="Painting2" parent="." instance=ExtResource("10_put2t")]
 position = Vector2(1790, 240)
 
 [node name="Bookshelf2" parent="." instance=ExtResource("6_rpyoh")]
 position = Vector2(1403, 581)
+
+[node name="Fish1" parent="." instance=ExtResource("4_vb21r")]
+position = Vector2(1119, 395)
+
+[node name="Plant1" parent="." instance=ExtResource("9_gqpuv")]
+position = Vector2(810, 240)
 
 [node name="Plant2" parent="." instance=ExtResource("9_gqpuv")]
 position = Vector2(1445, 321)
