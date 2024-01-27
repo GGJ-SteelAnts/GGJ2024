@@ -43,6 +43,8 @@ func _process(delta):
 	if interactable && Input.is_action_just_released("Interact") && canInteract:
 		Interaction(delta)
 		
+			
+		
 	if !onGround:
 		position = position.move_toward(Vector2(position.x,602), delta * (100 + num))
 		num += 10
@@ -95,6 +97,12 @@ func Interaction(delta):
 			actualRespawner = 0
 			interactable = false
 			label.visible = false
+			if gui.Task1.TaskType == Enums.TaskTypeEnum.CatchMouse:
+				gui.Task1.currentAmount += 1
+			if gui.Task2.TaskType == Enums.TaskTypeEnum.CatchMouse:
+				gui.Task2.currentAmount += 1
+			if gui.Task3.TaskType == Enums.TaskTypeEnum.CatchMouse:
+				gui.Task3.currentAmount += 1
 	elif type == ObjectsTypes.HideAndJail:
 		if spriteAction != null && spriteAction2 != null && player != null:
 			if player.visible:
@@ -104,13 +112,37 @@ func Interaction(delta):
 					sprite.texture = spriteAction2
 				player.hide()
 				player.canMove = false
+				var timer = get_node("Timer")
+				var progressBar = get_node("ProgressBar")
+				progressBar.visible = true
+				timer.start()
 			else:
 				sprite.texture = spriteNormal
 				player.show()
 				player.canMove = true
+				
+				if gui.Task1.TaskType == Enums.TaskTypeEnum.Sleep:
+					gui.Task1.currentAmount += 1
+				if gui.Task2.TaskType == Enums.TaskTypeEnum.Sleep:
+					gui.Task2.currentAmount += 1
+				if gui.Task3.TaskType == Enums.TaskTypeEnum.Sleep:
+					gui.Task3.currentAmount += 1
 	elif type == ObjectsTypes.Drop:
 		onGround = false
 		canInteract = false
 		num = 0
 		interactable = false
 		label.visible = false
+		if gui.Task1.TaskType == Enums.TaskTypeEnum.BreakItem:
+			gui.Task1.currentAmount += 1
+		if gui.Task2.TaskType == Enums.TaskTypeEnum.BreakItem:
+			gui.Task2.currentAmount += 1
+		if gui.Task3.TaskType == Enums.TaskTypeEnum.BreakItem:
+			gui.Task3.currentAmount += 1
+			
+		if gui.Task1.TaskType == Enums.TaskTypeEnum.DontBreak:
+			gui.Task1.currentAmount += 1
+		if gui.Task2.TaskType == Enums.TaskTypeEnum.DontBreak:
+			gui.Task2.currentAmount += 1
+		if gui.Task3.TaskType == Enums.TaskTypeEnum.DontBreak:
+			gui.Task3.currentAmount += 1

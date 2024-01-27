@@ -4,8 +4,11 @@ extends Node
 @onready var Task2 = get_node("Task2")
 @onready var Task3 = get_node("Task3")
 @onready var Clock = get_node("Clock")
+@onready var ScoreLabel = get_node("ScoreLabel")
 
 @export var NewTaskTime = 20.0
+
+var Score : int = 0
 
 var ActualTaskTime = 0.0
 
@@ -15,6 +18,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	updateScoreLabel()
+	
 	if Task1.TaskType == Enums.TaskTypeEnum.Empty && Task2.TaskType != Enums.TaskTypeEnum.Empty:
 		Task1.copyResource(Task2)
 		Task2.resetResource()
@@ -42,6 +47,19 @@ func _process(delta):
 			Task3.taskTimerBar.max_value = Task3.time
 			Task3.taskTimerBar.value = Task3.time
 		ActualTaskTime = 0.0
+		
+	if Task1.isTaskFinished():
+		if Task1.wasTaskSuccessful():
+			Score += 1
+		Task1.resetResource()
+	if Task2.isTaskFinished():
+		if Task2.wasTaskSuccessful():
+			Score += 1
+		Task2.resetResource()
+	if Task3.isTaskFinished():
+		if Task3.wasTaskSuccessful():
+			Score += 1
+		Task3.resetResource()
 	pass
 
 func _on_timer_timeout():
@@ -52,9 +70,18 @@ func _on_timer_timeout():
 	Task3.taskTimerBar.value -= 1
 	
 	if Task1.taskTimerBar.value <= 0:
+		if Task1.TaskType == Enums.TaskTypeEnum.DontBreak:
+			Score += 1
 		Task1.resetResource()
 	if Task2.taskTimerBar.value <= 0:
+		if Task2.TaskType == Enums.TaskTypeEnum.DontBreak:
+			Score += 1
 		Task2.resetResource()
 	if Task3.taskTimerBar.value <= 0:
+		if Task3.TaskType == Enums.TaskTypeEnum.DontBreak:
+			Score += 1
 		Task3.resetResource()
 	pass # Replace with function body.
+
+func updateScoreLabel():
+	ScoreLabel.text = "Score: " + str(Score)
