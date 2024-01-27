@@ -1,6 +1,6 @@
 extends Node2D
 
-enum ObjectsTypes {Eat,Nothing = -1}
+enum ObjectsTypes {Eat, Drop, Nothing = -1}
 @export var type = ObjectsTypes.Nothing
 @export var interactable = false
 @export var canInteract = true
@@ -13,10 +13,17 @@ enum ObjectsTypes {Eat,Nothing = -1}
 @onready var label = get_node("Label")
 @onready var sprite = get_node("Sprite2D")
 
-func _process(_delta):
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var onGround = true
+var num = 0
+
+func _process(delta):
 	if interactable && Input.is_action_pressed("Interact") && canInteract:
 		Interaction()
 		interactable = false
+	if !onGround:
+		position = position.move_toward(Vector2(position.x,602), delta * (100 + num))
+		num += 10
 
 func _on_area_2d_body_entered(body):
 	if body.name == "Player" && canInteract:
@@ -33,3 +40,7 @@ func Interaction():
 		if spriteAction != null:
 			sprite.texture = spriteAction
 			canInteract = false
+	if type == ObjectsTypes.Drop:
+		onGround = false
+		canInteract = false
+		num = 0

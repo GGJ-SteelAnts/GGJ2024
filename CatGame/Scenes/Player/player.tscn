@@ -100,6 +100,7 @@ size = Vector2(81, 37)
 script = ExtResource("1_mr8sf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 2
 texture_filter = 1
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_mgvdp")
@@ -112,5 +113,5 @@ shape = SubResource("RectangleShape2D_crlfs")
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_left = 0
 limit_top = 0
-limit_right = 1200
+limit_right = 1920
 limit_bottom = 675

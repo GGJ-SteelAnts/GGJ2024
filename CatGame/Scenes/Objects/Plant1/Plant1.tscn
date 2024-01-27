@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://bd77c8quoffsu"]
+
+[ext_resource type="Script" path="res://Scenes/Objects/Objects.gd" id="1_0vcrd"]
+[ext_resource type="Texture2D" uid="uid://dg5ucc2utk7fg" path="res://Scenes/Assets/Objects/Plant1.png" id="1_3m7op"]
+[ext_resource type="LabelSettings" uid="uid://b5smbjexhppw" path="res://Scenes/Assets/Fonts/Interact_Font.tres" id="2_or2wt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e5cci"]
+radius = 19.0
+height = 38.0
+
+[node name="Plant1" type="Node2D"]
+script = ExtResource("1_0vcrd")
+type = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+position = Vector2(0, -32)
+scale = Vector2(4, 4)
+texture = ExtResource("1_3m7op")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -21)
+shape = SubResource("CapsuleShape2D_e5cci")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+z_index = 5
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -48.0
+offset_right = 28.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Press E"
+label_settings = ExtResource("2_or2wt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
