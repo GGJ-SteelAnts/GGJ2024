@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://djybb54c4v8ua"]
+[gd_scene load_steps=22 format=3 uid="uid://djybb54c4v8ua"]
 
 [ext_resource type="Texture2D" uid="uid://byanntvccsiiw" path="res://Scenes/Assets/Backgrounds/LivingRoom1.png" id="1_07ief"]
 [ext_resource type="Script" path="res://Scenes/MainMap/Map.gd" id="1_55qa7"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://rwdke2n6nxc6" path="res://Scenes/Furniture/Table1/table1.tscn" id="13_dwrgd"]
 [ext_resource type="PackedScene" uid="uid://p5m8spmw6ype" path="res://Scenes/Objects/CatShitter1/catShitter1.tscn" id="15_xwyhw"]
 [ext_resource type="Texture2D" uid="uid://dsftgvrachhwk" path="res://Scenes/Assets/Furniture/DoorFrame1.png" id="16_ps5c4"]
+[ext_resource type="PackedScene" uid="uid://df1sgmx4ey6i0" path="res://Scenes/Objects/Notebook1/Notebook1.tscn" id="17_5eq03"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5v4xx"]
 size = Vector2(3134.5, 26)
@@ -117,3 +118,6 @@ texture_filter = 1
 position = Vector2(1918, 274)
 scale = Vector2(4, 5)
 texture = ExtResource("16_ps5c4")
+
+[node name="Node2D" parent="." instance=ExtResource("17_5eq03")]
+position = Vector2(470, 452)
