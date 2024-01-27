@@ -13,7 +13,10 @@ var actualGameTime = 0
 @export var pageTime = 3.0
 var actualPageTime = 0
 
+var endScreen = preload("res://Scenes/MainMap/endScreen.tscn")
+
 @export var pages = 40
+var stackPage = 0
 var actualProgress = 0
 var cleaning = false
 var triggered = false
@@ -27,15 +30,24 @@ func _ready():
 	actualAnger = 0
 
 func _process(delta):
-	actualGameTime += delta
-	actualPageTime += delta
 	if actualGameTime > gameTime:
-		print("you win")
+		var end = endScreen.instantiate()
+		get_tree().get_root().get_node("Map").queue_free()
+		get_tree().get_root().add_child(end)
+		end.label.text = "You Win"
 	
-	if state == "Reading" && actualPageTime < pageTime && triggered:
+	if state == "Reading" && actualPageTime > pageTime && triggered:
+		stackPage += 1
 		pages -= 1
+		if actualAnger > 0:
+			actualAnger -= stackPage
+		else:
+			actualAnger = 0
 		if pages <= 0:
-			print("Game over")
+			var end = endScreen.instantiate()
+			get_tree().get_root().get_node("Map").queue_free()
+			get_tree().get_root().add_child(end)
+			end.label.text = "You Lose"
 		actualPageTime = 0
 
 func _physics_process(delta):
@@ -110,4 +122,11 @@ func _on_animated_sprite_2d_animation_finished():
 		revert = false
 
 func makeHimAngry(angerDamage):
+	if !triggered:
+		triggered = true
 	actualAnger += angerDamage
+
+
+func _on_timer_timeout():
+	actualGameTime += 1
+	actualPageTime += 1

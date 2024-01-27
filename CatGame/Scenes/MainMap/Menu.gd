@@ -5,7 +5,8 @@ var map = preload("res://Scenes/MainMap/map.tscn")
 func _on_start_game_pressed():
 	var game = map.instantiate()
 	game.menu = self
-	get_tree().get_root().add_child(game)
+	game.name = "Map"
+	get_tree().get_root().add_child(game, true)
 	hide()
 
 
