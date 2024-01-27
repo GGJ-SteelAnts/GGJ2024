@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://chul2y7kx1iuu"]
+
+[ext_resource type="Texture2D" uid="uid://c40oj3n5abbu2" path="res://Scenes/Assets/Furniture/Bookshelf1.png" id="1_053pw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0ojt"]
+size = Vector2(279, 12)
+
+[node name="Bookshelf1" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -249)
+scale = Vector2(4, 4)
+texture = ExtResource("1_053pw")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Shelf1" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.5, -15)
+rotation = -0.0174533
+shape = SubResource("RectangleShape2D_k0ojt")
+one_way_collision = true
+
+[node name="Shelf2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -129)
+rotation = -0.0349066
+shape = SubResource("RectangleShape2D_k0ojt")
+one_way_collision = true
+
+[node name="Shelf3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(4.76837e-07, -252)
+rotation = -0.0349066
+shape = SubResource("RectangleShape2D_k0ojt")
+one_way_collision = true
+
+[node name="Shelf4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-4.76837e-07, -370)
+rotation = -0.0349066
+shape = SubResource("RectangleShape2D_k0ojt")
+one_way_collision = true
+
+[node name="Shelf5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(4.76837e-07, -487)
+rotation = -0.0174533
+shape = SubResource("RectangleShape2D_k0ojt")
+one_way_collision = true
