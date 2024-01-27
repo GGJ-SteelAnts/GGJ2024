@@ -2,7 +2,8 @@ extends Control
 
 var TaskType : Enums.TaskTypeEnum = Enums.TaskTypeEnum.Empty
 var time : float = 0.0
-var amount : int = 0
+var maxAmount : int = 0
+var currentAmount : int = 0
 var item : Enums.ItemTypeEnum = Enums.ItemTypeEnum.Empty
 
 @onready var icon = get_node("TaskFrame/Icon")
@@ -21,22 +22,31 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	chooseArt(TaskType)
+	updateTaskLabel(TaskType)
 	pass
 
 func copyResource(task):
 	TaskType = task.TaskType
 	time = task.time
-	amount = task.amount
+	maxAmount = task.maxAmount
+	currentAmount = task.currentAmount
 	item = task.item
+	taskTimerBar.value = task.taskTimerBar.value
+	icon.texture = task.icon.texture
+	label.text = task.label.text
 
 func resetResource():
 	TaskType = Enums.TaskTypeEnum.Empty
 	time = 0.0
-	amount = 0
+	maxAmount = 0
+	currentAmount = 0
 	item = Enums.ItemTypeEnum.Empty
+	taskTimerBar.value = 0
+	icon.texture = null
+	label.text = ""
 
-func chooseArt(task):
-	match task:
+func chooseArt(taskType):
+	match taskType:
 		Enums.TaskTypeEnum.BreakItem:
 			icon.texture = BreakItemTexture
 		Enums.TaskTypeEnum.DontBreak:
@@ -48,6 +58,49 @@ func chooseArt(task):
 		Enums.TaskTypeEnum.Empty:
 			icon.texture = null
 			
+func progressTask(taskType):
+	if taskType == Enums.TaskTypeEnum.Empty:
+		pass
+	else:
+		currentAmount += 1
+			
+func updateTaskLabel(taskType):
+	if taskType == Enums.TaskTypeEnum.Empty:
+		pass
+	else:
+		label.text = str(currentAmount) + " / " + str(maxAmount)
+		
+func isTaskFinished():
+	if (currentAmount >= maxAmount) or time <= 0:
+		return true
+	else:
+		return false
+
+func wasTaskSuccessful():
+	match TaskType:
+		Enums.TaskTypeEnum.BreakItem:
+			if currentAmount >= maxAmount:
+				return true
+			else :
+				return false
+		Enums.TaskTypeEnum.DontBreak:
+			if currentAmount >= maxAmount:
+				return false
+			else :
+				return true
+		Enums.TaskTypeEnum.CatchMouse:
+			if currentAmount >= maxAmount:
+				return true
+			else :
+				return false
+		Enums.TaskTypeEnum.PottyPotty:
+			if currentAmount >= maxAmount:
+				return true
+			else :
+				return false
+		Enums.TaskTypeEnum.Empty:
+			return false
+
 func chooseTask():
 	var rng = RandomNumberGenerator.new()
 	var random_number = rng.randi_range(1, Enums.TaskTypeEnum.size() - 1)
@@ -70,45 +123,41 @@ func generateTaskStats(taskType):
 		Enums.TaskTypeEnum.BreakItem:
 			time = rng.randf_range(20, 30)
 			var random_number = rng.randi_range(1, Enums.ItemTypeEnum.size() - 1)
-			var itemString = Enums.TaskTypeEnum.keys()[random_number]
+			var itemString = Enums.ItemTypeEnum.keys()[random_number]
 			match itemString:
 				"Vase":
 					item = Enums.ItemTypeEnum.Vase
-					amount = rng.randi_range(1, 3)
+					maxAmount = rng.randi_range(1, 3)
 				"Laptop":
 					item = Enums.ItemTypeEnum.Laptop
-					amount = rng.randi_range(1, 1)
+					maxAmount = rng.randi_range(1, 1)
 				"FishTank":
 					item = Enums.ItemTypeEnum.FishTank
-					amount = rng.randi_range(1, 1)
+					maxAmount = rng.randi_range(1, 1)
 				"Glass":
 					item = Enums.ItemTypeEnum.Glass
-					amount = rng.randi_range(1, 3)
-			label.text = str(amount) + "/" + str(amount)
+					maxAmount = rng.randi_range(1, 3)
 			
 		Enums.TaskTypeEnum.DontBreak:
 			time = rng.randf_range(20, 30)
 			item = Enums.ItemTypeEnum.Empty
-			amount = 0
-			label.text = str(amount) + "/" + str(amount)
+			maxAmount = 0
 			
 		Enums.TaskTypeEnum.CatchMouse:
 			time = rng.randf_range(20, 30)
 			item = Enums.ItemTypeEnum.Empty
-			amount = 1
-			label.text = str(amount) + "/" + str(amount)
+			maxAmount = 1
 			
 		Enums.TaskTypeEnum.PottyPotty:
 			icon.texture = PottyPottyTexture
 			time = rng.randf_range(20, 30)
 			item = Enums.ItemTypeEnum.Empty
-			amount = 1
-			label.text = str(amount) + "/" + str(amount)
+			maxAmount = 1
 			
 		Enums.TaskTypeEnum.Empty:
 			icon.texture = null
 			time = 0
 			item = Enums.ItemTypeEnum.Empty
-			amount = 0
+			maxAmount = 0
 			label.text = ""
 	pass

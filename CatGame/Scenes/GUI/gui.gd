@@ -18,18 +18,12 @@ func _process(delta):
 	if Task1.TaskType == Enums.TaskTypeEnum.Empty && Task2.TaskType != Enums.TaskTypeEnum.Empty:
 		Task1.copyResource(Task2)
 		Task2.resetResource()
-		Task1.taskTimerBar.value = Task2.taskTimerBar.value
-		Task2.taskTimerBar.value = 0
 	if Task1.TaskType == Enums.TaskTypeEnum.Empty && Task3.TaskType != Enums.TaskTypeEnum.Empty:
 		Task1.copyResource(Task3)
 		Task3.resetResource()
-		Task1.taskTimerBar.value = Task3.taskTimerBar.value
-		Task3.taskTimerBar.value = 0
 	if Task2.TaskType == Enums.TaskTypeEnum.Empty && Task3.TaskType != Enums.TaskTypeEnum.Empty:
 		Task2.copyResource(Task3)
 		Task3.resetResource()
-		Task2.taskTimerBar.value = Task3.taskTimerBar.value
-		Task3.taskTimerBar.value = 0
 
 	if ActualTaskTime > NewTaskTime:
 		if Task1.TaskType == Enums.TaskTypeEnum.Empty:
