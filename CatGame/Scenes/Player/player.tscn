@@ -115,3 +115,20 @@ limit_left = 0
 limit_top = 0
 limit_right = 1920
 limit_bottom = 675
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, 50)
+emitting = false
+amount = 50
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+emission_shape = 5
+emission_points = PackedVector2Array(0, 0, 0, 0)
+emission_normals = PackedVector2Array(-1, 0.1, 1, 0.1)
+emission_colors = PackedColorArray()
+direction = Vector2(-1, 0)
+spread = 3.0
+gravity = Vector2(0, 9.8)
+initial_velocity_max = 80.0
+color = Color(0.870588, 0.870588, 0.870588, 1)
