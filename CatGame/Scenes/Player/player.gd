@@ -65,7 +65,7 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	
 	var direction = Input.get_axis("Left", "Right")
-	if direction:
+	if direction and not isJumping and not isCharging:
 		velocity.x = direction * SPEED
 		$AnimatedSprite2D.flip_h = velocity.x < 0	
 		if is_on_floor() and not isJumping:	
