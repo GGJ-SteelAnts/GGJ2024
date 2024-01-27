@@ -13,5 +13,5 @@ func _on_exit_game_pressed():
 	get_tree().quit()
 
 func _input(event):
-	if event.is_action_pressed("Exit"):
+	if event.is_action_pressed("Exit") && visible:
 		get_tree().quit()
