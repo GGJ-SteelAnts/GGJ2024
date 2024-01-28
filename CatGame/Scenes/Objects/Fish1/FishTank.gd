@@ -23,7 +23,7 @@ func _ready():
 	anger = 35
 	angerDamage = 35
 	
-	print("FallingSpeed " + str(fallingSpeed))
+	#print("FallingSpeed " + str(fallingSpeed))
 	itemName = "Fish tank"
 	itemType = ItemType.TANK
 	if has_node("Sprite2D"):

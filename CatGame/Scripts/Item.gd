@@ -5,7 +5,8 @@ enum ItemType {
 	PLANT, 
 	GLASS,
 	TANK,
-	MOUSE
+	MOUSE,
+	BOWL
 }
 
 

@@ -21,7 +21,7 @@ func _ready():
 	canInteract = false
 	isInteracting = false
 	player = null
-	print("Created new interactable object")
+	#print("Created new interactable object")
 	#var area = get_node("Area2D")
 	#area.connect("body_entered", _on_area_2d_body_entered.bind(area))
 	#area.connect("body_exited", _on_area_2d_body_exited.bind(area))
