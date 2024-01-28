@@ -2,41 +2,48 @@ extends Node2D
 
 var player : Node2D
 var canInteract : bool
+var isInteracting : bool
 
-var angerDamage : int
+var anger : int = 10
 
+@onready var gui = null
+@onready var label = $Label
+@onready var sprite = $Sprite2D
 
-@onready var label = get_node("Label")
-@onready var sprite = get_node("Sprite2D")
+signal _onItemInteracted(anger)
 
-
-var gui = null
-
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var onGround = true
-var num = 0
 
 func _ready():
-	canInteract = true
+	canInteract = false
+	isInteracting = false
 	player = null
 	print("Created new interactable object")
+	#var area = get_node("Area2D")
+	#area.connect("body_entered", _on_area_2d_body_entered.bind(area))
+	#area.connect("body_exited", _on_area_2d_body_exited.bind(area))
+	
 
 func _process(delta):
 	if Input.is_action_just_released("Interact") && canInteract:
+		isInteracting = true
 		Interact()
 
 func Interact():
 	print("Interacting with item...")
+	isInteracting = false
+	_onItemInteracted.emit(anger)
+
 
 
 func _on_area_2d_body_entered(body):
-	if body.name == "Player" && canInteract:
-		print(body)
+	if body.name == "Player" && !isInteracting:
+		canInteract = true
 		player = body
 		gui = body.get_node("Gui")
 		label.visible = true
 
 func _on_area_2d_body_exited(body):
+	canInteract = false
 	if body.name == "Player":
 		gui = null
 		label.visible = false

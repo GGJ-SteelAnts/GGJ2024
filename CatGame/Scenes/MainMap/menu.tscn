@@ -1,7 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://c3lo4eyg7sbxq"]
 
 [ext_resource type="Script" path="res://Scenes/MainMap/Menu.gd" id="1_xt67t"]
-[ext_resource type="Texture2D" uid="uid://c3uy7il344xqb" path="res://Scenes/Assets/Objects/Plant2.png" id="3_6mcse"]
+[ext_resource type="Texture2D" uid="uid://bbykgicj1unwk" path="res://Scenes/Assets/Furniture/Fridge1.png" id="2_riegx"]
+[ext_resource type="Texture2D" uid="uid://bbg65urfblgo4" path="res://Scenes/Assets/Objects/Plant2.png" id="3_6mcse"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_m4347"]
 font_size = 30
@@ -128,6 +129,12 @@ position = Vector2(137, 97)
 scale = Vector2(4, 4)
 texture = ExtResource("3_6mcse")
 
+[node name="Fridge1" type="Sprite2D" parent="Node"]
+texture_filter = 1
+position = Vector2(152, 331)
+scale = Vector2(4, 4)
+texture = ExtResource("2_riegx")
+
 [node name="Credits" type="NinePatchRect" parent="."]
 visible = false
 custom_minimum_size = Vector2(500, 300)
@@ -154,10 +161,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="Credits/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-
 [node name="Label" type="Label" parent="Credits/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -166,6 +169,23 @@ text = "Credits"
 label_settings = SubResource("LabelSettings_m4347")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Credits/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+text = "Maarten Crefcoeur
+Masu01
+whyAmILikeThis
+Chaonsen
+Haitem GamerClassN7_Inventor"
+label_settings = SubResource("LabelSettings_m4347")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="Credits/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="TextureButton" type="TextureButton" parent="Credits"]
 custom_minimum_size = Vector2(150, 30)
@@ -215,10 +235,6 @@ offset_bottom = 300.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="Controls/VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-
 [node name="Label" type="Label" parent="Controls/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -227,6 +243,22 @@ text = "Controls"
 label_settings = SubResource("LabelSettings_3xcw5")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Controls/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "WASD - Movement
+E - Interakce
+Space - Jump
+Hold Space - Charge Jump"
+label_settings = SubResource("LabelSettings_3xcw5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Controls/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
 
 [node name="TextureButton" type="TextureButton" parent="Controls"]
 custom_minimum_size = Vector2(150, 30)
