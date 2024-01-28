@@ -150,7 +150,7 @@ func move(delta):
 		
 	if state == "Walking" && walk:
 		walk = false
-		if get_node("/root/Map/Player").global_position.x <= 240 * 8:
+		if get_node("/root/Map/Dynamics/Player").global_position.x <= 240 * 8:
 			my_random_number = rng.randi_range(0, walkWoodSounds.size()-1)
 			soundPlayer.stream = walkWoodSounds[my_random_number]
 			soundPlayer.playing = true

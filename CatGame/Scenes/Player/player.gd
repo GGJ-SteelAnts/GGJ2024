@@ -34,11 +34,12 @@ func _process(delta):
 		indicator.visible = false
 		
 	if actualSoundTimer > soundTimer:
-		var rng = RandomNumberGenerator.new()
-		var my_random_number = rng.randi_range(0, catSounds.size()-1)
-		soundPlayer.stream = catSounds[my_random_number]
-		soundPlayer.playing = true
-		actualSoundTimer = 0
+		if catSounds.size() > 0:
+			var rng = RandomNumberGenerator.new()
+			var my_random_number = rng.randi_range(0, catSounds.size()-1)
+			soundPlayer.stream = catSounds[my_random_number]
+			soundPlayer.playing = true
+			actualSoundTimer = 0
 		
 	$Sprite2D.global_position = Vector2(global_position.x, $Sprite2D.texture.get_height())
 
@@ -50,12 +51,14 @@ func _physics_process(delta):
 		var collision = get_slide_collision(i)
 		if collision.get_collider().get_parent().is_in_group("Sofa"):
 			if is_on_floor() && soundPlayer.finished && fallDuration != 0:
+				if dropSofaSounds.size() > 0:
 					var rng = RandomNumberGenerator.new()
 					var my_random_number = rng.randi_range(0, dropSofaSounds.size()-1)
 					soundPlayer.stream = dropSofaSounds[my_random_number]
 					soundPlayer.playing = true
 		elif collision.get_collider().get_parent().is_in_group("Closet"):
 			if is_on_floor() && soundPlayer.finished && fallDuration != 0:
+				if dropClosedSounds.size() > 0:				
 					var rng = RandomNumberGenerator.new()
 					var my_random_number = rng.randi_range(0, dropClosedSounds.size()-1)
 					soundPlayer.stream = dropClosedSounds[my_random_number]
