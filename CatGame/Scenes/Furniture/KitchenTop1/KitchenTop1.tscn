@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://cgok21pcuwjm3"]
 
-[ext_resource type="Texture2D" uid="uid://ci1mm7isubskm" path="res://Scenes/Assets/Furniture/KitchenTop1.png" id="1_kjvka"]
+[ext_resource type="Texture2D" uid="uid://5n0q31c0i55u" path="res://Scenes/Assets/Furniture/KitchenTop1.png" id="1_kjvka"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e3nba"]
 size = Vector2(520, 18)
 
-[node name="Node2D" type="Node2D" groups=["Closet"]]
+[node name="Node2D" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

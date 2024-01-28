@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://rnbjgyln3i1u"]
+[gd_scene load_steps=16 format=3 uid="uid://rnbjgyln3i1u"]
 
 [ext_resource type="Texture2D" uid="uid://byanntvccsiiw" path="res://Scenes/Assets/Backgrounds/LivingRoom1.png" id="1_im3ks"]
 [ext_resource type="PackedScene" uid="uid://chul2y7kx1iuu" path="res://Scenes/Furniture/Bookshelf1/bookshelf1.tscn" id="2_pbxft"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://bf4un0m43cuas" path="res://Scenes/Furniture/Shelf1/shelf1.tscn" id="9_g8ixs"]
 [ext_resource type="PackedScene" uid="uid://vk4bcdu70mea" path="res://Scenes/Objects/Plant2/Plant2.tscn" id="10_u06q2"]
 [ext_resource type="PackedScene" uid="uid://5mmk2nnmbnjm" path="res://Scenes/Objects/MouseHole1/mouseHole1.tscn" id="11_s3ts4"]
+[ext_resource type="PackedScene" uid="uid://b68wnm54acy7o" path="res://Scenes/Objects/Plant1/Plant1_1.tscn" id="13_1vp6d"]
+[ext_resource type="PackedScene" uid="uid://cjs3npd0tviji" path="res://Scenes/Objects/Plant3/Plant3_1.tscn" id="14_ll7ds"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d7anw"]
 
@@ -76,7 +78,7 @@ position = Vector2(669, 459)
 position = Vector2(654, 214)
 
 [node name="Ground" type="StaticBody2D" parent="."]
-position = Vector2(960, 601)
+position = Vector2(960, 600)
 scale = Vector2(12, 1)
 
 [node name="GroundCollider" type="CollisionShape2D" parent="Ground"]
@@ -102,3 +104,9 @@ position = Vector2(1457, 282)
 
 [node name="MouseHole1" parent="Interactables" instance=ExtResource("11_s3ts4")]
 position = Vector2(1597, 548)
+
+[node name="Plant1" parent="Interactables" instance=ExtResource("13_1vp6d")]
+position = Vector2(248, 282)
+
+[node name="Plant5" parent="Interactables" instance=ExtResource("14_ll7ds")]
+position = Vector2(640, 156)

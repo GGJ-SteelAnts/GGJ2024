@@ -1,123 +1,30 @@
-[gd_scene load_steps=22 format=3 uid="uid://djybb54c4v8ua"]
+[gd_scene load_steps=6 format=3 uid="uid://djybb54c4v8ua"]
 
-[ext_resource type="Texture2D" uid="uid://byanntvccsiiw" path="res://Scenes/Assets/Backgrounds/LivingRoom1.png" id="1_07ief"]
 [ext_resource type="Script" path="res://Scenes/MainMap/Map.gd" id="1_55qa7"]
+[ext_resource type="PackedScene" uid="uid://rnbjgyln3i1u" path="res://Scenes/LivingRoomMap/map.tscn" id="2_460ni"]
 [ext_resource type="PackedScene" uid="uid://36uyxcoevafq" path="res://Scenes/KitchenMap/map.tscn" id="2_bjdit"]
 [ext_resource type="PackedScene" uid="uid://co6k5kudklti2" path="res://Scenes/Player/player.tscn" id="2_gmhjk"]
-[ext_resource type="PackedScene" uid="uid://c3ck08xs0x5bi" path="res://Scenes/Furniture/Sofa1/sofa1.tscn" id="3_riua0"]
 [ext_resource type="PackedScene" uid="uid://coq6sqjnkcerx" path="res://Scenes/Enemy/enemy.tscn" id="4_51o6s"]
-[ext_resource type="PackedScene" uid="uid://bf3bbgx3n6bd7" path="res://Scenes/Objects/Fish1/fish1.tscn" id="4_vb21r"]
-[ext_resource type="PackedScene" uid="uid://chul2y7kx1iuu" path="res://Scenes/Furniture/Bookshelf1/bookshelf1.tscn" id="6_rpyoh"]
-[ext_resource type="PackedScene" uid="uid://bf4un0m43cuas" path="res://Scenes/Furniture/Shelf1/shelf1.tscn" id="7_4mk2a"]
-[ext_resource type="PackedScene" uid="uid://coal31e877tjb" path="res://Scenes/Furniture/Painting1/painting1.tscn" id="8_f22p1"]
-[ext_resource type="PackedScene" uid="uid://bd77c8quoffsu" path="res://Scenes/Objects/Plant1/Plant1.tscn" id="9_gqpuv"]
-[ext_resource type="PackedScene" uid="uid://dnhb7mu0hpubn" path="res://Scenes/Furniture/Painting2/painting2.tscn" id="10_put2t"]
-[ext_resource type="PackedScene" uid="uid://5mmk2nnmbnjm" path="res://Scenes/Objects/MouseHole1/mouseHole1.tscn" id="12_pnka2"]
-[ext_resource type="PackedScene" uid="uid://rwdke2n6nxc6" path="res://Scenes/Furniture/Table1/table1.tscn" id="13_dwrgd"]
-[ext_resource type="PackedScene" uid="uid://p5m8spmw6ype" path="res://Scenes/Objects/CatShitter1/catShitter1.tscn" id="15_xwyhw"]
-[ext_resource type="Texture2D" uid="uid://dsftgvrachhwk" path="res://Scenes/Assets/Furniture/DoorFrame1.png" id="16_ps5c4"]
-[ext_resource type="PackedScene" uid="uid://df1sgmx4ey6i0" path="res://Scenes/Objects/Notebook1/Notebook1.tscn" id="17_5eq03"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5v4xx"]
-size = Vector2(3134.5, 26)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v05w1"]
-size = Vector2(27, 978)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i131g"]
-size = Vector2(24, 266)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_evy8c"]
-size = Vector2(23.5, 1057)
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_55qa7")
 
-[node name="Kitchen" parent="." instance=ExtResource("2_bjdit")]
+[node name="Rooms" type="Node2D" parent="."]
+
+[node name="Livingroom" parent="Rooms" instance=ExtResource("2_460ni")]
+metadata/_edit_lock_ = true
+
+[node name="Kitchen" parent="Rooms" instance=ExtResource("2_bjdit")]
 position = Vector2(1920, 0)
 metadata/_edit_lock_ = true
 
-[node name="TextureRect" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(240, 135)
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(8, 5)
-texture = ExtResource("1_07ief")
+[node name="Dynamics" type="Node2D" parent="."]
 
-[node name="Player" parent="." instance=ExtResource("2_gmhjk")]
+[node name="Player" parent="Dynamics" instance=ExtResource("2_gmhjk")]
 position = Vector2(409, 528)
 SPEED = 400.0
+catSounds = {}
 
-[node name="Enemy" parent="." instance=ExtResource("4_51o6s")]
+[node name="Enemy" parent="Dynamics" instance=ExtResource("4_51o6s")]
 position = Vector2(607, 590)
 bookSpot = Vector2(607, 590)
-
-[node name="Flore" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Flore"]
-position = Vector2(1566.75, 602)
-shape = SubResource("RectangleShape2D_5v4xx")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(12.5, 98)
-shape = SubResource("RectangleShape2D_v05w1")
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(1908, -134)
-shape = SubResource("RectangleShape2D_i131g")
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
-position = Vector2(3120, 57.5)
-shape = SubResource("RectangleShape2D_evy8c")
-
-[node name="Sofa1" parent="." instance=ExtResource("3_riua0")]
-texture_filter = 1
-position = Vector2(712, 464)
-
-[node name="table1" parent="." instance=ExtResource("13_dwrgd")]
-position = Vector2(1123, 583)
-
-[node name="Bookshelf1" parent="." instance=ExtResource("6_rpyoh")]
-position = Vector2(203, 581)
-
-[node name="Shelf1" parent="." instance=ExtResource("7_4mk2a")]
-position = Vector2(711, 268)
-
-[node name="Painting1" parent="." instance=ExtResource("8_f22p1")]
-position = Vector2(1049, 217)
-
-[node name="Painting2" parent="." instance=ExtResource("10_put2t")]
-position = Vector2(1790, 240)
-
-[node name="Bookshelf2" parent="." instance=ExtResource("6_rpyoh")]
-position = Vector2(1403, 581)
-
-[node name="Fish1" parent="." instance=ExtResource("4_vb21r")]
-position = Vector2(1119, 395)
-
-[node name="Plant1" parent="." instance=ExtResource("9_gqpuv")]
-position = Vector2(810, 240)
-
-[node name="Plant2" parent="." instance=ExtResource("9_gqpuv")]
-position = Vector2(1445, 321)
-
-[node name="MouseHole1" parent="." instance=ExtResource("12_pnka2")]
-position = Vector2(1594, 546)
-
-[node name="CatShitter1" parent="." instance=ExtResource("15_xwyhw")]
-position = Vector2(1770, 527)
-
-[node name="DoorFrame1" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(1918, 274)
-scale = Vector2(4, 5)
-texture = ExtResource("16_ps5c4")
-
-[node name="Node2D" parent="." instance=ExtResource("17_5eq03")]
-position = Vector2(470, 452)
