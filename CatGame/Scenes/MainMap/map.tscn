@@ -28,3 +28,5 @@ position = Vector2(500, 0)
 [node name="Enemy" parent="Dynamics" instance=ExtResource("4_51o6s")]
 position = Vector2(607, 590)
 bookSpot = Vector2(607, 590)
+
+[node name="Player" parent="Dynamics" instance=ExtResource("2_gmhjk")]
