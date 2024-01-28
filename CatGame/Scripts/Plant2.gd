@@ -5,7 +5,7 @@ var isGrounded : bool
 var fallingSpeed : int		# Falling speed
 var fallingAccel : int		# Falling speed increment
 var groundHeight : int		# Y-axis position at where the item stops falling
-var fallingRotation : bool
+@export var fallingRotation : bool
 
 
 func _ready():
