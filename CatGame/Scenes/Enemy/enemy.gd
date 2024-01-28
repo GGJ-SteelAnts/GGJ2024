@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed = 200.0
-@export var anger = 100.0
+@export var actualAnger = 0.0
 @export var bookSpot : Vector2
 @export var progress = 100
 
@@ -30,26 +30,25 @@ var cleaning = false
 var triggered = false
 var revert = false
 var state = "Reading"
-var actualAnger : float
 var targets = []
 var nearest : Node2D
 var player : CharacterBody2D
 var my_random_number
 var objedno = false
 var walk = true
-var gui
 
 func _ready():
-	actualAnger = 1000
-	var gui = get_node("/root/Map/Dynamics/Player/Gui")
+	pass
 
 func _process(delta):
-	#gui.PissMeter = anger
+	print(actualAnger)
+	var gui = get_node("/root/Map/Player/Gui")
+	gui.PissMeter = actualAnger
 	
 	var rng = RandomNumberGenerator.new()
 	if actualGameTime > gameTime:
 		var end = endScreen.instantiate()
-		gui = get_node("/root/Map/Dynamics/Player/Gui")
+		gui = get_node("/root/Map/Player/Gui")
 		get_tree().get_root().get_node("Map").queue_free()
 		get_tree().get_root().add_child(end)
 		end.scoreLabel.text = "Score: " + str(gui.Score)
@@ -88,7 +87,7 @@ func _physics_process(delta):
 			nearest = target
 	
 	if actualAnger >= 100:
-		player = get_node("/root/Map/Dynamics/Player")
+		player = get_node("/root/Map/Player")
 	
 	if nearest != null:
 		if nearest.global_position.x > global_position.x:
@@ -151,7 +150,7 @@ func move(delta):
 		
 	if state == "Walking" && walk:
 		walk = false
-		if get_node("/root/Map/Dynamics/Player").global_position.x <= 240 * 8:
+		if get_node("/root/Map/Player").global_position.x <= 240 * 8:
 			my_random_number = rng.randi_range(0, walkWoodSounds.size()-1)
 			soundPlayer.stream = walkWoodSounds[my_random_number]
 			soundPlayer.playing = true
