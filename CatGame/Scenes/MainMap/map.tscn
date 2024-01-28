@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://djybb54c4v8ua"]
+[gd_scene load_steps=20 format=3 uid="uid://djybb54c4v8ua"]
 
 [ext_resource type="Script" path="res://Scenes/MainMap/Map.gd" id="1_55qa7"]
 [ext_resource type="PackedScene" uid="uid://rnbjgyln3i1u" path="res://Scenes/LivingRoomMap/map.tscn" id="2_460ni"]
 [ext_resource type="PackedScene" uid="uid://36uyxcoevafq" path="res://Scenes/KitchenMap/map.tscn" id="2_bjdit"]
 [ext_resource type="PackedScene" uid="uid://co6k5kudklti2" path="res://Scenes/Player/player.tscn" id="2_gmhjk"]
+[ext_resource type="PackedScene" uid="uid://btspmkwde2lyp" path="res://Scenes/StorageMap/map.tscn" id="4_6quks"]
 [ext_resource type="PackedScene" uid="uid://coq6sqjnkcerx" path="res://Scenes/Enemy/enemy.tscn" id="4_51o6s"]
 [ext_resource type="Texture2D" uid="uid://crp8urcjntncp" path="res://Scenes/Assets/Furniture/DoorFrame1.png" id="4_mlvbi"]
 [ext_resource type="PackedScene" uid="uid://df1sgmx4ey6i0" path="res://Scenes/Objects/Notebook1/Notebook1.tscn" id="7_8708h"]
@@ -32,6 +33,9 @@ metadata/_edit_lock_ = true
 [node name="Kitchen" parent="Rooms" instance=ExtResource("2_bjdit")]
 position = Vector2(1920, 0)
 
+[node name="Storage" parent="Rooms" instance=ExtResource("4_6quks")]
+position = Vector2(3120, 0)
+
 [node name="Walls" type="Node2D" parent="Rooms"]
 
 [node name="LeftWall" type="StaticBody2D" parent="Rooms/Walls"]
@@ -41,7 +45,7 @@ position = Vector2(4, -26)
 shape = SubResource("RectangleShape2D_u4ge6")
 
 [node name="RightWall" type="StaticBody2D" parent="Rooms/Walls"]
-position = Vector2(3120, -21)
+position = Vector2(4080, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Walls/RightWall"]
 position = Vector2(4, -10.5)
@@ -55,9 +59,23 @@ position = Vector2(1, -119)
 scale = Vector2(1, 0.3)
 shape = SubResource("RectangleShape2D_u4ge6")
 
-[node name="Sprite2D" type="Sprite2D" parent="Rooms/Walls"]
+[node name="RoomDivider2" type="StaticBody2D" parent="Rooms/Walls"]
+position = Vector2(3120, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Walls/RoomDivider2"]
+position = Vector2(1, -119)
+scale = Vector2(1, 0.3)
+shape = SubResource("RectangleShape2D_u4ge6")
+
+[node name="DoorFrame1" type="Sprite2D" parent="Rooms/Walls"]
 texture_filter = 1
-position = Vector2(1920, 273.75)
+position = Vector2(1920, 275)
+scale = Vector2(4, 5.04054)
+texture = ExtResource("4_mlvbi")
+
+[node name="DoorFrame2" type="Sprite2D" parent="Rooms/Walls"]
+texture_filter = 1
+position = Vector2(3120, 275)
 scale = Vector2(4, 5.04054)
 texture = ExtResource("4_mlvbi")
 

@@ -19,6 +19,10 @@ func _ready():
 	fallingAccel = 10
 	groundHeight = 580
 	fallingRotation = false
+	
+	anger = 35
+	angerDamage = 35
+	
 	print("FallingSpeed " + str(fallingSpeed))
 	itemName = "Fish tank"
 	itemType = ItemType.TANK
