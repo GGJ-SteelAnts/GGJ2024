@@ -41,7 +41,7 @@ func _ready():
 	pass
 
 func _process(delta):
-	print(actualAnger)
+	#print(actualAnger)
 	var gui = get_node("/root/Map/Dynamics/Player/Gui")
 	#gui.PissMeter = actualAnger
 	

@@ -1,15 +1,64 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjs3npd0tviji"]
+[gd_scene load_steps=16 format=3 uid="uid://cjs3npd0tviji"]
 
 [ext_resource type="Script" path="res://Scripts/Plant2.gd" id="1_tsft3"]
-[ext_resource type="Texture2D" uid="uid://b4tfvkxy1qq6n" path="res://Scenes/Assets/Objects/Plant3.png" id="2_s4sl6"]
+[ext_resource type="Texture2D" uid="uid://bl1gpkac378ep" path="res://Scenes/Assets/Objects/Plant3.png" id="2_s4sl6"]
 [ext_resource type="LabelSettings" uid="uid://b5smbjexhppw" path="res://Scenes/Assets/Fonts/Interact_Font.tres" id="3_f3msm"]
+[ext_resource type="Texture2D" uid="uid://br00sgr3wky7g" path="res://Scenes/Assets/Objects/Plant3Breaks1.png" id="4_vs77w"]
+[ext_resource type="Texture2D" uid="uid://3wpoj1ll18s1" path="res://Scenes/Assets/Objects/Plant3Breaks2.png" id="5_elcp7"]
+[ext_resource type="Texture2D" uid="uid://dspd04prj35xq" path="res://Scenes/Assets/Objects/Plant3Breaks3.png" id="6_sql05"]
+[ext_resource type="Texture2D" uid="uid://b1notv0nt5rqw" path="res://Scenes/Assets/Objects/Plant3Breaks4.png" id="7_te1b3"]
+[ext_resource type="Texture2D" uid="uid://dxtjnkp6ry564" path="res://Scenes/Assets/Objects/Plant3Breaks5.png" id="8_1epwf"]
+[ext_resource type="Texture2D" uid="uid://cbvh5jjxtaced" path="res://Scenes/Assets/Objects/Plant3Breaks6.png" id="9_j0ac2"]
+[ext_resource type="Texture2D" uid="uid://c4kvu8nva605" path="res://Scenes/Assets/Objects/Plant3Breaks7.png" id="10_m8iwj"]
+[ext_resource type="Texture2D" uid="uid://c4clbw0yk23xm" path="res://Scenes/Assets/Objects/Plant3Breaks8.png" id="11_ysth1"]
+[ext_resource type="Texture2D" uid="uid://d3vd4m4x85bu2" path="res://Scenes/Assets/Objects/Plant3Breaks9.png" id="12_2b8l3"]
+[ext_resource type="Texture2D" uid="uid://1uefcgsh27gn" path="res://Scenes/Assets/Objects/Plant3Breaks10.png" id="13_44a67"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ngk8i"]
 
-[node name="Plant1" type="Node2D"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_pywpt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_vs77w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_elcp7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_te1b3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_sql05")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_1epwf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_j0ac2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_m8iwj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ysth1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_2b8l3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_44a67")
+}],
+"loop": false,
+"name": &"default",
+"speed": 24.0
+}]
+
+[node name="Plant3" type="Node2D"]
 script = ExtResource("1_tsft3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
 scale = Vector2(4, 4)
 texture = ExtResource("2_s4sl6")
@@ -40,6 +89,12 @@ text = "Press E"
 label_settings = ExtResource("3_f3msm")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_pywpt")
+speed_scale = 1.5
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
