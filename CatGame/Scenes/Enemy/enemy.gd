@@ -43,7 +43,7 @@ func _ready():
 func _process(delta):
 	print(actualAnger)
 	var gui = get_node("/root/Map/Player/Gui")
-	gui.PissMeter = actualAnger
+	#gui.PissMeter = actualAnger
 	
 	var rng = RandomNumberGenerator.new()
 	if actualGameTime > gameTime:
