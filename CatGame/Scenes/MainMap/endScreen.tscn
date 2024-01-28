@@ -47,6 +47,13 @@ label_settings = ExtResource("1_0xvj8")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ScoreLabel" type="Label" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+text = "You win"
+label_settings = ExtResource("1_0xvj8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="MarginContainer" type="MarginContainer" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3

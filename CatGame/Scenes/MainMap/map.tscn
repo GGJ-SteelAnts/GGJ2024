@@ -47,7 +47,6 @@ texture = ExtResource("1_07ief")
 [node name="Player" parent="." instance=ExtResource("2_gmhjk")]
 position = Vector2(409, 528)
 SPEED = 400.0
-catSounds = []
 
 [node name="Enemy" parent="." instance=ExtResource("4_51o6s")]
 position = Vector2(607, 590)
