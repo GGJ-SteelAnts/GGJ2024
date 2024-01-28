@@ -7,7 +7,6 @@ var fallingAccel : int		# Falling speed increment
 var groundHeight : int		# Y-axis position at where the item stops falling
 var fallingRotation : bool
 var sprite2D : Sprite2D
-var newSprite : Texture
 var isUsed : bool
 
 
@@ -25,7 +24,6 @@ func _ready():
 	itemType = ItemType.TANK
 	if has_node("Sprite2D"):
 		sprite2D = $Sprite2D
-	newSprite = preload("res://Scenes/Assets/Objects/Fish2.png")
 	if  has_node("Animation"):
 		breakAnimation = $Animation
 
@@ -45,7 +43,8 @@ func _process(delta):
 			Break()
 
 func Use():
-	sprite2D.texture = newSprite
+	sprite2D.hide()
+	breakAnimation.show()
 	isUsed = true
 
 func Interact():

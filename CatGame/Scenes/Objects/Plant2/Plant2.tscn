@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://vk4bcdu70mea"]
 
 [ext_resource type="Script" path="res://Scripts/Plant2.gd" id="1_3iu8a"]
-[ext_resource type="Texture2D" uid="uid://c3ww3wgccx5qm" path="res://Scenes/Assets/Objects/Plant2.png" id="1_8ebw8"]
+[ext_resource type="Texture2D" uid="uid://drd06ey3w7pub" path="res://Scenes/Assets/Objects/Plant2.png" id="1_8ebw8"]
 [ext_resource type="LabelSettings" uid="uid://b5smbjexhppw" path="res://Scenes/Assets/Fonts/Interact_Font.tres" id="2_7mkww"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vi8ox"]
@@ -23,6 +23,7 @@ script = ExtResource("1_3iu8a")
 metadata/canRotateWhenFalling = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
 scale = Vector2(4, 4)
 texture = ExtResource("1_8ebw8")
@@ -55,6 +56,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 position = Vector2(12, 14)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_px3v7")

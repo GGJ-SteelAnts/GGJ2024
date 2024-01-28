@@ -6,6 +6,9 @@ extends Control
 @onready var winSong : AudioStreamWAV = preload("res://Scenes/Sounds/QuestCompleted.wav")
 @onready var loseSong : AudioStreamWAV = preload("res://Scenes/Sounds/QuestFailed.wav")
 
+func _ready():
+	get_node("/root/Menu").hide()
+
 func _on_texture_button_pressed():
 	get_node("/root/Menu").show()
 	get_node("/root/EndScreen").queue_free()

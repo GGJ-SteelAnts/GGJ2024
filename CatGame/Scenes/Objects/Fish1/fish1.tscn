@@ -1,12 +1,48 @@
-[gd_scene load_steps=5 format=3 uid="uid://bf3bbgx3n6bd7"]
+[gd_scene load_steps=13 format=3 uid="uid://bf3bbgx3n6bd7"]
 
 [ext_resource type="Texture2D" uid="uid://dbv3sbh5yvyre" path="res://Scenes/Assets/Objects/Fish1.png" id="1_0kdg7"]
 [ext_resource type="Script" path="res://Scenes/Objects/Fish1/FishTank.gd" id="1_c84cg"]
 [ext_resource type="LabelSettings" uid="uid://b5smbjexhppw" path="res://Scenes/Assets/Fonts/Interact_Font.tres" id="3_7xg4f"]
+[ext_resource type="Texture2D" uid="uid://xq7jjkkpy2aa" path="res://Scenes/Assets/Objects/FishTankBreaks1.png" id="4_22gg2"]
+[ext_resource type="Texture2D" uid="uid://wsbauxf32bhw" path="res://Scenes/Assets/Objects/FishTankBreaks2.png" id="5_8trx7"]
+[ext_resource type="Texture2D" uid="uid://rgs3iix0qtap" path="res://Scenes/Assets/Objects/FishTankBreaks3.png" id="6_2se8i"]
+[ext_resource type="Texture2D" uid="uid://duyfdkrb0xp15" path="res://Scenes/Assets/Objects/FishTankBreaks4.png" id="7_0m241"]
+[ext_resource type="Texture2D" uid="uid://b77drfcsxpy3i" path="res://Scenes/Assets/Objects/FishTankBreaks5.png" id="8_pnfhf"]
+[ext_resource type="Texture2D" uid="uid://bys0bayf3sr34" path="res://Scenes/Assets/Objects/FishTankBreaks6.png" id="9_nu52d"]
+[ext_resource type="Texture2D" uid="uid://ds5elsb0kpuqd" path="res://Scenes/Assets/Objects/FishTankBreaks7.png" id="10_cctud"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_30w6k"]
 radius = 34.0
 height = 88.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bhuxs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_22gg2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8trx7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2se8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0m241")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_pnfhf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_nu52d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_cctud")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Fish1" type="Node2D"]
 script = ExtResource("1_c84cg")
@@ -44,6 +80,13 @@ text = "Press E"
 label_settings = ExtResource("3_7xg4f")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(0, -37)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_bhuxs")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
