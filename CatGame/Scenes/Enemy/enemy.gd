@@ -43,7 +43,7 @@ func updatePageCounterLabel():
 	pageCounterLabel.text = "Pages left: " + str(pages)
 
 func _ready():
-	pass
+	triggered = true
 
 func _process(delta):
 	#print(actualAnger)

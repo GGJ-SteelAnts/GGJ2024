@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dbv3sbh5yvyre" path="res://Scenes/Assets/Objects/Fish1.png" id="1_0kdg7"]
 [ext_resource type="Script" path="res://Scenes/Objects/Fish1/FishTank.gd" id="1_c84cg"]
 [ext_resource type="LabelSettings" uid="uid://b5smbjexhppw" path="res://Scenes/Assets/Fonts/Interact_Font.tres" id="3_7xg4f"]
-[ext_resource type="Texture2D" uid="uid://xq7jjkkpy2aa" path="res://Scenes/Assets/Objects/FishTankBreaks1.png" id="4_22gg2"]
+[ext_resource type="Texture2D" uid="uid://xq7jjkkpy2aa" path="res://Scenes/Assets/Objects/FishTankBreaks1.png" id="4_erqyw"]
 [ext_resource type="Texture2D" uid="uid://wsbauxf32bhw" path="res://Scenes/Assets/Objects/FishTankBreaks2.png" id="5_8trx7"]
 [ext_resource type="Texture2D" uid="uid://rgs3iix0qtap" path="res://Scenes/Assets/Objects/FishTankBreaks3.png" id="6_2se8i"]
 [ext_resource type="Texture2D" uid="uid://duyfdkrb0xp15" path="res://Scenes/Assets/Objects/FishTankBreaks4.png" id="7_0m241"]
@@ -18,10 +18,10 @@ height = 88.0
 [sub_resource type="SpriteFrames" id="SpriteFrames_bhuxs"]
 animations = [{
 "frames": [{
-"duration": 0.1,
-"texture": ExtResource("4_22gg2")
+"duration": 0.01,
+"texture": ExtResource("4_erqyw")
 }, {
-"duration": 0.1,
+"duration": 0.01,
 "texture": ExtResource("5_8trx7")
 }, {
 "duration": 0.1,
