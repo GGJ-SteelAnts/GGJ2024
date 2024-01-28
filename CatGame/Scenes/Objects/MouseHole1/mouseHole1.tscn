@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://04b1jcquo74r" path="res://Scenes/Assets/Objects/MouseHole1.png" id="1_18cmh"]
 [ext_resource type="Script" path="res://Scenes/Objects/Objects.gd" id="1_opyva"]
-[ext_resource type="Texture2D" uid="uid://87sbh3wepcvp" path="res://Scenes/Assets/Objects/MouseHole2.png" id="2_gfu0k"]
+[ext_resource type="Texture2D" uid="uid://cfcth4i5p0q6c" path="res://Scenes/Assets/Objects/MouseHole2.png" id="2_gfu0k"]
 [ext_resource type="LabelSettings" uid="uid://b5smbjexhppw" path="res://Scenes/Assets/Fonts/Interact_Font.tres" id="4_iuvi2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0n7tj"]
