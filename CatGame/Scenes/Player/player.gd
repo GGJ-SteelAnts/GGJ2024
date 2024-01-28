@@ -8,7 +8,7 @@ extends CharacterBody2D
 @onready var soundPlayer : AudioStreamPlayer2D = $Sounds
 
 @onready var musicPlayer : AudioStreamPlayer = $Music
-@onready var music : AudioStream = load("res://Scenes/Sounds/CatastrophySoundtrack.wav")
+@onready var music : AudioStream = load("res://Scenes/Sounds/GGJ2024ThemeSong.wav")
 
 @export var catSounds : Array
 @export var dropSofaSounds : Array

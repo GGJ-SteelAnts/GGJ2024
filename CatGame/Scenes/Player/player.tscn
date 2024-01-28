@@ -46,7 +46,7 @@
 [ext_resource type="AudioStream" uid="uid://tf052vdbw20t" path="res://Scenes/Sounds/Cat/CatLandingCloset04.wav" id="25_vxp1r"]
 [ext_resource type="AudioStream" uid="uid://ddbb1hm4tu1m7" path="res://Scenes/Sounds/Cat/CatLandingCloset05.wav" id="26_00tbo"]
 [ext_resource type="AudioStream" uid="uid://orhiuxwnodtp" path="res://Scenes/Sounds/Cat/CatLandingCloset06.wav" id="27_i6s80"]
-[ext_resource type="AudioStream" uid="uid://bciuo3dptuc01" path="res://Scenes/Sounds/CatastrophySoundtrack.wav" id="47_4jlwl"]
+[ext_resource type="AudioStream" uid="uid://i2mx707fbr7n" path="res://Scenes/Sounds/GGJ2024ThemeSong.wav" id="47_ia2ti"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mgvdp"]
 animations = [{
@@ -182,7 +182,7 @@ autoplay = true
 autostart = true
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("47_4jlwl")
+stream = ExtResource("47_ia2ti")
 autoplay = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
