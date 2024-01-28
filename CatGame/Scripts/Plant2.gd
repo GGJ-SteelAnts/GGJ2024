@@ -15,7 +15,7 @@ func _ready():
 	fallingSpeed = randi() % 50
 	fallingAccel = 10
 	groundHeight = 580
-	fallingRotation = true
+	#fallingRotation = true
 	print("FallingSpeed " + str(fallingSpeed))
 	itemName = "Flower pot"
 	itemType = ItemType.PLANT
