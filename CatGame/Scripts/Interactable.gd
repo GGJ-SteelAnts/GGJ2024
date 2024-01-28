@@ -10,8 +10,7 @@ var anger : int = 10
 
 @export var itemTypeEnum : Enums.ItemTypeEnum = Enums.ItemTypeEnum.Empty
 
-
-@onready var gui = null
+@onready var gui = get_node("/root/Map/Dynamics/Player/Gui")
 @onready var label = $Label
 @onready var sprite = $Sprite2D
 
@@ -27,7 +26,6 @@ func _ready():
 	#area.connect("body_entered", _on_area_2d_body_entered.bind(area))
 	#area.connect("body_exited", _on_area_2d_body_exited.bind(area))
 	
-
 func _process(delta):
 	if Input.is_action_just_released("Interact") && canInteract:
 		isInteracting = true
@@ -40,12 +38,7 @@ func Interact():
 	
 	get_node("/root/Map/Dynamics/Enemy").makeHimAngry(anger) #když dropne item call
 
-	if gui.Task1.TaskType == itemTypeEnum:
-		gui.Task1.currentAmount += 1
-	if gui.Task2.TaskType == itemTypeEnum:
-		gui.Task2.currentAmount += 1
-	if gui.Task3.TaskType == itemTypeEnum:
-		gui.Task3.currentAmount += 1
+	AddScorePoints()
 
 
 func _on_area_2d_body_entered(body):
@@ -60,3 +53,6 @@ func _on_area_2d_body_exited(body):
 	if body.name == "Player":
 		gui = null
 		label.visible = false
+
+func AddScorePoints():
+	pass
