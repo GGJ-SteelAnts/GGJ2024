@@ -24,6 +24,7 @@ metadata/_edit_lock_ = true
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="Background" type="TextureRect" parent="Environment"]
+texture_filter = 1
 offset_right = 240.0
 offset_bottom = 135.0
 scale = Vector2(5, 5)

@@ -6,6 +6,11 @@ var isInteracting : bool
 
 var anger : int = 10
 
+@export var angerDamage = 15
+
+@export var itemTypeEnum : Enums.ItemTypeEnum = Enums.ItemTypeEnum.Empty
+
+
 @onready var gui = null
 @onready var label = $Label
 @onready var sprite = $Sprite2D
@@ -32,6 +37,8 @@ func Interact():
 	print("Interacting with item...")
 	isInteracting = false
 	_onItemInteracted.emit(anger)
+	
+	get_node("/root/Map/Dynamics/Enemy").makeHimAngry(anger) #když dropne item call
 
 
 

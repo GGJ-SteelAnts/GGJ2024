@@ -9,5 +9,5 @@ enum ItemType {
 }
 
 
-var itemName : String
-var itemType : ItemType
+@export var itemName : String
+@export var itemType : ItemType

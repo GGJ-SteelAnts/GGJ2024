@@ -1,13 +1,17 @@
-[gd_scene load_steps=16 format=3 uid="uid://rnbjgyln3i1u"]
+[gd_scene load_steps=20 format=3 uid="uid://rnbjgyln3i1u"]
 
 [ext_resource type="Texture2D" uid="uid://byanntvccsiiw" path="res://Scenes/Assets/Backgrounds/LivingRoom1.png" id="1_im3ks"]
 [ext_resource type="PackedScene" uid="uid://chul2y7kx1iuu" path="res://Scenes/Furniture/Bookshelf1/bookshelf1.tscn" id="2_pbxft"]
-[ext_resource type="Texture2D" uid="uid://dimbtsjt1icl7" path="res://Scenes/Assets/Objects/Book1.png" id="3_b2bes"]
+[ext_resource type="Texture2D" uid="uid://dgsebgiw4ags5" path="res://Scenes/Assets/Objects/Book11.png" id="3_trh08"]
 [ext_resource type="PackedScene" uid="uid://coal31e877tjb" path="res://Scenes/Furniture/Painting1/painting1.tscn" id="3_vwiec"]
 [ext_resource type="PackedScene" uid="uid://dnhb7mu0hpubn" path="res://Scenes/Furniture/Painting2/painting2.tscn" id="4_6xnto"]
+[ext_resource type="Texture2D" uid="uid://b2ny70khw1mv7" path="res://Scenes/Assets/Objects/Book7.png" id="4_tf6pj"]
 [ext_resource type="PackedScene" uid="uid://rwdke2n6nxc6" path="res://Scenes/Furniture/Table1/table1.tscn" id="5_7qd61"]
+[ext_resource type="Texture2D" uid="uid://2or6ta5mjd6n" path="res://Scenes/Assets/Objects/Book8.png" id="5_16xsx"]
+[ext_resource type="Texture2D" uid="uid://bnkodoyjhaxp3" path="res://Scenes/Assets/Objects/Book9.png" id="6_a0hxg"]
 [ext_resource type="PackedScene" uid="uid://c3ck08xs0x5bi" path="res://Scenes/Furniture/Sofa1/sofa1.tscn" id="6_hkumw"]
 [ext_resource type="PackedScene" uid="uid://p5m8spmw6ype" path="res://Scenes/Objects/CatShitter1/catShitter1.tscn" id="7_brupt"]
+[ext_resource type="Texture2D" uid="uid://bqqngwwk70174" path="res://Scenes/Assets/Objects/Book10.png" id="7_njwk5"]
 [ext_resource type="PackedScene" uid="uid://bf3bbgx3n6bd7" path="res://Scenes/Objects/Fish1/fish1.tscn" id="8_qbcj5"]
 [ext_resource type="PackedScene" uid="uid://bf4un0m43cuas" path="res://Scenes/Furniture/Shelf1/shelf1.tscn" id="9_g8ixs"]
 [ext_resource type="PackedScene" uid="uid://vk4bcdu70mea" path="res://Scenes/Objects/Plant2/Plant2.tscn" id="10_u06q2"]
@@ -20,6 +24,7 @@
 [node name="Map" type="Node2D"]
 
 [node name="Background" type="TextureRect" parent="."]
+texture_filter = 1
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(8, 5)
@@ -31,33 +36,37 @@ texture = ExtResource("1_im3ks")
 position = Vector2(199, 575)
 
 [node name="Books1" type="Node2D" parent="Environment/Bookshelf1"]
-visible = false
 position = Vector2(-3, -376)
 
 [node name="BookA" type="Sprite2D" parent="Environment/Bookshelf1/Books1"]
 texture_filter = 1
+position = Vector2(125, -39)
 scale = Vector2(4, 4)
-texture = ExtResource("3_b2bes")
+texture = ExtResource("3_trh08")
 
 [node name="BookB" type="Sprite2D" parent="Environment/Bookshelf1/Books1"]
 texture_filter = 1
+position = Vector2(-29, 112)
 scale = Vector2(4, 4)
-texture = ExtResource("3_b2bes")
+texture = ExtResource("4_tf6pj")
 
 [node name="BookC" type="Sprite2D" parent="Environment/Bookshelf1/Books1"]
 texture_filter = 1
+position = Vector2(492, -19)
 scale = Vector2(4, 4)
-texture = ExtResource("3_b2bes")
+texture = ExtResource("5_16xsx")
 
 [node name="BookD" type="Sprite2D" parent="Environment/Bookshelf1/Books1"]
 texture_filter = 1
+position = Vector2(101, 215)
 scale = Vector2(4, 4)
-texture = ExtResource("3_b2bes")
+texture = ExtResource("6_a0hxg")
 
 [node name="BookE" type="Sprite2D" parent="Environment/Bookshelf1/Books1"]
 texture_filter = 1
+position = Vector2(-102, 85)
 scale = Vector2(4, 4)
-texture = ExtResource("3_b2bes")
+texture = ExtResource("7_njwk5")
 
 [node name="Bookshelf2" parent="Environment" instance=ExtResource("2_pbxft")]
 position = Vector2(1378, 575)
