@@ -1,0 +1,60 @@
+[gd_scene load_steps=11 format=3 uid="uid://rnbjgyln3i1u"]
+
+[ext_resource type="Texture2D" uid="uid://byanntvccsiiw" path="res://Scenes/Assets/Backgrounds/LivingRoom1.png" id="1_im3ks"]
+[ext_resource type="PackedScene" uid="uid://chul2y7kx1iuu" path="res://Scenes/Furniture/Bookshelf1/bookshelf1.tscn" id="2_pbxft"]
+[ext_resource type="PackedScene" uid="uid://coal31e877tjb" path="res://Scenes/Furniture/Painting1/painting1.tscn" id="3_vwiec"]
+[ext_resource type="PackedScene" uid="uid://dnhb7mu0hpubn" path="res://Scenes/Furniture/Painting2/painting2.tscn" id="4_6xnto"]
+[ext_resource type="PackedScene" uid="uid://rwdke2n6nxc6" path="res://Scenes/Furniture/Table1/table1.tscn" id="5_7qd61"]
+[ext_resource type="PackedScene" uid="uid://c3ck08xs0x5bi" path="res://Scenes/Furniture/Sofa1/sofa1.tscn" id="6_hkumw"]
+[ext_resource type="PackedScene" uid="uid://p5m8spmw6ype" path="res://Scenes/Objects/CatShitter1/catShitter1.tscn" id="7_brupt"]
+[ext_resource type="PackedScene" uid="uid://bf3bbgx3n6bd7" path="res://Scenes/Objects/Fish1/fish1.tscn" id="8_qbcj5"]
+[ext_resource type="PackedScene" uid="uid://bf4un0m43cuas" path="res://Scenes/Furniture/Shelf1/shelf1.tscn" id="9_g8ixs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d7anw"]
+
+[node name="Map" type="Node2D"]
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(8, 5)
+texture = ExtResource("1_im3ks")
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Bookshelf1" parent="Environment" instance=ExtResource("2_pbxft")]
+position = Vector2(199, 575)
+
+[node name="Bookshelf2" parent="Environment" instance=ExtResource("2_pbxft")]
+position = Vector2(1378, 575)
+
+[node name="Painting1" parent="Environment" instance=ExtResource("3_vwiec")]
+position = Vector2(1072, 175)
+
+[node name="Painting2" parent="Environment" instance=ExtResource("4_6xnto")]
+position = Vector2(1686, 175)
+
+[node name="table1" parent="Environment" instance=ExtResource("5_7qd61")]
+position = Vector2(1077, 577)
+
+[node name="Sofa1" parent="Environment" instance=ExtResource("6_hkumw")]
+position = Vector2(669, 459)
+
+[node name="Shelf1" parent="Environment" instance=ExtResource("9_g8ixs")]
+position = Vector2(654, 214)
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(960, 601)
+scale = Vector2(12, 1)
+
+[node name="GroundCollider" type="CollisionShape2D" parent="Ground"]
+scale = Vector2(8, 1)
+shape = SubResource("RectangleShape2D_d7anw")
+
+[node name="Interactables" type="Node2D" parent="."]
+
+[node name="Fish1" parent="Interactables" instance=ExtResource("8_qbcj5")]
+position = Vector2(1077, 390)
+
+[node name="CatShitter1" parent="Interactables" instance=ExtResource("7_brupt")]
+position = Vector2(1761, 513)
