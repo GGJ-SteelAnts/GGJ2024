@@ -5,10 +5,12 @@ extends Node
 @onready var Task3 = get_node("Task3")
 @onready var Clock = get_node("Clock")
 @onready var ScoreLabel = get_node("ScoreLabel")
+@onready var PissBar = get_node("PissBar")
 
 @export var NewTaskTime = 20.0
 
 var Score : int = 0
+var PissMeter : float = 0
 
 var ActualTaskTime = 0.0
 
@@ -19,6 +21,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	updateScoreLabel()
+	PissBar.value = PissMeter
 	
 	if Task1.TaskType == Enums.TaskTypeEnum.Empty && Task2.TaskType != Enums.TaskTypeEnum.Empty:
 		Task1.copyResource(Task2)
