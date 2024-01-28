@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://djybb54c4v8ua"]
+[gd_scene load_steps=8 format=3 uid="uid://djybb54c4v8ua"]
 
 [ext_resource type="Script" path="res://Scenes/MainMap/Map.gd" id="1_55qa7"]
 [ext_resource type="PackedScene" uid="uid://rnbjgyln3i1u" path="res://Scenes/LivingRoomMap/map.tscn" id="2_460ni"]
 [ext_resource type="PackedScene" uid="uid://36uyxcoevafq" path="res://Scenes/KitchenMap/map.tscn" id="2_bjdit"]
 [ext_resource type="PackedScene" uid="uid://co6k5kudklti2" path="res://Scenes/Player/player.tscn" id="2_gmhjk"]
 [ext_resource type="PackedScene" uid="uid://coq6sqjnkcerx" path="res://Scenes/Enemy/enemy.tscn" id="4_51o6s"]
+[ext_resource type="Texture2D" uid="uid://crp8urcjntncp" path="res://Scenes/Assets/Furniture/DoorFrame1.png" id="4_mlvbi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u4ge6"]
+size = Vector2(28, 880)
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_55qa7")
@@ -17,7 +21,40 @@ metadata/_edit_lock_ = true
 [node name="Kitchen" parent="Rooms" instance=ExtResource("2_bjdit")]
 position = Vector2(1920, 0)
 
+[node name="Walls" type="Node2D" parent="Rooms"]
+
+[node name="LeftWall" type="StaticBody2D" parent="Rooms/Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Walls/LeftWall"]
+position = Vector2(4, 171)
+shape = SubResource("RectangleShape2D_u4ge6")
+
+[node name="RightWall" type="StaticBody2D" parent="Rooms/Walls"]
+position = Vector2(3120, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Walls/RightWall"]
+position = Vector2(4, 171)
+shape = SubResource("RectangleShape2D_u4ge6")
+
+[node name="RoomDivider" type="StaticBody2D" parent="Rooms/Walls"]
+position = Vector2(1920, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Walls/RoomDivider"]
+position = Vector2(1, -119)
+scale = Vector2(1, 0.3)
+shape = SubResource("RectangleShape2D_u4ge6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Walls"]
+texture_filter = 1
+position = Vector2(1920, 276)
+scale = Vector2(4, 5)
+texture = ExtResource("4_mlvbi")
+
 [node name="Dynamics" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="Dynamics" instance=ExtResource("2_gmhjk")]
+position = Vector2(341, 528)
 
 [node name="Player" parent="Dynamics" instance=ExtResource("2_gmhjk")]
 position = Vector2(409, 528)
@@ -31,5 +68,6 @@ canMove = true
 soundTimer = 10
 
 [node name="Enemy" parent="Dynamics" instance=ExtResource("4_51o6s")]
-position = Vector2(607, 590)
+position = Vector2(606, 590)
 bookSpot = Vector2(607, 590)
+gameTime = 15.0

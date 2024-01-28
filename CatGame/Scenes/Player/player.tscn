@@ -143,9 +143,10 @@ position = Vector2(0, 33)
 shape = SubResource("RectangleShape2D_crlfs")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(9, -3)
 limit_left = 0
 limit_top = 0
-limit_right = 3840
+limit_right = 3120
 limit_bottom = 675
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
