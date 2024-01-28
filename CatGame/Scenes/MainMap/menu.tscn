@@ -121,13 +121,9 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Fridge1" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(130, 331)
-scale = Vector2(4, 4)
-texture = ExtResource("2_riegx")
+[node name="Node" type="Node" parent="."]
 
-[node name="Plant2" type="Sprite2D" parent="."]
+[node name="Plant2" type="Sprite2D" parent="Node"]
 texture_filter = 1
 position = Vector2(137, 97)
 scale = Vector2(4, 4)
