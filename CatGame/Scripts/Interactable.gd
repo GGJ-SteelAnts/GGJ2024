@@ -10,12 +10,12 @@ var anger : int = 10
 
 @export var itemTypeEnum : Enums.ItemTypeEnum = Enums.ItemTypeEnum.Empty
 
-@onready var gui = get_node("/root/Map/Dynamics/Player/Gui")
 @onready var label = $Label
 @onready var sprite = $Sprite2D
 
-signal _onItemInteracted(anger)
+var gui = null
 
+signal _onItemInteracted(anger)
 
 func _ready():
 	canInteract = false
@@ -37,8 +37,6 @@ func Interact():
 	_onItemInteracted.emit(anger)
 	
 	get_node("/root/Map/Dynamics/Enemy").makeHimAngry(anger) #když dropne item call
-
-	AddScorePoints()
 
 
 func _on_area_2d_body_entered(body):

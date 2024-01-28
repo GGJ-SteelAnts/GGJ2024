@@ -27,7 +27,6 @@ func _ready():
 	if  has_node("Animation"):
 		breakAnimation = $Animation
 
-
 func _process(delta):
 	super._process(delta)
 	if isFalling:
