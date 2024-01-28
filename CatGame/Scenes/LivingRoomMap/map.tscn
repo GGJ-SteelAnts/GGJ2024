@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://rnbjgyln3i1u"]
+[gd_scene load_steps=14 format=3 uid="uid://rnbjgyln3i1u"]
 
 [ext_resource type="Texture2D" uid="uid://byanntvccsiiw" path="res://Scenes/Assets/Backgrounds/LivingRoom1.png" id="1_im3ks"]
 [ext_resource type="PackedScene" uid="uid://chul2y7kx1iuu" path="res://Scenes/Furniture/Bookshelf1/bookshelf1.tscn" id="2_pbxft"]
+[ext_resource type="Texture2D" uid="uid://dimbtsjt1icl7" path="res://Scenes/Assets/Objects/Book1.png" id="3_b2bes"]
 [ext_resource type="PackedScene" uid="uid://coal31e877tjb" path="res://Scenes/Furniture/Painting1/painting1.tscn" id="3_vwiec"]
 [ext_resource type="PackedScene" uid="uid://dnhb7mu0hpubn" path="res://Scenes/Furniture/Painting2/painting2.tscn" id="4_6xnto"]
 [ext_resource type="PackedScene" uid="uid://rwdke2n6nxc6" path="res://Scenes/Furniture/Table1/table1.tscn" id="5_7qd61"]
@@ -9,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://p5m8spmw6ype" path="res://Scenes/Objects/CatShitter1/catShitter1.tscn" id="7_brupt"]
 [ext_resource type="PackedScene" uid="uid://bf3bbgx3n6bd7" path="res://Scenes/Objects/Fish1/fish1.tscn" id="8_qbcj5"]
 [ext_resource type="PackedScene" uid="uid://bf4un0m43cuas" path="res://Scenes/Furniture/Shelf1/shelf1.tscn" id="9_g8ixs"]
+[ext_resource type="PackedScene" uid="uid://vk4bcdu70mea" path="res://Scenes/Objects/Plant2/Plant2.tscn" id="10_u06q2"]
+[ext_resource type="PackedScene" uid="uid://5mmk2nnmbnjm" path="res://Scenes/Objects/MouseHole1/mouseHole1.tscn" id="11_s3ts4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d7anw"]
 
@@ -24,6 +27,35 @@ texture = ExtResource("1_im3ks")
 
 [node name="Bookshelf1" parent="Environment" instance=ExtResource("2_pbxft")]
 position = Vector2(199, 575)
+
+[node name="Books1" type="Node2D" parent="Environment/Bookshelf1"]
+visible = false
+position = Vector2(-3, -376)
+
+[node name="BookA" type="Sprite2D" parent="Environment/Bookshelf1/Books1"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("3_b2bes")
+
+[node name="BookB" type="Sprite2D" parent="Environment/Bookshelf1/Books1"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("3_b2bes")
+
+[node name="BookC" type="Sprite2D" parent="Environment/Bookshelf1/Books1"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("3_b2bes")
+
+[node name="BookD" type="Sprite2D" parent="Environment/Bookshelf1/Books1"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("3_b2bes")
+
+[node name="BookE" type="Sprite2D" parent="Environment/Bookshelf1/Books1"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("3_b2bes")
 
 [node name="Bookshelf2" parent="Environment" instance=ExtResource("2_pbxft")]
 position = Vector2(1378, 575)
@@ -58,3 +90,15 @@ position = Vector2(1077, 390)
 
 [node name="CatShitter1" parent="Interactables" instance=ExtResource("7_brupt")]
 position = Vector2(1761, 513)
+
+[node name="Plant2" parent="Interactables" instance=ExtResource("10_u06q2")]
+position = Vector2(765, 154)
+
+[node name="Plant3" parent="Interactables" instance=ExtResource("10_u06q2")]
+position = Vector2(521, 154)
+
+[node name="Plant4" parent="Interactables" instance=ExtResource("10_u06q2")]
+position = Vector2(1457, 282)
+
+[node name="MouseHole1" parent="Interactables" instance=ExtResource("11_s3ts4")]
+position = Vector2(1597, 548)

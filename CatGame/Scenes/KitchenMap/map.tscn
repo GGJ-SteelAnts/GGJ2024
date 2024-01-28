@@ -1,13 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://36uyxcoevafq"]
+[gd_scene load_steps=15 format=3 uid="uid://36uyxcoevafq"]
 
 [ext_resource type="Texture2D" uid="uid://durq8bbopk7ar" path="res://Scenes/Assets/Backgrounds/KitchenRoom1.png" id="1_0a1lg"]
 [ext_resource type="PackedScene" uid="uid://bsbiocpmc16yf" path="res://Scenes/Furniture/Fridge1/fridge1.tscn" id="2_v6usi"]
 [ext_resource type="PackedScene" uid="uid://cgok21pcuwjm3" path="res://Scenes/Furniture/KitchenTop1/KitchenTop1.tscn" id="3_r7gtt"]
 [ext_resource type="PackedScene" uid="uid://d3rkv73dmcd33" path="res://Scenes/Furniture/FumeExtractor1/FumeExtractor1.tscn" id="4_qu0xg"]
+[ext_resource type="Texture2D" uid="uid://c62i6gc5ijvbo" path="res://Scenes/Assets/Furniture/Appliances1.png" id="4_roxyi"]
 [ext_resource type="PackedScene" uid="uid://b2xvpqdlvnnw2" path="res://Scenes/Furniture/Shelf2/Shelf2.tscn" id="5_llwkv"]
 [ext_resource type="PackedScene" uid="uid://kgugbx4uh4id" path="res://Scenes/Furniture/Garbage1/Garbage1.tscn" id="6_opv6y"]
 [ext_resource type="PackedScene" uid="uid://ie41gy7deuev" path="res://Scenes/Objects/Glass1/Glass1.tscn" id="7_da81i"]
+[ext_resource type="Texture2D" uid="uid://bcdgbyjkhxcq0" path="res://Scenes/Assets/Objects/Can1.png" id="8_sajbd"]
 [ext_resource type="PackedScene" uid="uid://vk4bcdu70mea" path="res://Scenes/Objects/Plant2/Plant2.tscn" id="8_tofcy"]
+[ext_resource type="Texture2D" uid="uid://s3fig54ufcp2" path="res://Scenes/Assets/Objects/Can2.png" id="9_ia8wd"]
+[ext_resource type="Texture2D" uid="uid://ukh3j62qhj0g" path="res://Scenes/Assets/Objects/food.png" id="10_nrqom"]
+[ext_resource type="Texture2D" uid="uid://bphgj4rvtcfig" path="res://Scenes/Assets/Objects/bowl.png" id="11_dsbwf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_02rqc"]
 
@@ -28,6 +33,12 @@ position = Vector2(132, 580)
 [node name="Countertop" parent="Environment" instance=ExtResource("3_r7gtt")]
 position = Vector2(538, 576)
 
+[node name="Appliances1" type="Sprite2D" parent="Environment"]
+texture_filter = 1
+position = Vector2(416, 196)
+scale = Vector2(4, 4)
+texture = ExtResource("4_roxyi")
+
 [node name="Hood" parent="Environment" instance=ExtResource("4_qu0xg")]
 texture_filter = 1
 position = Vector2(393, 170)
@@ -43,6 +54,64 @@ position = Vector2(947, 211)
 
 [node name="Shelf3" parent="Environment" instance=ExtResource("5_llwkv")]
 position = Vector2(947, 277)
+
+[node name="CannedFood" type="Node2D" parent="Environment"]
+
+[node name="Can1" type="Sprite2D" parent="Environment/CannedFood"]
+texture_filter = 1
+position = Vector2(981, 120)
+scale = Vector2(4, 4)
+texture = ExtResource("8_sajbd")
+
+[node name="Can6" type="Sprite2D" parent="Environment/CannedFood"]
+texture_filter = 1
+position = Vector2(925, 92)
+scale = Vector2(4, 4)
+texture = ExtResource("8_sajbd")
+
+[node name="Can7" type="Sprite2D" parent="Environment/CannedFood"]
+texture_filter = 1
+position = Vector2(936, 120)
+scale = Vector2(4, 4)
+texture = ExtResource("8_sajbd")
+
+[node name="Can2" type="Sprite2D" parent="Environment/CannedFood"]
+texture_filter = 1
+position = Vector2(892, 120)
+scale = Vector2(4, 4)
+texture = ExtResource("9_ia8wd")
+
+[node name="Can3" type="Sprite2D" parent="Environment/CannedFood"]
+texture_filter = 1
+position = Vector2(914, 120)
+scale = Vector2(4, 4)
+texture = ExtResource("9_ia8wd")
+
+[node name="Can4" type="Sprite2D" parent="Environment/CannedFood"]
+texture_filter = 1
+position = Vector2(903, 92)
+scale = Vector2(4, 4)
+texture = ExtResource("9_ia8wd")
+
+[node name="Can5" type="Sprite2D" parent="Environment/CannedFood"]
+texture_filter = 1
+position = Vector2(967, 180)
+scale = Vector2(4, 4)
+texture = ExtResource("9_ia8wd")
+
+[node name="FeedingPoint" type="Node2D" parent="Environment"]
+
+[node name="Food" type="Sprite2D" parent="Environment/FeedingPoint"]
+texture_filter = 1
+position = Vector2(1012, 551)
+scale = Vector2(3, 3)
+texture = ExtResource("10_nrqom")
+
+[node name="Bowl" type="Sprite2D" parent="Environment/FeedingPoint"]
+texture_filter = 1
+position = Vector2(1012, 551)
+scale = Vector2(3, 3)
+texture = ExtResource("11_dsbwf")
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(601, 600)
