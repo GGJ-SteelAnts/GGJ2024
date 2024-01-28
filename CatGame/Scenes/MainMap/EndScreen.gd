@@ -16,7 +16,11 @@ func _on_texture_button_pressed():
 
 func SongPlay(win):
 	if win:
+		$NinePatchRect/VBoxContainer/AnimatedSprite2D.play("Shit")
+		$NinePatchRect/VBoxContainer/AnimatedSprite2D.scale = Vector2(8,8)
 		$AudioStreamPlayer2D.stream = winSong
 	else:
+		$NinePatchRect/VBoxContainer/AnimatedSprite2D.play("default")
+		$NinePatchRect/VBoxContainer/AnimatedSprite2D.scale = Vector2(2,2)
 		$AudioStreamPlayer2D.stream = loseSong
-	$AudioStreamPlayer2D.playing = true
+	$AudioStreamPlayer2D.play()

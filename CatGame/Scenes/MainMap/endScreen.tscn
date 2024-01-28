@@ -1,13 +1,46 @@
-[gd_scene load_steps=7 format=3 uid="uid://c6j8a7k65gyqq"]
+[gd_scene load_steps=14 format=3 uid="uid://c6j8a7k65gyqq"]
 
 [ext_resource type="LabelSettings" uid="uid://dfx4pbt5grfe8" path="res://Scenes/Assets/Fonts/End_Font.tres" id="1_0xvj8"]
 [ext_resource type="Script" path="res://Scenes/MainMap/EndScreen.gd" id="1_fd8k2"]
 [ext_resource type="LabelSettings" uid="uid://clslax0spxlcd" path="res://Scenes/Assets/Fonts/Button_text.tres" id="2_kpqdb"]
+[ext_resource type="Texture2D" uid="uid://cgmc3vok217wg" path="res://Scenes/Assets/Objects/Shit1.png" id="3_5rdwc"]
 [ext_resource type="Texture2D" uid="uid://dgqesgvo45h62" path="res://Scenes/Assets/Tasks/WinWindow1.png" id="4_hvn8j"]
+[ext_resource type="Texture2D" uid="uid://c3644pqmuvovu" path="res://Scenes/Assets/Objects/Shit2.png" id="4_l1ha0"]
+[ext_resource type="Texture2D" uid="uid://c2rm1exvk5x8v" path="res://Scenes/Assets/Objects/Shit3.png" id="5_3cqvp"]
 [ext_resource type="Texture2D" uid="uid://d1svgjbxk7phf" path="res://Scenes/Assets/Tasks/WinWindow2.png" id="5_44p2g"]
+[ext_resource type="Texture2D" uid="uid://c6ec67kior0ye" path="res://Scenes/Assets/Objects/Shit4.png" id="6_8y8u6"]
+[ext_resource type="Texture2D" uid="uid://dd8bufe4ayatw" path="res://Scenes/Assets/Objects/Shit5.png" id="7_7lwu5"]
+[ext_resource type="Texture2D" uid="uid://cfoosooa0rxag" path="res://Scenes/Assets/Objects/Shit6.png" id="8_jmi5m"]
+[ext_resource type="Texture2D" uid="uid://bf02aymfy5du8" path="res://Scenes/Assets/Objects/Shit7.png" id="9_8g8l5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ev76e"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_5rdwc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_l1ha0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3cqvp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8y8u6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7lwu5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jmi5m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_8g8l5")
+}],
+"loop": true,
+"name": &"Shit",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 12.0,
 "texture": ExtResource("4_hvn8j")
@@ -71,8 +104,17 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 250)
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NinePatchRect/VBoxContainer"]
+texture_filter = 1
+position = Vector2(252, 230.215)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_ev76e")
+autoplay = "default"
+frame_progress = 0.199085
 
 [node name="TextureButton" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
 custom_minimum_size = Vector2(250, 60)
@@ -91,12 +133,6 @@ text = "Return to menu"
 label_settings = ExtResource("2_kpqdb")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(482, 355)
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_ev76e")
-autoplay = "default"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 autoplay = true
