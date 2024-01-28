@@ -1,8 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3lo4eyg7sbxq"]
+[gd_scene load_steps=7 format=3 uid="uid://c3lo4eyg7sbxq"]
 
 [ext_resource type="Script" path="res://Scenes/MainMap/Menu.gd" id="1_xt67t"]
-[ext_resource type="Texture2D" uid="uid://tj8q0mfxjek8" path="res://Scenes/Assets/Furniture/Fridge1.png" id="2_riegx"]
-[ext_resource type="Texture2D" uid="uid://c3uy7il344xqb" path="res://Scenes/Assets/Objects/Plant2.png" id="3_6mcse"]
+[ext_resource type="Texture2D" uid="uid://rnid8t7isk66" path="res://Scenes/Assets/Furniture/Fridge1.png" id="2_riegx"]
+[ext_resource type="Texture2D" uid="uid://ck22p7lxh4vlu" path="res://Scenes/Assets/Objects/Plant2.png" id="3_6mcse"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m4347"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_2ov0x"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_3xcw5"]
+font_size = 30
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -13,7 +22,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xt67t")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[node name="MainMenu" type="NinePatchRect" parent="."]
 custom_minimum_size = Vector2(500, 300)
 layout_mode = 1
 anchors_preset = 8
@@ -24,7 +33,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,18 +41,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Start_Game" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
+[node name="Start_Game" type="TextureButton" parent="MainMenu/VBoxContainer"]
 custom_minimum_size = Vector2(300, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/Start_Game"]
+[node name="Label" type="Label" parent="MainMenu/VBoxContainer/Start_Game"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -54,14 +63,50 @@ text = "Start Game"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Exit_Game" type="TextureButton" parent="NinePatchRect/VBoxContainer"]
+[node name="Credits" type="TextureButton" parent="MainMenu/VBoxContainer"]
 custom_minimum_size = Vector2(300, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/Exit_Game"]
+[node name="Label" type="Label" parent="MainMenu/VBoxContainer/Credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Controls" type="TextureButton" parent="MainMenu/VBoxContainer"]
+custom_minimum_size = Vector2(300, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MainMenu/VBoxContainer/Controls"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Crontrols"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Exit_Game" type="TextureButton" parent="MainMenu/VBoxContainer"]
+custom_minimum_size = Vector2(300, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MainMenu/VBoxContainer/Exit_Game"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -72,21 +117,146 @@ text = "Exit Game"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="NinePatchRect/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="MainMenu/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Fridge1" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(130, 331)
-scale = Vector2(4, 4)
-texture = ExtResource("2_riegx")
+[node name="Node" type="Node" parent="."]
 
-[node name="Plant2" type="Sprite2D" parent="."]
+[node name="Plant2" type="Sprite2D" parent="Node"]
 texture_filter = 1
 position = Vector2(137, 97)
 scale = Vector2(4, 4)
 texture = ExtResource("3_6mcse")
 
-[connection signal="pressed" from="NinePatchRect/VBoxContainer/Start_Game" to="." method="_on_start_game_pressed"]
-[connection signal="pressed" from="NinePatchRect/VBoxContainer/Exit_Game" to="." method="_on_exit_game_pressed"]
+[node name="Credits" type="NinePatchRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(500, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -150.0
+offset_right = 250.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Credits"]
+layout_mode = 2
+offset_right = 500.0
+offset_bottom = 300.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Credits/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+text = "Credits"
+label_settings = SubResource("LabelSettings_m4347")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="Credits"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -30.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Credits/TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Zpět"
+label_settings = SubResource("LabelSettings_2ov0x")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Controls" type="NinePatchRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(500, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -150.0
+offset_right = 250.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Controls"]
+layout_mode = 2
+offset_right = 500.0
+offset_bottom = 300.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Controls/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Controls/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+text = "Controls"
+label_settings = SubResource("LabelSettings_3xcw5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="Controls"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -30.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Controls/TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Zpět"
+label_settings = SubResource("LabelSettings_2ov0x")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="MainMenu/VBoxContainer/Start_Game" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="MainMenu/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="MainMenu/VBoxContainer/Controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="MainMenu/VBoxContainer/Exit_Game" to="." method="_on_exit_game_pressed"]
+[connection signal="pressed" from="Credits/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="Controls/TextureButton" to="." method="_on_texture_button_pressed"]
