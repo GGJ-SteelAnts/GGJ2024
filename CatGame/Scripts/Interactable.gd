@@ -1,4 +1,4 @@
-extends Node2D
+extends "res://Scripts/Item.gd"
 
 var player : Node2D
 var canInteract : bool

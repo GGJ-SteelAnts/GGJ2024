@@ -8,7 +8,6 @@ var groundHeight : int		# Y-axis position at where the item stops falling
 var fallingRotation : bool
 
 
-
 func _ready():
 	super._ready()
 	isFalling = false
@@ -18,11 +17,16 @@ func _ready():
 	groundHeight = 580
 	fallingRotation = true
 	print("FallingSpeed " + str(fallingSpeed))
+	itemName = "Flower pot"
+	itemType = ItemType.PLANT
+	if $Animation:
+		breakAnimation = $Animation
+
 
 func _process(delta):
 	super._process(delta)
 	if isFalling:
-		position = position.move_toward(Vector2(position.x, 620), delta * (fallingSpeed))
+		position = position.move_toward(Vector2(position.x, groundHeight + 5), delta * (fallingSpeed))
 		if fallingRotation:
 			rotation_degrees += 2
 		fallingSpeed += fallingAccel
@@ -43,4 +47,5 @@ func Interact():
 
 func Break():
 	super.Break()
+	PlayAnimation()
 	add_to_group("Issues")

@@ -6,6 +6,7 @@ extends CharacterBody2D
 
 @onready var fallparticle : CPUParticles2D = $CPUParticles2D
 @onready var soundPlayer : AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var music : AudioStreamWAV = preload("res://Scenes/Sounds/CatastrophySoundtrack.wav")
 
 @export var catSounds : Array
 @export var dropSofaSounds : Array
@@ -25,7 +26,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var indicator = get_node("Sprite2D") 
 
 func _ready():
-	pass
+	soundPlayer.stream = music
+	soundPlayer.playing = true
 
 func _process(delta):
 	if global_position.y < 0:
