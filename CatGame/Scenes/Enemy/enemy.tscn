@@ -189,7 +189,7 @@ size = Vector2(1, 1)
 
 [node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
 script = ExtResource("1_rshr1")
-gameTime = 20.0
+gameTime = 60.0
 walkWoodSounds = [ExtResource("2_l8syt"), ExtResource("3_11jgn"), ExtResource("4_y6jr6"), ExtResource("5_n77ml")]
 walkKitchenSounds = [ExtResource("7_nnjqi"), ExtResource("8_hpcva"), ExtResource("9_8si6n"), ExtResource("10_kgkch"), ExtResource("11_iioxx")]
 angrySounds = [ExtResource("12_is728"), ExtResource("13_1gwkj"), ExtResource("14_tfcg1")]

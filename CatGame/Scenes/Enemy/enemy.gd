@@ -42,10 +42,13 @@ func _ready():
 	actualAnger = 1000
 
 func _process(delta):
+	var gui = get_node("/root/Map/Player/Gui")
+	gui.PissMeter = anger
+	
 	var rng = RandomNumberGenerator.new()
 	if actualGameTime > gameTime:
 		var end = endScreen.instantiate()
-		var gui = get_node("/root/Map/Player/Gui")
+		gui = get_node("/root/Map/Player/Gui")
 		get_tree().get_root().get_node("Map").queue_free()
 		get_tree().get_root().add_child(end)
 		end.scoreLabel.text = "Score: " + str(gui.Score)
@@ -67,7 +70,7 @@ func _process(delta):
 			actualAnger = 0
 		if pages <= 0:
 			var end = endScreen.instantiate()
-			var gui = get_node("/root/Map/Player/Gui")
+			gui = get_node("/root/Map/Player/Gui")
 			get_tree().get_root().get_node("Map").queue_free()
 			get_tree().get_root().add_child(end)
 			end.scoreLabel.text = "Score: " + str(gui.Score)

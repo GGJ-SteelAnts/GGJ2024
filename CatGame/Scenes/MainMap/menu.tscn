@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3lo4eyg7sbxq"]
+[gd_scene load_steps=6 format=3 uid="uid://c3lo4eyg7sbxq"]
 
 [ext_resource type="Script" path="res://Scenes/MainMap/Menu.gd" id="1_xt67t"]
 [ext_resource type="Texture2D" uid="uid://bbykgicj1unwk" path="res://Scenes/Assets/Furniture/Fridge1.png" id="2_riegx"]

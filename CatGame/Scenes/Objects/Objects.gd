@@ -18,6 +18,7 @@ var actualRespawner : float = 0.0
 
 @onready var label = get_node("Label")
 @onready var sprite = get_node("Sprite2D")
+@onready var area = get_node("Area2D")
 @onready var enemy = get_tree().get_first_node_in_group("Enemy")
 @onready var player : Node2D = null
 
@@ -43,8 +44,6 @@ func _process(delta):
 	if interactable && Input.is_action_just_released("Interact") && canInteract:
 		Interaction(delta)
 		
-			
-		
 	if !onGround:
 		position = position.move_toward(Vector2(position.x,602), delta * (100 + num))
 		num += 10
@@ -63,7 +62,6 @@ func _process(delta):
 
 func _on_area_2d_body_entered(body):
 	if body.name == "Player" && canInteract:
-		print(body)
 		player = body
 		gui = body.get_node("Gui")
 		label.visible = true
