@@ -7,7 +7,9 @@ extends CharacterBody2D
 @onready var fallparticle : CPUParticles2D = $CPUParticles2D
 @onready var soundPlayer : AudioStreamPlayer2D = $AudioStreamPlayer2D
 
-@export var catSounds : Dictionary
+@export var catSounds : Array
+@export var dropSofaSounds : Array
+@export var dropClosedSounds : Array
 @export var canMove = true
 @export var soundTimer = 10
 var actualSoundTimer = 0
@@ -43,6 +45,22 @@ func _process(delta):
 func _physics_process(delta):
 	if !canMove:
 		return
+		
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		if collision.get_collider().get_parent().is_in_group("Sofa"):
+			if is_on_floor() && soundPlayer.finished && fallDuration != 0:
+					var rng = RandomNumberGenerator.new()
+					var my_random_number = rng.randi_range(0, dropSofaSounds.size()-1)
+					soundPlayer.stream = dropSofaSounds[my_random_number]
+					soundPlayer.playing = true
+		elif collision.get_collider().get_parent().is_in_group("Closet"):
+			if is_on_floor() && soundPlayer.finished && fallDuration != 0:
+					var rng = RandomNumberGenerator.new()
+					var my_random_number = rng.randi_range(0, dropClosedSounds.size()-1)
+					soundPlayer.stream = dropClosedSounds[my_random_number]
+					soundPlayer.playing = true
+	
 	# Add the gravity.
 	fallDuration += 1
 	if not is_on_floor():
@@ -51,6 +69,11 @@ func _physics_process(delta):
 		if fallDuration > 70:
 			fallparticle.emitting = true
 		fallDuration = 0
+		#if isJumping:
+			#var rng = RandomNumberGenerator.new()
+			#var my_random_number = rng.randi_range(0, dropSofaSounds.size()-1)
+			#soundPlayer.stream = dropSofaSounds[my_random_number]
+			#soundPlayer.playing = true
 		isJumping = false
 
 	# Handle jump.	
@@ -60,7 +83,6 @@ func _physics_process(delta):
 		
 	if Input.is_action_pressed("Jump") and is_on_floor() and isCharging and jumpCoeficient <= JUMP_LIMIT:
 		jumpCoeficient = (jumpCoeficient + 2)
-		print(jumpCoeficient)
 		
 	if Input.is_action_just_released("Jump") and isCharging:
 		$AnimatedSprite2D.play("jump")	
