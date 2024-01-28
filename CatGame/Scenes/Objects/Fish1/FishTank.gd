@@ -23,10 +23,10 @@ func _ready():
 	print("FallingSpeed " + str(fallingSpeed))
 	itemName = "Fish tank"
 	itemType = ItemType.TANK
-	if $Sprite2D:
+	if has_node("Sprite2D"):
 		sprite2D = $Sprite2D
 	newSprite = preload("res://Scenes/Assets/Objects/Fish2.png")
-	if $Animation:
+	if  has_node("Animation"):
 		breakAnimation = $Animation
 
 
