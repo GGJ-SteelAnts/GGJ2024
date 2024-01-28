@@ -36,6 +36,8 @@ func _process(delta):
 			isFalling = false
 			isGrounded = true
 			Break()
+			
+		
 
 
 func Interact():

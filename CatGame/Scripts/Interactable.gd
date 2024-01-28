@@ -40,6 +40,12 @@ func Interact():
 	
 	get_node("/root/Map/Dynamics/Enemy").makeHimAngry(anger) #když dropne item call
 
+	if gui.Task1.TaskType == itemTypeEnum:
+		gui.Task1.currentAmount += 1
+	if gui.Task2.TaskType == itemTypeEnum:
+		gui.Task2.currentAmount += 1
+	if gui.Task3.TaskType == itemTypeEnum:
+		gui.Task3.currentAmount += 1
 
 
 func _on_area_2d_body_entered(body):
