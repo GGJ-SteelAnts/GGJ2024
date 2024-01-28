@@ -76,17 +76,19 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Fridge1" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(130, 331)
-scale = Vector2(4, 4)
-texture = ExtResource("2_riegx")
+[node name="Node" type="Node" parent="."]
 
-[node name="Plant2" type="Sprite2D" parent="."]
+[node name="Plant2" type="Sprite2D" parent="Node"]
 texture_filter = 1
 position = Vector2(137, 97)
 scale = Vector2(4, 4)
 texture = ExtResource("3_6mcse")
+
+[node name="Fridge1" type="Sprite2D" parent="Node"]
+texture_filter = 1
+position = Vector2(130, 331)
+scale = Vector2(4, 4)
+texture = ExtResource("2_riegx")
 
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/Start_Game" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/Exit_Game" to="." method="_on_exit_game_pressed"]
