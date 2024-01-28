@@ -19,7 +19,7 @@ func _ready():
 	print("FallingSpeed " + str(fallingSpeed))
 	itemName = "Flower pot"
 	itemType = ItemType.PLANT
-	if $Animation:
+	if has_node("Animation"):
 		breakAnimation = $Animation
 
 
