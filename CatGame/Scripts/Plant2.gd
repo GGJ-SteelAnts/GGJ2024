@@ -16,7 +16,7 @@ func _ready():
 	fallingAccel = 10
 	groundHeight = 580
 	#fallingRotation = true
-	print("FallingSpeed " + str(fallingSpeed))
+	#print("FallingSpeed " + str(fallingSpeed))
 	itemName = "Flower pot"
 	itemType = ItemType.PLANT
 	if has_node("Animation"):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://36uyxcoevafq"]
+[gd_scene load_steps=17 format=3 uid="uid://36uyxcoevafq"]
 
 [ext_resource type="Texture2D" uid="uid://bwkowdxxp1fil" path="res://Scenes/Assets/Backgrounds/KitchenRoom1.png" id="1_0a1lg"]
 [ext_resource type="PackedScene" uid="uid://bsbiocpmc16yf" path="res://Scenes/Furniture/Fridge1/fridge1.tscn" id="2_v6usi"]
@@ -11,8 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://clcyrjkeupojm" path="res://Scenes/Assets/Objects/Can1.png" id="8_sajbd"]
 [ext_resource type="PackedScene" uid="uid://vk4bcdu70mea" path="res://Scenes/Objects/Plant2/Plant2.tscn" id="8_tofcy"]
 [ext_resource type="Texture2D" uid="uid://blj3y67r51wjt" path="res://Scenes/Assets/Objects/Can2.png" id="9_ia8wd"]
-[ext_resource type="Texture2D" uid="uid://s0dxifl8luc6" path="res://Scenes/Assets/Objects/food.png" id="10_nrqom"]
-[ext_resource type="Texture2D" uid="uid://c7laavr377gcc" path="res://Scenes/Assets/Objects/bowl.png" id="11_dsbwf"]
+[ext_resource type="PackedScene" uid="uid://bsud0knigcr7p" path="res://Scenes/Objects/Bowl/bowl.tscn" id="10_nvf6u"]
 [ext_resource type="Texture2D" uid="uid://cxrek4meamtb0" path="res://Scenes/Assets/Objects/Pan1.png" id="12_6di6v"]
 [ext_resource type="PackedScene" uid="uid://cluugt1hcuiar" path="res://Scenes/Objects/Glass1/Glass1_1.tscn" id="14_vfiqw"]
 [ext_resource type="PackedScene" uid="uid://btd8wu7lao1ln" path="res://Scenes/Objects/Doritos1/Doritos1.tscn" id="16_ifdrg"]
@@ -105,18 +104,9 @@ scale = Vector2(4, 4)
 texture = ExtResource("9_ia8wd")
 
 [node name="FeedingPoint" type="Node2D" parent="Environment"]
+position = Vector2(1031, 551)
 
-[node name="Food" type="Sprite2D" parent="Environment/FeedingPoint"]
-texture_filter = 1
-position = Vector2(1012, 551)
-scale = Vector2(3, 3)
-texture = ExtResource("10_nrqom")
-
-[node name="Bowl" type="Sprite2D" parent="Environment/FeedingPoint"]
-texture_filter = 1
-position = Vector2(1012, 551)
-scale = Vector2(3, 3)
-texture = ExtResource("11_dsbwf")
+[node name="Bowl" parent="Environment/FeedingPoint" instance=ExtResource("10_nvf6u")]
 
 [node name="Frying pan" type="Node2D" parent="Environment"]
 position = Vector2(1, 0)
