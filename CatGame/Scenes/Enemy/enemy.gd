@@ -36,19 +36,17 @@ var player : CharacterBody2D
 var my_random_number
 var objedno = false
 var walk = true
+@onready var gui = get_node("/root/Map/Dynamics/Player/Gui")
 
 func _ready():
 	pass
 
 func _process(delta):
 	#print(actualAnger)
-	var gui = get_node("/root/Map/Dynamics/Player/Gui")
-	#gui.PissMeter = actualAnger
 	
 	var rng = RandomNumberGenerator.new()
 	if actualGameTime > gameTime:
 		var end = endScreen.instantiate()
-		gui = get_node("/root/Map/Dynamics/Player/Gui")
 		get_tree().get_root().get_node("Map").queue_free()
 		get_tree().get_root().add_child(end)
 		end.scoreLabel.text = "Score: " + str(gui.Score)
@@ -73,7 +71,6 @@ func _process(delta):
 			
 		if pages <= 0:
 			var end = endScreen.instantiate()
-			gui = get_node("/root/Map/Dynamics/Player/Gui")
 			get_tree().get_root().get_node("Map").queue_free()
 			get_tree().get_root().add_child(end)
 			end.scoreLabel.text = "Score: " + str(gui.Score)
@@ -182,6 +179,8 @@ func makeHimAngry(angerDamage):
 	if !triggered:
 		triggered = true
 	actualAnger += angerDamage
+	gui.PissMeter = actualAnger
+	print(gui.PissMeter)
 
 
 func _on_timer_timeout():

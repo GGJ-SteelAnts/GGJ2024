@@ -39,6 +39,7 @@ func _process(delta):
 
 
 func Interact():
+	super.Interact()
 	if not isGrounded:
 		isFalling = true
 		canInteract = false

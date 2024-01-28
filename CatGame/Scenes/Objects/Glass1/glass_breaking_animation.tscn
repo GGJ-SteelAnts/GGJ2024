@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://e3entv07foqn"]
+[gd_scene load_steps=7 format=3 uid="uid://dnpoljhk0byqw"]
 
-[ext_resource type="Texture2D" uid="uid://ucwloyvcly53" path="res://Scenes/Assets/Objects/GlassShatters1.png" id="1_pd8kx"]
-[ext_resource type="Texture2D" uid="uid://c18uhxn83ajq" path="res://Scenes/Assets/Objects/GlassShatters2.png" id="2_xt7pa"]
-[ext_resource type="Texture2D" uid="uid://du5kwakxu82rf" path="res://Scenes/Assets/Objects/GlassShatters3.png" id="3_dtlbd"]
-[ext_resource type="Texture2D" uid="uid://ckfh8ewy722a6" path="res://Scenes/Assets/Objects/GlassShatters4.png" id="4_63yfo"]
-[ext_resource type="Texture2D" uid="uid://8aspp8j0kbdg" path="res://Scenes/Assets/Objects/GlassShatters5.png" id="5_pk47u"]
+[ext_resource type="Texture2D" uid="uid://cdwo50ckw78p" path="res://Scenes/Assets/Objects/GlassShatters1.png" id="1_pd8kx"]
+[ext_resource type="Texture2D" uid="uid://2v3ik5ayytd4" path="res://Scenes/Assets/Objects/GlassShatters2.png" id="2_xt7pa"]
+[ext_resource type="Texture2D" uid="uid://cw080maqxdnd3" path="res://Scenes/Assets/Objects/GlassShatters3.png" id="3_dtlbd"]
+[ext_resource type="Texture2D" uid="uid://bpei61u3sah36" path="res://Scenes/Assets/Objects/GlassShatters4.png" id="4_63yfo"]
+[ext_resource type="Texture2D" uid="uid://p7jra55xpf1n" path="res://Scenes/Assets/Objects/GlassShatters5.png" id="5_pk47u"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ott5t"]
 animations = [{

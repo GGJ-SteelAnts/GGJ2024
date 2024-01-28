@@ -40,6 +40,8 @@ animations = [{
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_omtgn")
+angerDamage = 40
+itemTypeEnum = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false

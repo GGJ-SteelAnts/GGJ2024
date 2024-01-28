@@ -1,18 +1,18 @@
 [gd_scene load_steps=16 format=3 uid="uid://cjs3npd0tviji"]
 
 [ext_resource type="Script" path="res://Scripts/Plant2.gd" id="1_tsft3"]
-[ext_resource type="Texture2D" uid="uid://bl1gpkac378ep" path="res://Scenes/Assets/Objects/Plant3.png" id="2_s4sl6"]
+[ext_resource type="Texture2D" uid="uid://dk0rt5g2ar2y2" path="res://Scenes/Assets/Objects/Plant3.png" id="2_s4sl6"]
 [ext_resource type="LabelSettings" uid="uid://b5smbjexhppw" path="res://Scenes/Assets/Fonts/Interact_Font.tres" id="3_f3msm"]
-[ext_resource type="Texture2D" uid="uid://br00sgr3wky7g" path="res://Scenes/Assets/Objects/Plant3Breaks1.png" id="4_vs77w"]
-[ext_resource type="Texture2D" uid="uid://3wpoj1ll18s1" path="res://Scenes/Assets/Objects/Plant3Breaks2.png" id="5_elcp7"]
-[ext_resource type="Texture2D" uid="uid://dspd04prj35xq" path="res://Scenes/Assets/Objects/Plant3Breaks3.png" id="6_sql05"]
-[ext_resource type="Texture2D" uid="uid://b1notv0nt5rqw" path="res://Scenes/Assets/Objects/Plant3Breaks4.png" id="7_te1b3"]
-[ext_resource type="Texture2D" uid="uid://dxtjnkp6ry564" path="res://Scenes/Assets/Objects/Plant3Breaks5.png" id="8_1epwf"]
-[ext_resource type="Texture2D" uid="uid://cbvh5jjxtaced" path="res://Scenes/Assets/Objects/Plant3Breaks6.png" id="9_j0ac2"]
-[ext_resource type="Texture2D" uid="uid://c4kvu8nva605" path="res://Scenes/Assets/Objects/Plant3Breaks7.png" id="10_m8iwj"]
-[ext_resource type="Texture2D" uid="uid://c4clbw0yk23xm" path="res://Scenes/Assets/Objects/Plant3Breaks8.png" id="11_ysth1"]
-[ext_resource type="Texture2D" uid="uid://d3vd4m4x85bu2" path="res://Scenes/Assets/Objects/Plant3Breaks9.png" id="12_2b8l3"]
-[ext_resource type="Texture2D" uid="uid://1uefcgsh27gn" path="res://Scenes/Assets/Objects/Plant3Breaks10.png" id="13_44a67"]
+[ext_resource type="Texture2D" uid="uid://deck8b6il06f7" path="res://Scenes/Assets/Objects/Plant3Breaks1.png" id="4_vs77w"]
+[ext_resource type="Texture2D" uid="uid://crjwqup8un7u7" path="res://Scenes/Assets/Objects/Plant3Breaks2.png" id="5_elcp7"]
+[ext_resource type="Texture2D" uid="uid://2vsgqpmgpn5h" path="res://Scenes/Assets/Objects/Plant3Breaks3.png" id="6_sql05"]
+[ext_resource type="Texture2D" uid="uid://bcrqmasjhnoyn" path="res://Scenes/Assets/Objects/Plant3Breaks4.png" id="7_te1b3"]
+[ext_resource type="Texture2D" uid="uid://3tta78d81qx6" path="res://Scenes/Assets/Objects/Plant3Breaks5.png" id="8_1epwf"]
+[ext_resource type="Texture2D" uid="uid://dnccf6ytpe0yw" path="res://Scenes/Assets/Objects/Plant3Breaks6.png" id="9_j0ac2"]
+[ext_resource type="Texture2D" uid="uid://byvsfvbmjw4e4" path="res://Scenes/Assets/Objects/Plant3Breaks7.png" id="10_m8iwj"]
+[ext_resource type="Texture2D" uid="uid://b24g2jhsn2n4m" path="res://Scenes/Assets/Objects/Plant3Breaks8.png" id="11_ysth1"]
+[ext_resource type="Texture2D" uid="uid://di38g3ty6pxsq" path="res://Scenes/Assets/Objects/Plant3Breaks9.png" id="12_2b8l3"]
+[ext_resource type="Texture2D" uid="uid://dj7wraeqfbd22" path="res://Scenes/Assets/Objects/Plant3Breaks10.png" id="13_44a67"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ngk8i"]
 
@@ -56,6 +56,8 @@ animations = [{
 
 [node name="Plant3" type="Node2D"]
 script = ExtResource("1_tsft3")
+angerDamage = 10
+itemTypeEnum = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false

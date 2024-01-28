@@ -20,6 +20,8 @@ animations = [{
 
 [node name="Plant2" type="Node2D"]
 script = ExtResource("1_3iu8a")
+angerDamage = 10
+itemTypeEnum = 1
 metadata/canRotateWhenFalling = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

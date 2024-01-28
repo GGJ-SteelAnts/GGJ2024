@@ -50,7 +50,6 @@ func _process(delta):
 	
 	if position == Vector2(position.x,602) && !canInteract:
 		add_to_group("Issues")
-		enemy.makeHimAngry(angerDamage)
 		
 	if type == ObjectsTypes.HideAndJail:
 		if spriteAction != null && spriteAction2 != null && player != null && player.canMove == false:

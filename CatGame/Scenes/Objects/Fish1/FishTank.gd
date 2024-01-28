@@ -48,6 +48,7 @@ func Use():
 	isUsed = true
 
 func Interact():
+	super.Interact()
 	if !isUsed:
 		Use()
 		isInteracting = false

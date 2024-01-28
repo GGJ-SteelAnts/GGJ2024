@@ -1,13 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://cluugt1hcuiar"]
+[gd_scene load_steps=11 format=3 uid="uid://h4rd3ft14r4h"]
 
 [ext_resource type="Script" path="res://Scripts/Plant2.gd" id="1_qpth2"]
-[ext_resource type="Texture2D" uid="uid://ekgs5j7cukps" path="res://Scenes/Assets/Objects/Glass1.png" id="2_cdid4"]
+[ext_resource type="Texture2D" uid="uid://bsp5stv64fmxk" path="res://Scenes/Assets/Objects/Glass1.png" id="2_cdid4"]
 [ext_resource type="LabelSettings" uid="uid://b5smbjexhppw" path="res://Scenes/Assets/Fonts/Interact_Font.tres" id="3_reaw8"]
-[ext_resource type="Texture2D" uid="uid://ucwloyvcly53" path="res://Scenes/Assets/Objects/GlassShatters1.png" id="4_o1wn2"]
-[ext_resource type="Texture2D" uid="uid://c18uhxn83ajq" path="res://Scenes/Assets/Objects/GlassShatters2.png" id="5_6be0q"]
-[ext_resource type="Texture2D" uid="uid://du5kwakxu82rf" path="res://Scenes/Assets/Objects/GlassShatters3.png" id="6_lm4l8"]
-[ext_resource type="Texture2D" uid="uid://ckfh8ewy722a6" path="res://Scenes/Assets/Objects/GlassShatters4.png" id="7_1he3x"]
-[ext_resource type="Texture2D" uid="uid://8aspp8j0kbdg" path="res://Scenes/Assets/Objects/GlassShatters5.png" id="8_heeve"]
+[ext_resource type="Texture2D" uid="uid://cdwo50ckw78p" path="res://Scenes/Assets/Objects/GlassShatters1.png" id="4_o1wn2"]
+[ext_resource type="Texture2D" uid="uid://2v3ik5ayytd4" path="res://Scenes/Assets/Objects/GlassShatters2.png" id="5_6be0q"]
+[ext_resource type="Texture2D" uid="uid://cw080maqxdnd3" path="res://Scenes/Assets/Objects/GlassShatters3.png" id="6_lm4l8"]
+[ext_resource type="Texture2D" uid="uid://bpei61u3sah36" path="res://Scenes/Assets/Objects/GlassShatters4.png" id="7_1he3x"]
+[ext_resource type="Texture2D" uid="uid://p7jra55xpf1n" path="res://Scenes/Assets/Objects/GlassShatters5.png" id="8_heeve"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ngk8i"]
 
@@ -36,6 +36,7 @@ animations = [{
 
 [node name="Glass1" type="Node2D"]
 script = ExtResource("1_qpth2")
+itemTypeEnum = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false

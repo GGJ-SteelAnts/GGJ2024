@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://df1sgmx4ey6i0" path="res://Scenes/Objects/Notebook1/Notebook1.tscn" id="7_8708h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4ge6"]
-size = Vector2(28, 880)
+size = Vector2(28, 1637)
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_55qa7")
@@ -27,14 +27,14 @@ position = Vector2(1920, 0)
 [node name="LeftWall" type="StaticBody2D" parent="Rooms/Walls"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Walls/LeftWall"]
-position = Vector2(4, 171)
+position = Vector2(4, -26)
 shape = SubResource("RectangleShape2D_u4ge6")
 
 [node name="RightWall" type="StaticBody2D" parent="Rooms/Walls"]
 position = Vector2(3120, -21)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Walls/RightWall"]
-position = Vector2(4, 171)
+position = Vector2(4, -10.5)
 shape = SubResource("RectangleShape2D_u4ge6")
 
 [node name="RoomDivider" type="StaticBody2D" parent="Rooms/Walls"]
@@ -47,8 +47,8 @@ shape = SubResource("RectangleShape2D_u4ge6")
 
 [node name="Sprite2D" type="Sprite2D" parent="Rooms/Walls"]
 texture_filter = 1
-position = Vector2(1920, 276)
-scale = Vector2(4, 5)
+position = Vector2(1920, 273.75)
+scale = Vector2(4, 5.04054)
 texture = ExtResource("4_mlvbi")
 
 [node name="Dynamics" type="Node2D" parent="."]
