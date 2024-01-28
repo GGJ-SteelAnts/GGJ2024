@@ -126,6 +126,7 @@ size = Vector2(81, 37)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_mr8sf")
+SPEED = 350.0
 catSounds = [ExtResource("2_be1j7"), ExtResource("3_vti8b"), ExtResource("4_fqonx"), ExtResource("5_7su1i"), ExtResource("6_13oly"), ExtResource("7_1l00x"), ExtResource("8_qkjmo"), ExtResource("9_uoqta"), ExtResource("10_gcbrq"), ExtResource("11_n3mlh"), ExtResource("12_gysgo"), ExtResource("13_s6sba"), ExtResource("14_ma5wp"), ExtResource("15_ry5hy"), ExtResource("16_wohc5"), ExtResource("2_be1j7"), ExtResource("3_vti8b"), ExtResource("4_fqonx"), ExtResource("5_7su1i"), ExtResource("6_13oly")]
 dropSofaSounds = [ExtResource("17_o2hhl"), ExtResource("18_1m3ko"), ExtResource("19_7aovj"), ExtResource("20_2ug82"), ExtResource("21_gyuig")]
 dropClosedSounds = [ExtResource("22_o1uro"), ExtResource("23_n3of7"), ExtResource("24_0x4t4"), ExtResource("25_vxp1r"), ExtResource("26_00tbo"), ExtResource("27_i6s80")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0ja124g2gd4l"]
+[gd_scene load_steps=4 format=3 uid="uid://c6j8a7k65gyqq"]
 
 [ext_resource type="LabelSettings" path="res://Scenes/Assets/Fonts/End_Font.tres" id="1_0xvj8"]
 [ext_resource type="Script" path="res://Scenes/MainMap/EndScreen.gd" id="1_fd8k2"]
@@ -43,13 +43,6 @@ size_flags_vertical = 3
 [node name="Label" type="Label" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
 text = "You win"
-label_settings = ExtResource("1_0xvj8")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ScoreLabel" type="Label" parent="NinePatchRect/VBoxContainer"]
-layout_mode = 2
-text = "Score: 0"
 label_settings = ExtResource("1_0xvj8")
 horizontal_alignment = 1
 vertical_alignment = 1
