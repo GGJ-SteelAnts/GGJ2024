@@ -108,7 +108,7 @@ texture = ExtResource("12_jtung")
 
 [node name="Mug2" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(2682, 327)
+position = Vector2(2682, 322)
 scale = Vector2(4, 4)
 texture = ExtResource("13_e1hbu")
 
