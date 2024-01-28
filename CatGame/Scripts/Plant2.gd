@@ -5,7 +5,7 @@ var isGrounded : bool
 var fallingSpeed : int		# Falling speed
 var fallingAccel : int		# Falling speed increment
 var groundHeight : int		# Y-axis position at where the item stops falling
-var fallingRotation : bool
+@export var fallingRotation : bool
 
 
 func _ready():
@@ -15,11 +15,11 @@ func _ready():
 	fallingSpeed = randi() % 50
 	fallingAccel = 10
 	groundHeight = 580
-	fallingRotation = true
+	#fallingRotation = true
 	print("FallingSpeed " + str(fallingSpeed))
 	itemName = "Flower pot"
 	itemType = ItemType.PLANT
-	if $Animation:
+	if has_node("Animation"):
 		breakAnimation = $Animation
 
 
