@@ -118,12 +118,10 @@ func Interaction(delta):
 				player.show()
 				player.canMove = true
 				
-				if gui.Task1.TaskType == Enums.TaskTypeEnum.Sleep:
-					gui.Task1.currentAmount += 1
-				if gui.Task2.TaskType == Enums.TaskTypeEnum.Sleep:
-					gui.Task2.currentAmount += 1
-				if gui.Task3.TaskType == Enums.TaskTypeEnum.Sleep:
-					gui.Task3.currentAmount += 1
+				for Task in [gui.Task1, gui.Task2, gui.Task3]:
+					if Task.TaskType == Enums.TaskTypeEnum.Sleep:
+						Task.currentAmount += 1
+						
 	elif type == ObjectsTypes.Drop:
 		onGround = false
 		canInteract = false
