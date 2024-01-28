@@ -6,14 +6,17 @@ var maxAmount : int = 0
 var currentAmount : int = 0
 var item : Enums.ItemTypeEnum = Enums.ItemTypeEnum.Empty
 
-@onready var icon = get_node("TaskFrame/Icon")
+@onready var icon = get_node("Icon")
 @onready var taskTimerBar = get_node("TaskTimerBar")
 @onready var label = get_node("Label")
 
-var BreakItemTexture = preload("res://Scenes/Assets/Tasks/Hungry.png")
-var DontBreakTexture = preload("res://Scenes/Assets/Tasks/Sleepy.png")
-var CatchMouseTexture = preload("res://Scenes/Assets/Tasks/Catnipy.png")
-var PottyPottyTexture = preload("res://Scenes/Assets/Tasks/Shitty.png")
+var BreakVaseTexture = preload("res://Scenes/Assets/Tasks/BreakVase1.png")
+var BreakLaptopTexture = preload("res://Scenes/Assets/Tasks/BreakLaptop1.png")
+var BreakFishTankTexture = preload("res://Scenes/Assets/Tasks/BreakFishTank1.png")
+var BreakGlassTexture = preload("res://Scenes/Assets/Tasks/BreakGlass1.png")
+var DontBreakTexture = preload("res://Scenes/Assets/Tasks/DontBreak1.png")
+var CatchMouseTexture = preload("res://Scenes/Assets/Tasks/CatchMouse1.png")
+var SleepTexture = preload("res://Scenes/Assets/Tasks/Sleep.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -48,13 +51,21 @@ func resetResource():
 func chooseArt(taskType):
 	match taskType:
 		Enums.TaskTypeEnum.BreakItem:
-			icon.texture = BreakItemTexture
+			match item:
+				Enums.ItemTypeEnum.Vase:
+					icon.texture = BreakVaseTexture
+				Enums.ItemTypeEnum.Laptop:
+					icon.texture = BreakLaptopTexture
+				Enums.ItemTypeEnum.FishTank:
+					icon.texture = BreakFishTankTexture
+				Enums.ItemTypeEnum.Glass:
+					icon.texture = BreakGlassTexture
 		Enums.TaskTypeEnum.DontBreak:
 			icon.texture = DontBreakTexture
 		Enums.TaskTypeEnum.CatchMouse:
 			icon.texture = CatchMouseTexture
-		Enums.TaskTypeEnum.PottyPotty:
-			icon.texture = PottyPottyTexture
+		Enums.TaskTypeEnum.Sleep:
+			icon.texture = SleepTexture
 		Enums.TaskTypeEnum.Empty:
 			icon.texture = null
 			
@@ -71,10 +82,16 @@ func updateTaskLabel(taskType):
 		label.text = str(currentAmount) + " / " + str(maxAmount)
 		
 func isTaskFinished():
-	if (currentAmount >= maxAmount) or time <= 0:
-		return true
+	if (TaskType == Enums.TaskTypeEnum.DontBreak):
+		if (currentAmount != maxAmount) or time <= 0:
+			return true
+		else:
+			return false
 	else:
-		return false
+		if (currentAmount >= maxAmount) or time <= 0:
+			return true
+		else:
+			return false
 
 func wasTaskSuccessful():
 	match TaskType:
@@ -84,16 +101,17 @@ func wasTaskSuccessful():
 			else :
 				return false
 		Enums.TaskTypeEnum.DontBreak:
-			if currentAmount >= maxAmount:
+			if currentAmount == maxAmount:
+				#return true Adding points elsewhere
 				return false
 			else :
-				return true
+				return false
 		Enums.TaskTypeEnum.CatchMouse:
 			if currentAmount >= maxAmount:
 				return true
 			else :
 				return false
-		Enums.TaskTypeEnum.PottyPotty:
+		Enums.TaskTypeEnum.Sleep:
 			if currentAmount >= maxAmount:
 				return true
 			else :
@@ -113,8 +131,8 @@ func chooseTask():
 			task = Enums.TaskTypeEnum.DontBreak
 		"CatchMouse":
 			task = Enums.TaskTypeEnum.CatchMouse
-		"PottyPotty":
-			task = Enums.TaskTypeEnum.PottyPotty
+		"Sleep":
+			task = Enums.TaskTypeEnum.Sleep
 	return task
 
 func generateTaskStats(taskType):
@@ -148,8 +166,8 @@ func generateTaskStats(taskType):
 			item = Enums.ItemTypeEnum.Empty
 			maxAmount = 1
 			
-		Enums.TaskTypeEnum.PottyPotty:
-			icon.texture = PottyPottyTexture
+		Enums.TaskTypeEnum.Sleep:
+			icon.texture = SleepTexture
 			time = rng.randf_range(20, 30)
 			item = Enums.ItemTypeEnum.Empty
 			maxAmount = 1

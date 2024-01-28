@@ -7,13 +7,15 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eq84c"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("2_xokvu")
+type = 3
+itemTypeEnum = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, -34)
 scale = Vector2(4, 4)
 texture = ExtResource("1_1nbwn")
-script = ExtResource("2_xokvu")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -41,5 +43,5 @@ label_settings = ExtResource("3_4482i")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="body_entered" from="Area2D" to="Sprite2D" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="Sprite2D" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
