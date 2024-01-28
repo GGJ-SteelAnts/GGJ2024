@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://co6k5kudklti2"]
+[gd_scene load_steps=50 format=3 uid="uid://co6k5kudklti2"]
 
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_mr8sf"]
 [ext_resource type="Texture2D" uid="uid://d3tdaiy0sxpdo" path="res://Scenes/Assets/Cat/CatIdle1.png" id="2_2nexp"]
@@ -46,6 +46,7 @@
 [ext_resource type="AudioStream" uid="uid://tf052vdbw20t" path="res://Scenes/Sounds/Cat/CatLandingCloset04.wav" id="25_vxp1r"]
 [ext_resource type="AudioStream" uid="uid://ddbb1hm4tu1m7" path="res://Scenes/Sounds/Cat/CatLandingCloset05.wav" id="26_00tbo"]
 [ext_resource type="AudioStream" uid="uid://orhiuxwnodtp" path="res://Scenes/Sounds/Cat/CatLandingCloset06.wav" id="27_i6s80"]
+[ext_resource type="AudioStream" uid="uid://bciuo3dptuc01" path="res://Scenes/Sounds/CatastrophySoundtrack.wav" id="47_4jlwl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mgvdp"]
 animations = [{
@@ -180,6 +181,9 @@ autoplay = true
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
-[node name="MainMusic" type="AudioStreamPlayer2D" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("47_4jlwl")
+autoplay = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]

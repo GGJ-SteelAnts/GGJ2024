@@ -1,17 +1,48 @@
-[gd_scene load_steps=5 format=3 uid="uid://df1sgmx4ey6i0"]
+[gd_scene load_steps=12 format=3 uid="uid://df1sgmx4ey6i0"]
 
-[ext_resource type="Texture2D" uid="uid://b23mn12f3aqjy" path="res://Scenes/Assets/Objects/Laptop1.png" id="1_1nbwn"]
-[ext_resource type="Script" path="res://Scenes/Objects/Objects.gd" id="2_xokvu"]
+[ext_resource type="Texture2D" uid="uid://fma05wdhvwwg" path="res://Scenes/Assets/Objects/Laptop1.png" id="1_1nbwn"]
+[ext_resource type="Script" path="res://Scripts/Plant2.gd" id="1_omtgn"]
 [ext_resource type="LabelSettings" uid="uid://b5smbjexhppw" path="res://Scenes/Assets/Fonts/Interact_Font.tres" id="3_4482i"]
+[ext_resource type="Texture2D" uid="uid://bvbi3d0log1ei" path="res://Scenes/Assets/Objects/LaptopBreaks1.png" id="4_xrayw"]
+[ext_resource type="Texture2D" uid="uid://dillpgwijq3d0" path="res://Scenes/Assets/Objects/LaptopBreaks2.png" id="5_n1jt3"]
+[ext_resource type="Texture2D" uid="uid://dq4b38dwdlneo" path="res://Scenes/Assets/Objects/LaptopBreaks3.png" id="6_5hcp2"]
+[ext_resource type="Texture2D" uid="uid://cte00gc3gtaox" path="res://Scenes/Assets/Objects/LaptopBreaks4.png" id="7_ty4sw"]
+[ext_resource type="Texture2D" uid="uid://osh3w6eldvte" path="res://Scenes/Assets/Objects/LaptopBreaks5.png" id="8_g5r2o"]
+[ext_resource type="Texture2D" uid="uid://dm8m065j6lul8" path="res://Scenes/Assets/Objects/LaptopBreaks6.png" id="9_u4okq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eq84c"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_8kfa4"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("4_xrayw")
+}, {
+"duration": 0.5,
+"texture": ExtResource("5_n1jt3")
+}, {
+"duration": 0.5,
+"texture": ExtResource("6_5hcp2")
+}, {
+"duration": 0.5,
+"texture": ExtResource("7_ty4sw")
+}, {
+"duration": 0.5,
+"texture": ExtResource("8_g5r2o")
+}, {
+"duration": 0.5,
+"texture": ExtResource("9_u4okq")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Node2D" type="Node2D"]
-script = ExtResource("2_xokvu")
-type = 3
-itemTypeEnum = 2
+script = ExtResource("1_omtgn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
 position = Vector2(0, -34)
 scale = Vector2(4, 4)
@@ -42,6 +73,12 @@ text = "Press E"
 label_settings = ExtResource("3_4482i")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -34)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_8kfa4")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

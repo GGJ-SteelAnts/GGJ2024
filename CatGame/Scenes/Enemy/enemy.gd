@@ -100,6 +100,7 @@ func _physics_process(delta):
 			animator.flip_h = true
 		
 		if state == "Reading":
+			triggered = true
 			my_random_number = rng.randi_range(0, angrySounds.size()-1)
 			soundPlayer.stream = angrySounds[my_random_number]
 			soundPlayer.playing = true
@@ -184,8 +185,9 @@ func makeHimAngry(angerDamage):
 
 
 func _on_timer_timeout():
-	actualGameTime += 1
-	actualPageTime += 1
+	if triggered:
+		actualGameTime += 1
+		actualPageTime += 1
 
 
 func _on_audio_stream_player_2d_finished():

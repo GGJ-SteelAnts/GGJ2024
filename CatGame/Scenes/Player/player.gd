@@ -7,8 +7,8 @@ extends CharacterBody2D
 @onready var fallparticle : CPUParticles2D = $CPUParticles2D
 @onready var soundPlayer : AudioStreamPlayer2D = $Sounds
 
-@onready var mainSoundPlayer : AudioStreamPlayer2D = $MainMusic
-@onready var music : AudioStreamWAV = load("res://Scenes/Sounds/CatastrophySoundtrack.wav")
+@onready var musicPlayer : AudioStreamPlayer = $Music
+@onready var music : AudioStream = load("res://Scenes/Sounds/CatastrophySoundtrack.wav")
 
 @export var catSounds : Array
 @export var dropSofaSounds : Array
@@ -28,7 +28,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var indicator = get_node("Sprite2D") 
 
 func _ready():
-	mainSoundPlayer.stream = music
+	musicPlayer.stream = music
+	musicPlayer.play()
 
 func _process(delta):
 	if global_position.y < 0:
@@ -41,7 +42,7 @@ func _process(delta):
 			var rng = RandomNumberGenerator.new()
 			var my_random_number = rng.randi_range(0, catSounds.size()-1)
 			soundPlayer.stream = catSounds[my_random_number]
-			soundPlayer.playing = true
+			soundPlayer.play()
 			actualSoundTimer = 0
 		
 	$Sprite2D.global_position = Vector2(global_position.x, $Sprite2D.texture.get_height())
@@ -58,14 +59,14 @@ func _physics_process(delta):
 					var rng = RandomNumberGenerator.new()
 					var my_random_number = rng.randi_range(0, dropSofaSounds.size()-1)
 					soundPlayer.stream = dropSofaSounds[my_random_number]
-					soundPlayer.playing = true
+					soundPlayer.play()
 		elif collision.get_collider().get_parent().is_in_group("Closet"):
 			if is_on_floor() && soundPlayer.finished && fallDuration != 0:
 				if dropClosedSounds.size() > 0:				
 					var rng = RandomNumberGenerator.new()
 					var my_random_number = rng.randi_range(0, dropClosedSounds.size()-1)
 					soundPlayer.stream = dropClosedSounds[my_random_number]
-					soundPlayer.playing = true
+					soundPlayer.play()
 	
 	# Add the gravity.
 	fallDuration += 1
@@ -132,3 +133,7 @@ func _physics_process(delta):
 
 func _on_timer_timeout():
 	actualSoundTimer += 1
+
+
+func _on_music_finished():
+	musicPlayer.play()
