@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://b2xvpqdlvnnw2"]
 
-[ext_resource type="Texture2D" uid="uid://dajxugys7q00w" path="res://Scenes/Assets/Furniture/Shelf2.png" id="1_dx0pk"]
+[ext_resource type="Texture2D" uid="uid://bpk7cfwx7qmis" path="res://Scenes/Assets/Furniture/Shelf2.png" id="1_dx0pk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1k38v"]
 size = Vector2(155, 14)
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" groups=["Closet"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
