@@ -12,10 +12,8 @@ size = Vector2(28, 880)
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_55qa7")
-metadata/_edit_lock_ = true
 
 [node name="Rooms" type="Node2D" parent="."]
-metadata/_edit_lock_ = true
 
 [node name="Livingroom" parent="Rooms" instance=ExtResource("2_460ni")]
 metadata/_edit_lock_ = true
@@ -61,9 +59,13 @@ position = Vector2(341, 528)
 [node name="Player" parent="Dynamics" instance=ExtResource("2_gmhjk")]
 position = Vector2(409, 528)
 SPEED = 300.0
+JUMP_VELOCITY = 540.0
+JUMP_LIMIT = 500.0
 catSounds = []
 dropSofaSounds = []
 dropClosedSounds = []
+canMove = true
+soundTimer = 10
 
 [node name="Enemy" parent="Dynamics" instance=ExtResource("4_51o6s")]
 position = Vector2(606, 590)
