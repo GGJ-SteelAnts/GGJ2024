@@ -126,7 +126,21 @@ func _physics_process(delta):
 			state = "StartCleaning"
 			actualProgress = 0
 			cleaning = false
-			nearest.queue_free()
+			if nearest.itemTypeEnum != Enums.ItemTypeEnum.Laptop:
+				nearest.queue_free()
+			else:
+				nearest.global_position = nearest.startPosition
+				nearest.global_rotation = nearest.startRotation
+				nearest.remove_from_group("Issues")
+				nearest.breakAnimation.stop()
+				nearest.breakAnimation.frame = 0
+				nearest.canInteract = true
+				nearest.isFalling = false
+				nearest.isGrounded = false
+				nearest.fallingSpeed = randi() % 50
+				nearest.fallingAccel = 10
+				nearest.groundHeight = 580
+				nearest = null
 	else:
 		if bookSpot.x > global_position.x:
 			animator.flip_h  = false
