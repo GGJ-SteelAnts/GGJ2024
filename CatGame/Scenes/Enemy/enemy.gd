@@ -37,13 +37,17 @@ var my_random_number
 var objedno = false
 var walk = true
 @onready var gui = get_node("/root/Map/Dynamics/Player/Gui")
+@onready var pageCounterLabel = get_node("PageCounterLabel")
+
+func updatePageCounterLabel():
+	pageCounterLabel.text = "Pages left: " + str(pages)
 
 func _ready():
 	pass
 
 func _process(delta):
 	#print(actualAnger)
-	
+	updatePageCounterLabel()
 	var rng = RandomNumberGenerator.new()
 	if actualGameTime > gameTime:
 		var end = endScreen.instantiate()
@@ -97,6 +101,7 @@ func _physics_process(delta):
 			animator.flip_h = true
 		
 		if state == "Reading":
+			pageCounterLabel.visible = false
 			triggered = true
 			my_random_number = rng.randi_range(0, angrySounds.size()-1)
 			soundPlayer.stream = angrySounds[my_random_number]
@@ -129,6 +134,7 @@ func _physics_process(delta):
 			animator.flip_h = true
 		
 		if state == "Walking" && abs(bookSpot.x - global_position.x) <= 2:
+			pageCounterLabel.visible = true
 			state = "Reading"
 			actualPageTime = 0
 	
