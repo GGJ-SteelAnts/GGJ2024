@@ -1,10 +1,42 @@
-[gd_scene load_steps=5 format=3 uid="uid://b68wnm54acy7o"]
+[gd_scene load_steps=12 format=3 uid="uid://b68wnm54acy7o"]
 
 [ext_resource type="Script" path="res://Scripts/Plant2.gd" id="1_ob5ax"]
-[ext_resource type="Texture2D" uid="uid://fnq2r4iwew5r" path="res://Scenes/Assets/Objects/Plant1.png" id="2_nphit"]
+[ext_resource type="Texture2D" uid="uid://48336v5fxkit" path="res://Scenes/Assets/Objects/Plant1.png" id="2_nphit"]
 [ext_resource type="LabelSettings" uid="uid://b5smbjexhppw" path="res://Scenes/Assets/Fonts/Interact_Font.tres" id="3_mcjdh"]
+[ext_resource type="Texture2D" uid="uid://rxssgl4b5h0x" path="res://Scenes/Assets/Objects/Plant1Breaks1.png" id="4_icqo8"]
+[ext_resource type="Texture2D" uid="uid://evq3nq3eusrw" path="res://Scenes/Assets/Objects/Plant1Breaks2.png" id="5_8ncca"]
+[ext_resource type="Texture2D" uid="uid://bhujc3rhhks0e" path="res://Scenes/Assets/Objects/Plant1Breaks3.png" id="6_usbcv"]
+[ext_resource type="Texture2D" uid="uid://i2vjr3hu5a3p" path="res://Scenes/Assets/Objects/Plant1Breaks4.png" id="7_goapy"]
+[ext_resource type="Texture2D" uid="uid://cli43jqn1jf0a" path="res://Scenes/Assets/Objects/Plant1Breaks5.png" id="8_4lfgq"]
+[ext_resource type="Texture2D" uid="uid://c17wr7kleeule" path="res://Scenes/Assets/Objects/Plant1Breaks6.png" id="9_52a3i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ngk8i"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wku8k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_icqo8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8ncca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_usbcv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_goapy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4lfgq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_52a3i")
+}],
+"loop": false,
+"name": &"default",
+"speed": 24.0
+}]
 
 [node name="Plant1" type="Node2D"]
 script = ExtResource("1_ob5ax")
@@ -40,6 +72,11 @@ text = "Press E"
 label_settings = ExtResource("3_mcjdh")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_wku8k")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
