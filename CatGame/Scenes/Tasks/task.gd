@@ -4,7 +4,7 @@ var TaskType : Enums.TaskTypeEnum = Enums.TaskTypeEnum.Empty
 var time : float = 0.0
 var maxAmount : int = 0
 var currentAmount : int = 0
-var item : Enums.ItemTypeEnum = Enums.ItemTypeEnum.Empty
+@export var item : Enums.ItemTypeEnum = Enums.ItemTypeEnum.Empty
 
 @onready var icon = get_node("Icon")
 @onready var taskTimerBar = get_node("TaskTimerBar")
