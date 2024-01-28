@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://df1sgmx4ey6i0"]
 
-[ext_resource type="Texture2D" uid="uid://b0uu44h4df6p7" path="res://Scenes/Assets/Objects/Laptop1.png" id="1_1nbwn"]
+[ext_resource type="Texture2D" uid="uid://b23mn12f3aqjy" path="res://Scenes/Assets/Objects/Laptop1.png" id="1_1nbwn"]
 [ext_resource type="Script" path="res://Scenes/Objects/Objects.gd" id="2_xokvu"]
 [ext_resource type="LabelSettings" uid="uid://b5smbjexhppw" path="res://Scenes/Assets/Fonts/Interact_Font.tres" id="3_4482i"]
 
@@ -9,7 +9,7 @@
 [node name="Node2D" type="Node2D"]
 script = ExtResource("2_xokvu")
 type = 3
-itemTypeEnum = 4
+itemTypeEnum = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

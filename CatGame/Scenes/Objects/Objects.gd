@@ -134,11 +134,34 @@ func Interaction(delta):
 		interactable = false
 		label.visible = false
 		if gui.Task1.TaskType == Enums.TaskTypeEnum.BreakItem:
-			gui.Task1.currentAmount += 1
+			if gui.Task1.item == Enums.ItemTypeEnum.Vase and itemTypeEnum == Enums.ItemTypeEnum.Vase:
+				gui.Task1.currentAmount += 1
+			if gui.Task1.item == Enums.ItemTypeEnum.Laptop and itemTypeEnum == Enums.ItemTypeEnum.Laptop:
+				gui.Task1.currentAmount += 1
+			if gui.Task1.item == Enums.ItemTypeEnum.FishTank and itemTypeEnum == Enums.ItemTypeEnum.FishTank:
+				gui.Task1.currentAmount += 1
+			if gui.Task1.item == Enums.ItemTypeEnum.Glass and itemTypeEnum == Enums.ItemTypeEnum.Glass:
+				gui.Task1.currentAmount += 1
+				
 		if gui.Task2.TaskType == Enums.TaskTypeEnum.BreakItem:
-			gui.Task2.currentAmount += 1
+			if gui.Task2.item == Enums.ItemTypeEnum.Vase and itemTypeEnum == Enums.ItemTypeEnum.Vase:
+				gui.Task2.currentAmount += 1
+			if gui.Task2.item == Enums.ItemTypeEnum.Laptop and itemTypeEnum == Enums.ItemTypeEnum.Laptop:
+				gui.Task2.currentAmount += 1
+			if gui.Task2.item == Enums.ItemTypeEnum.FishTank and itemTypeEnum == Enums.ItemTypeEnum.FishTank:
+				gui.Task2.currentAmount += 1
+			if gui.Task2.item == Enums.ItemTypeEnum.Glass and itemTypeEnum == Enums.ItemTypeEnum.Glass:
+				gui.Task2.currentAmount += 1
+				
 		if gui.Task3.TaskType == Enums.TaskTypeEnum.BreakItem:
-			gui.Task3.currentAmount += 1
+			if gui.Task3.item == Enums.ItemTypeEnum.Vase and itemTypeEnum == Enums.ItemTypeEnum.Vase:
+				gui.Task3.currentAmount += 1
+			if gui.Task3.item == Enums.ItemTypeEnum.Laptop and itemTypeEnum == Enums.ItemTypeEnum.Laptop:
+				gui.Task3.currentAmount += 1
+			if gui.Task3.item == Enums.ItemTypeEnum.FishTank and itemTypeEnum == Enums.ItemTypeEnum.FishTank:
+				gui.Task3.currentAmount += 1
+			if gui.Task3.item == Enums.ItemTypeEnum.Glass and itemTypeEnum == Enums.ItemTypeEnum.Glass:
+				gui.Task3.currentAmount += 1
 			
 		if gui.Task1.TaskType == Enums.TaskTypeEnum.DontBreak:
 			gui.Task1.currentAmount += 1
