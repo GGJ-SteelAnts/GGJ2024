@@ -53,6 +53,7 @@ func _process(delta):
 		get_tree().get_root().add_child(end)
 		end.scoreLabel.text = "Score: " + str(gui.Score)
 		end.label.text = "You Win"
+		end.SongPlay(true);
 		
 	if state == "Reading" && actualPageTime > pageTime && triggered:
 		stackPage += 2
@@ -64,10 +65,12 @@ func _process(delta):
 			soundPlayer.playing = true
 		else:
 			objedno = false
+			
 		if actualAnger > 0:
 			actualAnger -= stackPage
 		else:
 			actualAnger = 0
+			
 		if pages <= 0:
 			var end = endScreen.instantiate()
 			gui = get_node("/root/Map/Dynamics/Player/Gui")
@@ -75,6 +78,7 @@ func _process(delta):
 			get_tree().get_root().add_child(end)
 			end.scoreLabel.text = "Score: " + str(gui.Score)
 			end.label.text = "You Lose"
+			end.SongPlay(false);
 		actualPageTime = 0
 
 func _physics_process(delta):

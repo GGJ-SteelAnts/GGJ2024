@@ -20,8 +20,13 @@ metadata/_edit_lock_ = true
 
 [node name="Dynamics" type="Node2D" parent="."]
 
+[node name="Player" parent="Dynamics" instance=ExtResource("2_gmhjk")]
+position = Vector2(409, 528)
+SPEED = 300.0
+catSounds = []
+dropSofaSounds = []
+dropClosedSounds = []
+
 [node name="Enemy" parent="Dynamics" instance=ExtResource("4_51o6s")]
 position = Vector2(607, 590)
 bookSpot = Vector2(607, 590)
-
-[node name="Player" parent="Dynamics" instance=ExtResource("2_gmhjk")]
