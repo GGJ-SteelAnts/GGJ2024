@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://36uyxcoevafq"]
+[gd_scene load_steps=9 format=3 uid="uid://36uyxcoevafq"]
 
 [ext_resource type="Texture2D" uid="uid://n7ftj4xk0t35" path="res://Scenes/Assets/Backgrounds/KitchenRoom1.png" id="1_0a1lg"]
 [ext_resource type="PackedScene" uid="uid://bsbiocpmc16yf" path="res://Scenes/Furniture/Fridge1/fridge1.tscn" id="2_v6usi"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b2xvpqdlvnnw2" path="res://Scenes/Furniture/Shelf2/Shelf2.tscn" id="5_llwkv"]
 [ext_resource type="PackedScene" uid="uid://kgugbx4uh4id" path="res://Scenes/Furniture/Garbage1/Garbage1.tscn" id="6_opv6y"]
 [ext_resource type="PackedScene" uid="uid://ie41gy7deuev" path="res://Scenes/Objects/Glass1/Glass1.tscn" id="7_da81i"]
+[ext_resource type="PackedScene" uid="uid://vk4bcdu70mea" path="res://Scenes/Objects/Plant2/Plant2.tscn" id="8_tofcy"]
 
 [node name="Map" type="Node2D"]
 
@@ -46,3 +47,6 @@ position = Vector2(602, 358)
 
 [node name="Node2D9" parent="." instance=ExtResource("7_da81i")]
 position = Vector2(702, 358)
+
+[node name="Plant2" parent="." instance=ExtResource("8_tofcy")]
+position = Vector2(306, 367)
