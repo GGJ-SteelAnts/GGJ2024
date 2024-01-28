@@ -6,6 +6,8 @@ var fallingSpeed : int		# Falling speed
 var fallingAccel : int		# Falling speed increment
 var groundHeight : int		# Y-axis position at where the item stops falling
 @export var fallingRotation : bool
+var startPosition : Vector2
+var startRotation : float
 
 
 func _ready():
@@ -15,6 +17,8 @@ func _ready():
 	fallingSpeed = randi() % 50
 	fallingAccel = 10
 	groundHeight = 580
+	startPosition = global_position
+	startRotation = global_rotation
 	#fallingRotation = true
 	#print("FallingSpeed " + str(fallingSpeed))
 	itemName = "Flower pot"
