@@ -1,14 +1,14 @@
 [gd_scene load_steps=12 format=3 uid="uid://df1sgmx4ey6i0"]
 
-[ext_resource type="Texture2D" uid="uid://fma05wdhvwwg" path="res://Scenes/Assets/Objects/Laptop1.png" id="1_1nbwn"]
+[ext_resource type="Texture2D" uid="uid://o4kd204ye5l8" path="res://Scenes/Assets/Objects/Laptop1.png" id="1_1nbwn"]
 [ext_resource type="Script" path="res://Scripts/Plant2.gd" id="1_omtgn"]
 [ext_resource type="LabelSettings" uid="uid://b5smbjexhppw" path="res://Scenes/Assets/Fonts/Interact_Font.tres" id="3_4482i"]
-[ext_resource type="Texture2D" uid="uid://bvbi3d0log1ei" path="res://Scenes/Assets/Objects/LaptopBreaks1.png" id="4_xrayw"]
-[ext_resource type="Texture2D" uid="uid://dillpgwijq3d0" path="res://Scenes/Assets/Objects/LaptopBreaks2.png" id="5_n1jt3"]
-[ext_resource type="Texture2D" uid="uid://dq4b38dwdlneo" path="res://Scenes/Assets/Objects/LaptopBreaks3.png" id="6_5hcp2"]
-[ext_resource type="Texture2D" uid="uid://cte00gc3gtaox" path="res://Scenes/Assets/Objects/LaptopBreaks4.png" id="7_ty4sw"]
-[ext_resource type="Texture2D" uid="uid://osh3w6eldvte" path="res://Scenes/Assets/Objects/LaptopBreaks5.png" id="8_g5r2o"]
-[ext_resource type="Texture2D" uid="uid://dm8m065j6lul8" path="res://Scenes/Assets/Objects/LaptopBreaks6.png" id="9_u4okq"]
+[ext_resource type="Texture2D" uid="uid://daoo31bbfk76e" path="res://Scenes/Assets/Objects/LaptopBreaks1.png" id="4_xrayw"]
+[ext_resource type="Texture2D" uid="uid://cygp85sa4plw1" path="res://Scenes/Assets/Objects/LaptopBreaks2.png" id="5_n1jt3"]
+[ext_resource type="Texture2D" uid="uid://cg8i6wcwcgw0k" path="res://Scenes/Assets/Objects/LaptopBreaks3.png" id="6_5hcp2"]
+[ext_resource type="Texture2D" uid="uid://cufbbog1g0lwk" path="res://Scenes/Assets/Objects/LaptopBreaks4.png" id="7_ty4sw"]
+[ext_resource type="Texture2D" uid="uid://ck6l5dwy61oc" path="res://Scenes/Assets/Objects/LaptopBreaks5.png" id="8_g5r2o"]
+[ext_resource type="Texture2D" uid="uid://011n34tdxeli" path="res://Scenes/Assets/Objects/LaptopBreaks6.png" id="9_u4okq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eq84c"]
 
@@ -38,7 +38,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Node2D" type="Node2D"]
+[node name="Notebook" type="Node2D"]
 script = ExtResource("1_omtgn")
 angerDamage = 40
 itemTypeEnum = 2

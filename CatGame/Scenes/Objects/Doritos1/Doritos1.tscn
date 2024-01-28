@@ -1,0 +1,86 @@
+[gd_scene load_steps=11 format=3 uid="uid://btd8wu7lao1ln"]
+
+[ext_resource type="Texture2D" uid="uid://c35gn5q6ncdn5" path="res://Scenes/Assets/Objects/doritos.png" id="1_88k31"]
+[ext_resource type="Script" path="res://Scripts/Plant2.gd" id="1_578if"]
+[ext_resource type="LabelSettings" uid="uid://b5smbjexhppw" path="res://Scenes/Assets/Fonts/Interact_Font.tres" id="2_w8vu6"]
+[ext_resource type="Texture2D" uid="uid://ba77ookdcb18x" path="res://Scenes/Assets/Objects/doritos-1.png" id="4_2ffw3"]
+[ext_resource type="Texture2D" uid="uid://bxgin5nk32x8v" path="res://Scenes/Assets/Objects/doritos-2.png" id="5_0brd2"]
+[ext_resource type="Texture2D" uid="uid://bksg2isyoweaw" path="res://Scenes/Assets/Objects/doritos-3.png" id="6_be6rj"]
+[ext_resource type="Texture2D" uid="uid://b50pfvcjj2tkt" path="res://Scenes/Assets/Objects/doritos-4.png" id="7_qafpw"]
+[ext_resource type="Texture2D" uid="uid://dngotlpacdy0v" path="res://Scenes/Assets/Objects/doritos-5.png" id="8_lo3p6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ngk8i"]
+radius = 17.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3pdol"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_88k31")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2ffw3")
+}, {
+"duration": 1.5,
+"texture": ExtResource("5_0brd2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_be6rj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qafpw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_lo3p6")
+}],
+"loop": false,
+"name": &"default",
+"speed": 24.0
+}]
+
+[node name="Doritos1" type="Node2D"]
+script = ExtResource("1_578if")
+itemTypeEnum = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_88k31")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-3, -34)
+shape = SubResource("CircleShape2D_ngk8i")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+z_index = 5
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -48.0
+offset_right = 28.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Press E"
+label_settings = ExtResource("2_w8vu6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -50)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_3pdol")
+speed_scale = 0.2
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
