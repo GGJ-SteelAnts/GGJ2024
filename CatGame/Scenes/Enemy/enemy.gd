@@ -50,7 +50,7 @@ func _process(delta):
 		end.label.text = "You Win"
 		
 	if state == "Reading" && actualPageTime > pageTime && triggered:
-		stackPage += 1
+		stackPage += 2
 		pages -= 1
 		if !objedno:
 			objedno = true
