@@ -12,8 +12,10 @@ func Break():
 		if Task.TaskType == Enums.TaskTypeEnum.DontBreak:
 			Task.resetResource()
 		elif Task.TaskType == Enums.TaskTypeEnum.BreakItem:
-			if Task.Item == $itemTypeEnum:
-				gui.Task.currentAmount += 1
+			print(Task.item)
+			print(itemTypeEnum)
+			if Task.item == itemTypeEnum:
+				Task.currentAmount += 1
 
 	print("Item broke")
 
