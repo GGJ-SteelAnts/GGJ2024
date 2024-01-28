@@ -42,13 +42,13 @@ func _ready():
 
 func _process(delta):
 	print(actualAnger)
-	var gui = get_node("/root/Map/Player/Gui")
+	var gui = get_node("/root/Map/Dynamics/Player/Gui")
 	#gui.PissMeter = actualAnger
 	
 	var rng = RandomNumberGenerator.new()
 	if actualGameTime > gameTime:
 		var end = endScreen.instantiate()
-		gui = get_node("/root/Map/Player/Gui")
+		gui = get_node("/root/Map/Dynamics/Player/Gui")
 		get_tree().get_root().get_node("Map").queue_free()
 		get_tree().get_root().add_child(end)
 		end.scoreLabel.text = "Score: " + str(gui.Score)
@@ -70,7 +70,7 @@ func _process(delta):
 			actualAnger = 0
 		if pages <= 0:
 			var end = endScreen.instantiate()
-			gui = get_node("/root/Map/Player/Gui")
+			gui = get_node("/root/Map/Dynamics/Player/Gui")
 			get_tree().get_root().get_node("Map").queue_free()
 			get_tree().get_root().add_child(end)
 			end.scoreLabel.text = "Score: " + str(gui.Score)
@@ -87,7 +87,7 @@ func _physics_process(delta):
 			nearest = target
 	
 	if actualAnger >= 100:
-		player = get_node("/root/Map/Player")
+		player = get_node("/root/Map/Dynamics/Player")
 	
 	if nearest != null:
 		if nearest.global_position.x > global_position.x:
@@ -150,7 +150,7 @@ func move(delta):
 		
 	if state == "Walking" && walk:
 		walk = false
-		if get_node("/root/Map/Player").global_position.x <= 240 * 8:
+		if get_node("/root/Map/Dynamics/Player").global_position.x <= 240 * 8:
 			my_random_number = rng.randi_range(0, walkWoodSounds.size()-1)
 			soundPlayer.stream = walkWoodSounds[my_random_number]
 			soundPlayer.playing = true
