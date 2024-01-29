@@ -24,7 +24,7 @@ func _ready():
 	timeLeftBar.value = enemy.gameTime
 	var m : float = floor(timeLeftBar.value / 60.0)
 	var mTrash : float = (timeLeftBar.value / 60.0) - m
-	var s : float = mTrash * 60.0
+	var s : float = round(mTrash * 60.0)
 	if m > 0:
 		timeLeftBarLabel.text = str(m) + "min "
 	if s > 0:
@@ -39,7 +39,7 @@ func _process(delta):
 	timeLeftBar.value = enemy.gameTime - enemy.actualGameTime
 	var m : float = floor(timeLeftBar.value / 60)
 	var mTrash : float = (timeLeftBar.value / 60) - m
-	var s : float = mTrash * 60
+	var s : float = round(mTrash * 60)
 	if m > 0:
 		timeLeftBarLabel.text = str(m) + "min "
 	if s > 0:
