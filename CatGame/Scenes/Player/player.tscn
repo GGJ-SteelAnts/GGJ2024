@@ -147,7 +147,7 @@ shape = SubResource("RectangleShape2D_crlfs")
 position = Vector2(9, -3)
 limit_left = 0
 limit_top = 0
-limit_right = 3120
+limit_right = 4080
 limit_bottom = 675
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]

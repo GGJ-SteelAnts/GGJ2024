@@ -16,16 +16,37 @@ var ActualTaskTime = 0.0
 
 @onready var enemy = get_tree().get_first_node_in_group("Enemy")
 @onready var timeLeftBar = get_node("TimeLeftBar");
+@onready var timeLeftBarLabel = get_node("TimeLeftBar/Label");
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	timeLeftBar.max_value = enemy.gameTime
 	timeLeftBar.value = enemy.gameTime
+	var m : float = floor(timeLeftBar.value / 60.0)
+	var mTrash : float = (timeLeftBar.value / 60.0) - m
+	var s : float = mTrash * 60.0
+	if m > 0:
+		timeLeftBarLabel.text = str(m) + "min "
+	if s > 0:
+		if timeLeftBarLabel.text == "":
+			timeLeftBarLabel.text = str(s) + "s"
+		else:
+			timeLeftBarLabel.text += str(s) + "s"
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	timeLeftBar.value = enemy.gameTime - enemy.actualGameTime
+	var m : float = floor(timeLeftBar.value / 60)
+	var mTrash : float = (timeLeftBar.value / 60) - m
+	var s : float = mTrash * 60
+	if m > 0:
+		timeLeftBarLabel.text = str(m) + "min "
+	if s > 0:
+		if timeLeftBarLabel.text == "":
+			timeLeftBarLabel.text = str(s) + "s"
+		else:
+			timeLeftBarLabel.text += str(s) + "s"
 	updateScoreLabel()
 	PissBar.value = PissMeter
 	

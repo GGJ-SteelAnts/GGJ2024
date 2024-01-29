@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var speed = 200.0
 @export var actualAnger = 0.0
 @export var bookSpot : Vector2
-@export var progress = 100
+@export var progress = 25
 
 @onready var animator = get_node("AnimatedSprite2D")
 
@@ -120,7 +120,7 @@ func _physics_process(delta):
 			actualProgress = 0
 		
 		if actualProgress < 100 && cleaning == true:
-			actualProgress += 10 * delta
+			actualProgress += progress * delta
 		elif actualProgress >= 100 && cleaning == true:
 			revert = true
 			state = "StartCleaning"
@@ -135,11 +135,10 @@ func _physics_process(delta):
 				nearest.breakAnimation.stop()
 				nearest.breakAnimation.frame = 0
 				nearest.canInteract = true
+				nearest.isInteracting = false
 				nearest.isFalling = false
 				nearest.isGrounded = false
 				nearest.fallingSpeed = randi() % 50
-				nearest.fallingAccel = 10
-				nearest.groundHeight = 580
 				nearest = null
 	else:
 		if bookSpot.x > global_position.x:

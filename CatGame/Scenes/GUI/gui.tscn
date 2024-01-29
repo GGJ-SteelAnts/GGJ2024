@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3x1jgpmvfttv"]
+[gd_scene load_steps=6 format=3 uid="uid://c3x1jgpmvfttv"]
 
 [ext_resource type="Script" path="res://Scenes/GUI/gui.gd" id="1_lab6h"]
 [ext_resource type="PackedScene" uid="uid://cmx51vutnwy6u" path="res://Scenes/Tasks/task.tscn" id="2_tj81g"]
-[ext_resource type="Texture2D" uid="uid://bg1mivykferau" path="res://Scenes/Assets/Tasks/PissBar1.png" id="3_u0jqy"]
-[ext_resource type="Texture2D" uid="uid://cbhevdwti31sf" path="res://Scenes/Assets/Tasks/PissBar2.png" id="4_r82lk"]
+[ext_resource type="Texture2D" uid="uid://48cu1dwvdjdw" path="res://Scenes/Assets/Tasks/PissBar1.png" id="3_u0jqy"]
+[ext_resource type="Texture2D" uid="uid://dfjdbpnuidsno" path="res://Scenes/Assets/Tasks/PissBar2.png" id="4_r82lk"]
+[ext_resource type="Texture2D" uid="uid://c8linnwamekj2" path="res://Scenes/Assets/Tasks/TimeBar2.png" id="5_w17np"]
 
 [node name="Gui" type="CanvasLayer"]
 script = ExtResource("1_lab6h")
@@ -41,36 +42,51 @@ vertical_alignment = 1
 
 [node name="PissBar" type="TextureProgressBar" parent="."]
 texture_filter = 1
-offset_left = 720.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -245.0
 offset_top = 40.0
-offset_right = 768.0
-offset_bottom = 48.0
+offset_right = -197.0
+offset_bottom = 47.0
+grow_horizontal = 0
 scale = Vector2(4, 4)
 texture_under = ExtResource("3_u0jqy")
 texture_progress = ExtResource("4_r82lk")
 
-[node name="TimeLeftBar" type="ProgressBar" parent="."]
-offset_left = 504.0
-offset_top = 41.0
-offset_right = 690.0
-offset_bottom = 68.0
-show_percentage = false
+[node name="TimeLeftBar" type="TextureProgressBar" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(48, 8)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -460.0
+offset_top = 40.0
+offset_right = -412.0
+offset_bottom = 48.0
+grow_horizontal = 0
+scale = Vector2(4, 4)
+max_value = 180.0
+value = 180.0
+texture_under = ExtResource("3_u0jqy")
+texture_progress = ExtResource("5_w17np")
 
 [node name="Label" type="Label" parent="TimeLeftBar"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -36.5
-offset_top = -11.5
-offset_right = 36.5
-offset_bottom = 11.5
+offset_left = -9.5
+offset_top = -3.75
+offset_right = 63.5
+offset_bottom = 19.25
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.25, 0.25)
 text = "Time Left"
 horizontal_alignment = 1
-vertical_alignment = 1
 
 [connection signal="timeout" from="Clock" to="." method="_on_timer_timeout"]
