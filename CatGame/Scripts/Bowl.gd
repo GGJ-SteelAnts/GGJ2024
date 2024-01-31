@@ -15,7 +15,6 @@ func _ready():
 	feedAmount = 2
 	timer = 0
 	#print("Bowl created")
-	player = get_node("Player")
 
 func _process(delta):
 	super._process(delta)
