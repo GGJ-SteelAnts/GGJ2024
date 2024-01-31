@@ -27,16 +27,22 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var indicator = get_node("Sprite2D") 
 
+var playerStats : PlayerStats
+
 func _ready():
 	musicPlayer.stream = music
 	musicPlayer.play()
+	
+	# specific stats and their values are initialized within the PlayerStats class.
+	# currently the player has Hunger, Stamina and Needs (potty potty)
+	playerStats = PlayerStats.new()
 
 func _process(delta):
+	playerStats.DeprecateStats(delta)
 	if global_position.y < 0:
 		indicator.visible = true
 	else:
 		indicator.visible = false
-		
 	if actualSoundTimer > soundTimer:
 		if catSounds.size() > 0:
 			var rng = RandomNumberGenerator.new()
