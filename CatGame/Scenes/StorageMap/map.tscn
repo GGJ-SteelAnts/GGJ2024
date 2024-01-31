@@ -1,13 +1,13 @@
 [gd_scene load_steps=12 format=3 uid="uid://btspmkwde2lyp"]
 
-[ext_resource type="Texture2D" uid="uid://cct5v5eo1xxhv" path="res://Scenes/Assets/Backgrounds/StorageRoom1.png" id="1_1qsvr"]
+[ext_resource type="Texture2D" uid="uid://cgkvlbflcnjbc" path="res://Scenes/Assets/Backgrounds/StorageRoom1.png" id="1_1qsvr"]
 [ext_resource type="PackedScene" uid="uid://bf4un0m43cuas" path="res://Scenes/Furniture/Shelf1/shelf1.tscn" id="2_c7wwp"]
-[ext_resource type="Texture2D" uid="uid://16q7x70q258a" path="res://Scenes/Assets/Objects/Can1.png" id="3_10qwk"]
+[ext_resource type="Texture2D" uid="uid://clcyrjkeupojm" path="res://Scenes/Assets/Objects/Can1.png" id="3_10qwk"]
 [ext_resource type="PackedScene" uid="uid://btd8wu7lao1ln" path="res://Scenes/Objects/Doritos1/Doritos1.tscn" id="3_upka7"]
-[ext_resource type="Texture2D" uid="uid://t86a51gpgt36" path="res://Scenes/Assets/Objects/Can2.png" id="4_btjqw"]
+[ext_resource type="Texture2D" uid="uid://blj3y67r51wjt" path="res://Scenes/Assets/Objects/Can2.png" id="4_btjqw"]
 [ext_resource type="PackedScene" uid="uid://cjs3npd0tviji" path="res://Scenes/Objects/Plant3/Plant3_1.tscn" id="4_o5ja4"]
-[ext_resource type="Texture2D" uid="uid://c154vjapg27pf" path="res://Scenes/Assets/Backgrounds/SmallImage.png" id="5_bm3mh"]
-[ext_resource type="Texture2D" uid="uid://b4gdjojrqxdsr" path="res://Scenes/Assets/Furniture/Painting1.png" id="6_2e7jg"]
+[ext_resource type="Texture2D" uid="uid://dirikx1dt5vbj" path="res://Scenes/Assets/Backgrounds/SmallImage.png" id="5_bm3mh"]
+[ext_resource type="Texture2D" uid="uid://bf5dtgrrq65ko" path="res://Scenes/Assets/Furniture/Painting1.png" id="6_2e7jg"]
 [ext_resource type="PackedScene" uid="uid://vk4bcdu70mea" path="res://Scenes/Objects/Plant2/Plant2.tscn" id="8_24dwx"]
 [ext_resource type="PackedScene" uid="uid://b68wnm54acy7o" path="res://Scenes/Objects/Plant1/Plant1_1.tscn" id="9_0v444"]
 

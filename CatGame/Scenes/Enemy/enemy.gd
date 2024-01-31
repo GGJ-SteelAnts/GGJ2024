@@ -199,7 +199,7 @@ func makeHimAngry(angerDamage):
 		triggered = true
 	actualAnger += angerDamage
 	gui.PissMeter = actualAnger
-	print(gui.PissMeter)
+	#print(gui.PissMeter)
 
 
 func _on_timer_timeout():

@@ -1,17 +1,8 @@
 extends "res://Scripts/Breakable.gd"
 
-var isFalling : bool
-var isGrounded : bool
-var fallingSpeed : int		# Falling speed
-var fallingAccel : int		# Falling speed increment
-var groundHeight : int		# Y-axis position at where the item stops falling
-@export var fallingRotation : bool
-var startPosition : Vector2
-var startRotation : float
-
-
 func _ready():
 	super._ready()
+	canFall = true
 	isFalling = false
 	isGrounded = false
 	fallingSpeed = randi() % 50
@@ -19,8 +10,6 @@ func _ready():
 	groundHeight = 580
 	startPosition = global_position
 	startRotation = global_rotation
-	#fallingRotation = true
-	#print("FallingSpeed " + str(fallingSpeed))
 	itemName = "Flower pot"
 	itemType = ItemType.PLANT
 	if has_node("Animation"):
@@ -29,19 +18,7 @@ func _ready():
 
 func _process(delta):
 	super._process(delta)
-	if isFalling:
-		position = position.move_toward(Vector2(position.x, groundHeight + 5), delta * (fallingSpeed))
-		if fallingRotation:
-			rotation_degrees += 2
-		fallingSpeed += fallingAccel
-		
-		if position.y >= groundHeight:
-			#print("Hit the ground")
-			isFalling = false
-			isGrounded = true
-			Break()
-			
-		
+	Fall(delta)
 
 
 func Interact():
@@ -49,7 +26,7 @@ func Interact():
 	if not isGrounded:
 		isFalling = true
 		canInteract = false
-	print("Interacting with plant")
+	#print("Interacting with plant")
 
 
 func Break():

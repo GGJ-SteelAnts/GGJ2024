@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Player
+
 @export var SPEED = 300.0
 @export var JUMP_VELOCITY = 540.0
 @export var JUMP_LIMIT = 500.0
@@ -38,7 +40,7 @@ func _ready():
 	playerStats = PlayerStats.new()
 
 func _process(delta):
-	playerStats.DeprecateStats(delta)
+	playerStats.UpdateStats(delta)
 	if global_position.y < 0:
 		indicator.visible = true
 	else:

@@ -1,6 +1,6 @@
 [gd_scene load_steps=50 format=3 uid="uid://co6k5kudklti2"]
 
-[ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_mr8sf"]
+[ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_mr8sf"]
 [ext_resource type="Texture2D" uid="uid://c1prm7lj6db6c" path="res://Scenes/Assets/Cat/CatIdle1.png" id="2_2nexp"]
 [ext_resource type="AudioStream" uid="uid://csims7tjuscut" path="res://Scenes/Sounds/Cat/Meow01.wav" id="2_be1j7"]
 [ext_resource type="Texture2D" uid="uid://b4xj3krpw4a3n" path="res://Scenes/Assets/Cat/CatCharge1.png" id="2_ugs7s"]

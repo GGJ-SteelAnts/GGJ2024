@@ -1,6 +1,6 @@
 extends "res://Scripts/Item.gd"
 
-var player : Node2D
+var player : Player
 var canInteract : bool
 var isInteracting : bool
 
@@ -32,7 +32,7 @@ func _process(delta):
 		Interact()
 
 func Interact():
-	print("Interacting with item...")
+	print("Interacting with " + itemName)
 	#isInteracting = false
 	_onItemInteracted.emit(anger)
 	
@@ -40,7 +40,7 @@ func Interact():
 
 
 func _on_area_2d_body_entered(body):
-	if body.name == "Player" && !isInteracting:
+	if body is Player && !isInteracting:
 		canInteract = true
 		player = body
 		gui = body.get_node("Gui")
@@ -48,7 +48,7 @@ func _on_area_2d_body_entered(body):
 
 func _on_area_2d_body_exited(body):
 	canInteract = false
-	if body.name == "Player":
+	if body is Player:
 		gui = null
 		label.visible = false
 

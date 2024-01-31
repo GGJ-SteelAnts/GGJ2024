@@ -1,25 +1,39 @@
 class_name Stat
 
-var name : String			# name of the stat
-var maxValue : float		# maximum possible value
-var minValue : float		# minimum possible value, default 0
-var baseValue : float	# actual value
+enum StatType {
+	STATIC, 
+	INCREMENT, 
+	DEPRECATE
+}
 
-var deprecationRate : float	# how fast the current value will lower, default 0
+var name : String				# name of the stat
+var maxValue : float			# maximum possible value
+var minValue : float			# minimum possible value, default 0
+var baseValue : float			# actual value
 
-var modifiers : Array		# modifiers are add to base value
-var multipliers : Array		# multipliers multiply the base value after applying modifiers
+var type : StatType				# Type of stat
+var updateAmount : float				# how fast stat changes in 
 
-func _init(_name, _value, _dep = 0, _max = _value, _min = 0, _mods = [], _mults = []):
+var modifiers : Array			# modifiers are add to base value
+var multipliers : Array			# multipliers multiply the base value after applying modifiers
+
+
+func _init(_name, _max, _updateAmount, _value = _max, _change = 0, _min = 0, _mods = [], _mults = []):
 	name = _name
 	baseValue = _value
-	deprecationRate = _dep
+	updateAmount = _updateAmount
+	if updateAmount > 0:
+		type = StatType.INCREMENT
+	elif updateAmount < 0:
+		type = StatType.DEPRECATE
+	else:
+		type = StatType.STATIC
 	maxValue = _max
 	minValue = _min
 	modifiers = _mods
 	multipliers = _mults
 	
-	print("Stat " + name + " created with default value: " + str(baseValue) + "/" + str(maxValue))
+	print("Stat " + name + " created with default value: " + str(baseValue) + "(" + str(minValue) + "/" + str(maxValue) + ")")
 
 
 func Value():
@@ -29,6 +43,10 @@ func Value():
 	for mod in multipliers:
 		total_value *= mod
 	return total_value
+
+func Frac():
+	return baseValue / maxValue
+
 
 func Add(_amount):
 	baseValue += _amount
@@ -44,21 +62,35 @@ func Take(_amount):
 
 func AddModifier(_amount):
 	modifiers.push_back(_amount)
+	maxValue += _amount
 
 func AddMultiplier(_amount):
 	multipliers.push_back(_amount)
+	maxValue *= _amount
 
 func RemoveModifier(_amount):
 	for i in range(0, len(modifiers)-1):
 		if modifiers[i] == _amount:
 			modifiers.pop_at(i)
+			maxValue -= _amount
 			return
 
 func RemoveMultiplier(_amount):
 	for i in range(0, len(multipliers)-1):
 		if multipliers[i] == _amount:
 			multipliers.pop_at(i)
+			maxValue /= _amount
 			return
 
-func Deprecate(delta):
-	Take(deprecationRate * delta)
+func Min():
+	baseValue = minValue
+
+func Max():
+	baseValue = maxValue
+
+func Update(delta):
+	if type == StatType.INCREMENT:
+		Add(updateAmount * delta)
+	elif type == StatType.DEPRECATE:
+		Take(updateAmount * delta)
+	
