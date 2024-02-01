@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://djybb54c4v8ua"]
+[gd_scene load_steps=9 format=3 uid="uid://djybb54c4v8ua"]
 
 [ext_resource type="Script" path="res://Scenes/MainMap/Map.gd" id="1_55qa7"]
 [ext_resource type="PackedScene" uid="uid://rnbjgyln3i1u" path="res://Scenes/LivingRoomMap/map.tscn" id="2_460ni"]
@@ -7,17 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://btspmkwde2lyp" path="res://Scenes/StorageMap/map.tscn" id="4_6quks"]
 [ext_resource type="PackedScene" uid="uid://coq6sqjnkcerx" path="res://Scenes/Enemy/enemy.tscn" id="4_51o6s"]
 [ext_resource type="Texture2D" uid="uid://crp8urcjntncp" path="res://Scenes/Assets/Furniture/DoorFrame1.png" id="4_mlvbi"]
-[ext_resource type="PackedScene" uid="uid://df1sgmx4ey6i0" path="res://Scenes/Objects/Notebook1/Notebook1.tscn" id="7_8708h"]
-[ext_resource type="Texture2D" uid="uid://cx8ejojkv5td7" path="res://Scenes/Assets/Objects/Camera1.png" id="8_eku8t"]
-[ext_resource type="Texture2D" uid="uid://dmy8vfl11bpp5" path="res://Scenes/Assets/Objects/Clocks1.png" id="9_hyl2m"]
-[ext_resource type="Texture2D" uid="uid://c06tp5jfc2s5u" path="res://Scenes/Assets/Objects/Cucumber1.png" id="10_1gtkh"]
-[ext_resource type="Texture2D" uid="uid://bhk68aklgv8fq" path="res://Scenes/Assets/Objects/Headphones1.png" id="11_vdv5s"]
-[ext_resource type="Texture2D" uid="uid://ka3l6nag5jyt" path="res://Scenes/Assets/Objects/Mug1.png" id="12_jtung"]
-[ext_resource type="Texture2D" uid="uid://cmihnjmpkqw58" path="res://Scenes/Assets/Objects/Mug2.png" id="13_e1hbu"]
-[ext_resource type="Texture2D" uid="uid://cnqmujex2qrcm" path="res://Scenes/Assets/Objects/Pepper1.png" id="14_b3rhd"]
-[ext_resource type="Texture2D" uid="uid://da642d118ss7g" path="res://Scenes/Assets/Objects/Salt1.png" id="15_12fij"]
-[ext_resource type="Texture2D" uid="uid://c6vvok4tifqa2" path="res://Scenes/Assets/Objects/Pot1.png" id="16_ny6k5"]
-[ext_resource type="Texture2D" uid="uid://bxuikr36it4g5" path="res://Scenes/Assets/Objects/Book4.png" id="17_pjadd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4ge6"]
 size = Vector2(28, 1637)
@@ -88,69 +77,3 @@ position = Vector2(341, 528)
 [node name="Enemy" parent="Dynamics" instance=ExtResource("4_51o6s")]
 position = Vector2(606, 590)
 bookSpot = Vector2(607, 590)
-
-[node name="Node2D" parent="." instance=ExtResource("7_8708h")]
-position = Vector2(420, 444)
-
-[node name="Camera1" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(1312, 423)
-rotation = -0.0492303
-scale = Vector2(4, 4)
-texture = ExtResource("8_eku8t")
-
-[node name="Clocks1" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(2638, 146)
-scale = Vector2(4, 4)
-texture = ExtResource("9_hyl2m")
-
-[node name="Cucumber1" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(2741, 566)
-scale = Vector2(4, 4)
-texture = ExtResource("10_1gtkh")
-
-[node name="Headphones1" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(1308, 280)
-rotation = -0.0221341
-scale = Vector2(4, 4)
-texture = ExtResource("11_vdv5s")
-
-[node name="Mug1" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(2706, 321)
-scale = Vector2(4, 4)
-texture = ExtResource("12_jtung")
-
-[node name="Mug2" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(2682, 322)
-scale = Vector2(4, 4)
-texture = ExtResource("13_e1hbu")
-
-[node name="Pepper1" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(2400, 337)
-scale = Vector2(4, 4)
-texture = ExtResource("14_b3rhd")
-
-[node name="Salt1" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(2422, 337)
-scale = Vector2(4, 4)
-texture = ExtResource("15_12fij")
-
-[node name="Pot1" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(2233, 336)
-scale = Vector2(4, 4)
-texture = ExtResource("16_ny6k5")
-
-[node name="Book4" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(1383, 312)
-rotation = -0.0604067
-scale = Vector2(4, 4)
-texture = ExtResource("17_pjadd")

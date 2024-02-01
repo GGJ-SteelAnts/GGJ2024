@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://rnbjgyln3i1u"]
+[gd_scene load_steps=31 format=3 uid="uid://rnbjgyln3i1u"]
 
 [ext_resource type="Texture2D" uid="uid://byanntvccsiiw" path="res://Scenes/Assets/Backgrounds/LivingRoom1.png" id="1_im3ks"]
 [ext_resource type="PackedScene" uid="uid://chul2y7kx1iuu" path="res://Scenes/Furniture/Bookshelf1/bookshelf1.tscn" id="2_pbxft"]
@@ -17,7 +17,18 @@
 [ext_resource type="PackedScene" uid="uid://vk4bcdu70mea" path="res://Scenes/Objects/Plant2/Plant2.tscn" id="10_u06q2"]
 [ext_resource type="PackedScene" uid="uid://5mmk2nnmbnjm" path="res://Scenes/Objects/MouseHole1/mouseHole1.tscn" id="11_s3ts4"]
 [ext_resource type="PackedScene" uid="uid://b68wnm54acy7o" path="res://Scenes/Objects/Plant1/Plant1_1.tscn" id="13_1vp6d"]
+[ext_resource type="Texture2D" uid="uid://cx8ejojkv5td7" path="res://Scenes/Assets/Objects/Camera1.png" id="13_jdeqr"]
+[ext_resource type="Texture2D" uid="uid://dmy8vfl11bpp5" path="res://Scenes/Assets/Objects/Clocks1.png" id="14_iwy0u"]
 [ext_resource type="PackedScene" uid="uid://cjs3npd0tviji" path="res://Scenes/Objects/Plant3/Plant3_1.tscn" id="14_ll7ds"]
+[ext_resource type="Texture2D" uid="uid://c06tp5jfc2s5u" path="res://Scenes/Assets/Objects/Cucumber1.png" id="15_mawak"]
+[ext_resource type="Texture2D" uid="uid://bhk68aklgv8fq" path="res://Scenes/Assets/Objects/Headphones1.png" id="16_1yqnp"]
+[ext_resource type="Texture2D" uid="uid://ka3l6nag5jyt" path="res://Scenes/Assets/Objects/Mug1.png" id="17_7tsny"]
+[ext_resource type="Texture2D" uid="uid://cmihnjmpkqw58" path="res://Scenes/Assets/Objects/Mug2.png" id="18_74j18"]
+[ext_resource type="Texture2D" uid="uid://cnqmujex2qrcm" path="res://Scenes/Assets/Objects/Pepper1.png" id="19_tvfm7"]
+[ext_resource type="Texture2D" uid="uid://da642d118ss7g" path="res://Scenes/Assets/Objects/Salt1.png" id="20_7qdxc"]
+[ext_resource type="Texture2D" uid="uid://c6vvok4tifqa2" path="res://Scenes/Assets/Objects/Pot1.png" id="21_vq7cm"]
+[ext_resource type="Texture2D" uid="uid://bxuikr36it4g5" path="res://Scenes/Assets/Objects/Book4.png" id="22_86wfc"]
+[ext_resource type="PackedScene" uid="uid://df1sgmx4ey6i0" path="res://Scenes/Objects/Notebook1/Notebook1.tscn" id="29_qmyw1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d7anw"]
 
@@ -86,13 +97,68 @@ position = Vector2(669, 459)
 [node name="Shelf1" parent="Environment" instance=ExtResource("9_g8ixs")]
 position = Vector2(654, 214)
 
-[node name="Ground" type="StaticBody2D" parent="."]
-position = Vector2(960, 600)
-scale = Vector2(12, 1)
+[node name="Camera1" type="Sprite2D" parent="Environment"]
+texture_filter = 1
+position = Vector2(1312, 423)
+rotation = -0.0492303
+scale = Vector2(4, 4)
+texture = ExtResource("13_jdeqr")
 
-[node name="GroundCollider" type="CollisionShape2D" parent="Ground"]
-scale = Vector2(8, 1)
-shape = SubResource("RectangleShape2D_d7anw")
+[node name="Clocks1" type="Sprite2D" parent="Environment"]
+texture_filter = 1
+position = Vector2(2638, 146)
+scale = Vector2(4, 4)
+texture = ExtResource("14_iwy0u")
+
+[node name="Cucumber1" type="Sprite2D" parent="Environment"]
+texture_filter = 1
+position = Vector2(2741, 566)
+scale = Vector2(4, 4)
+texture = ExtResource("15_mawak")
+
+[node name="Headphones1" type="Sprite2D" parent="Environment"]
+texture_filter = 1
+position = Vector2(1308, 280)
+rotation = -0.0221341
+scale = Vector2(4, 4)
+texture = ExtResource("16_1yqnp")
+
+[node name="Mug1" type="Sprite2D" parent="Environment"]
+texture_filter = 1
+position = Vector2(2706, 321)
+scale = Vector2(4, 4)
+texture = ExtResource("17_7tsny")
+
+[node name="Mug2" type="Sprite2D" parent="Environment"]
+texture_filter = 1
+position = Vector2(2682, 322)
+scale = Vector2(4, 4)
+texture = ExtResource("18_74j18")
+
+[node name="Pepper1" type="Sprite2D" parent="Environment"]
+texture_filter = 1
+position = Vector2(2400, 337)
+scale = Vector2(4, 4)
+texture = ExtResource("19_tvfm7")
+
+[node name="Salt1" type="Sprite2D" parent="Environment"]
+texture_filter = 1
+position = Vector2(2422, 337)
+scale = Vector2(4, 4)
+texture = ExtResource("20_7qdxc")
+
+[node name="Pot1" type="Sprite2D" parent="Environment"]
+texture_filter = 1
+position = Vector2(2233, 336)
+scale = Vector2(4, 4)
+texture = ExtResource("21_vq7cm")
+
+[node name="Book4" type="Sprite2D" parent="Environment"]
+texture_filter = 1
+position = Vector2(1383, 312)
+rotation = -0.0604067
+scale = Vector2(4, 4)
+texture = ExtResource("22_86wfc")
 
 [node name="Interactables" type="Node2D" parent="."]
 
@@ -119,3 +185,14 @@ position = Vector2(248, 282)
 
 [node name="Plant5" parent="Interactables" instance=ExtResource("14_ll7ds")]
 position = Vector2(640, 156)
+
+[node name="Notebook" parent="Interactables" instance=ExtResource("29_qmyw1")]
+position = Vector2(420, 444)
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(960, 600)
+scale = Vector2(12, 1)
+
+[node name="GroundCollider" type="CollisionShape2D" parent="Ground"]
+scale = Vector2(8, 1)
+shape = SubResource("RectangleShape2D_d7anw")
