@@ -21,11 +21,11 @@ var endScreen = preload("res://Scenes/MainMap/endScreen.tscn")
 
 
 # - - - Audio - - -
-@export var walkWoodSounds : Array
-@export var walkKitchenSounds : Array
-@export var angrySounds : Array
-@export var happySounds : Array
-@export var mumblingSounds : Array
+@export var walkWoodSounds : Array[AudioStreamWAV]
+@export var walkKitchenSounds : Array[AudioStreamWAV]
+@export var angrySounds : Array[AudioStreamWAV]
+@export var happySounds : Array[AudioStreamWAV]
+@export var mumblingSounds : Array[AudioStreamWAV]
 
 @export var pages = 21
 var stackPage = 0
@@ -83,7 +83,7 @@ func _process(delta):
 	
 	if state == "Reading" or enemyState == EnemyStates.READING:
 		UpdateStats(delta)
-		print("Reading...")
+		#print("Reading...")
 	
 	UpdateGUI()
 	

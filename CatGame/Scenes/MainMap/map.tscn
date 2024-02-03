@@ -73,6 +73,7 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="Dynamics" instance=ExtResource("2_gmhjk")]
 position = Vector2(341, 528)
+catSounds = Array[AudioStreamWAV]([null, null, null])
 
 [node name="Enemy" parent="Dynamics" instance=ExtResource("4_51o6s")]
 position = Vector2(606, 590)

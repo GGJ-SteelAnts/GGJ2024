@@ -3,6 +3,7 @@ extends "res://Scripts/Interactable.gd"
 # Graphics and animations
 var itemSprite : Sprite2D
 @export var breakAnimation : AnimatedSprite2D
+@export var breakSound : AudioStreamWAV
 
 @onready var guiUi = get_node("/root/Map/Dynamics/Player/Gui")
 
@@ -27,8 +28,7 @@ func Break():
 			#print(itemTypeEnum)
 			if Task.item == itemTypeEnum:
 				Task.currentAmount += 1
-
-	print("Item broke")
+	print("%s broke." % itemName)
 
 func Fall(delta):
 	if !canFall:

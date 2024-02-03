@@ -47,6 +47,6 @@ func _on_bubble_duration_timeout():
 
 func _on_player_on_player_loaded():
 	player = get_node("/root/Map/Dynamics/Player")
-	print(player.playerName)
 	stats = player.playerStats
 	thinkInterval.start()
+	print("Bubble initialized")

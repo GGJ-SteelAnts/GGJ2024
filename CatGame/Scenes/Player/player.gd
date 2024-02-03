@@ -9,9 +9,9 @@ var playerStats : PlayerStats
 signal on_player_loaded
 
 
-@export var SPEED = 300.0
-@export var JUMP_VELOCITY = 540.0
-@export var JUMP_LIMIT = 500.0
+@export var speed = 300.0
+@export var jumpVelocity = 540.0
+@export var jumpLimit = 500.0
 
 @onready var fallparticle : CPUParticles2D = $CPUParticles2D
 @onready var soundPlayer : AudioStreamPlayer2D = $Sounds
@@ -19,9 +19,9 @@ signal on_player_loaded
 @onready var musicPlayer : AudioStreamPlayer = $Music
 @onready var music : AudioStream = load("res://Scenes/Sounds/GGJ2024ThemeSong.wav")
 
-@export var catSounds : Array
-@export var dropSofaSounds : Array
-@export var dropClosedSounds : Array
+@export var catSounds : Array[AudioStreamWAV]
+@export var dropSofaSounds : Array[AudioStreamWAV]
+@export var dropClosetSounds : Array[AudioStreamWAV]
 @export var canMove = true
 @export var soundTimer = 10
 var actualSoundTimer = 0
@@ -77,10 +77,10 @@ func _physics_process(delta):
 					soundPlayer.play()
 		elif collision.get_collider().get_parent().is_in_group("Closet"):
 			if is_on_floor() && soundPlayer.finished && fallDuration != 0:
-				if dropClosedSounds.size() > 0:				
+				if dropClosetSounds.size() > 0:				
 					var rng = RandomNumberGenerator.new()
-					var my_random_number = rng.randi_range(0, dropClosedSounds.size()-1)
-					soundPlayer.stream = dropClosedSounds[my_random_number]
+					var my_random_number = rng.randi_range(0, dropClosetSounds.size()-1)
+					soundPlayer.stream = dropClosetSounds[my_random_number]
 					soundPlayer.play()
 	
 	# Add the gravity.
@@ -103,18 +103,18 @@ func _physics_process(delta):
 		$AnimatedSprite2D.play("charge")
 		isCharging = true
 		
-	if Input.is_action_pressed("Jump") and is_on_floor() and isCharging and jumpCoeficient <= JUMP_LIMIT:
+	if Input.is_action_pressed("Jump") and is_on_floor() and isCharging and jumpCoeficient <= jumpLimit:
 		jumpCoeficient = (jumpCoeficient + 2)
 		
 	if Input.is_action_just_released("Jump") and isCharging:
 		$AnimatedSprite2D.play("jump")	
 		
 		if $AnimatedSprite2D.flip_h:
-			velocity.x = (-100 * SPEED * delta)	
+			velocity.x = (-100 * speed * delta)	
 		else:
-			velocity.x = (100 * SPEED * delta)	
+			velocity.x = (100 * speed * delta)	
 			
-		velocity.y = -(JUMP_VELOCITY + jumpCoeficient)
+		velocity.y = -(jumpVelocity + jumpCoeficient)
 		jumpCoeficient = 0
 		isCharging = false
 		isJumping = true
@@ -126,12 +126,12 @@ func _physics_process(delta):
 	var direction = Input.get_axis("Left", "Right")
 	if direction:	
 		jumpCoeficient = 0
-		velocity.x = direction * SPEED
+		velocity.x = direction * speed
 		$AnimatedSprite2D.flip_h = velocity.x < 0	
 		if is_on_floor() and not isJumping:	
 			$AnimatedSprite2D.play("walk")	
 	elif is_on_floor():
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed)
 		if is_on_floor() and not isJumping and not isCharging:
 			$AnimatedSprite2D.play("idle")
 			
