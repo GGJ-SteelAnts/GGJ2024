@@ -12,28 +12,30 @@ var minValue : float			# minimum possible value, default 0
 var baseValue : float			# actual value
 
 var type : StatType				# Type of stat
-var updateAmount : float				# how fast stat changes in 
+var updateAmount : float		# how fast stat changes in time, 0 for time resilience
 
 var modifiers : Array			# modifiers are add to base value
 var multipliers : Array			# multipliers multiply the base value after applying modifiers
 
 
-func _init(_name, _max, _updateAmount, _value = _max, _change = 0, _min = 0, _mods = [], _mults = []):
+func _init(_name, _max, _updateAmount, _value = _max, _min = 0, _mods = [], _mults = []):
 	name = _name
 	baseValue = _value
-	updateAmount = _updateAmount
-	if updateAmount > 0:
+	if _updateAmount > 0:
+		updateAmount = _updateAmount
 		type = StatType.INCREMENT
-	elif updateAmount < 0:
+	elif _updateAmount < 0:
+		updateAmount = _updateAmount * -1
 		type = StatType.DEPRECATE
 	else:
 		type = StatType.STATIC
+		updateAmount = 0
 	maxValue = _max
 	minValue = _min
 	modifiers = _mods
 	multipliers = _mults
 	
-	print("Stat " + name + " created with default value: " + str(baseValue) + "(" + str(minValue) + "/" + str(maxValue) + ")")
+	print("Stat %s created with default value: %.2f min: %d max: %d (%.2f)" % [name, baseValue, minValue, maxValue, updateAmount])
 
 
 func Value():

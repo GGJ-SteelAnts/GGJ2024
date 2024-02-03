@@ -1,11 +1,9 @@
 extends CharacterBody2D
 
+# - - - Modificable parameters - - -
 @export var speed = 200.0
 @export var actualAnger = 0.0
-@export var bookSpot : Vector2
 @export var progress = 25
-
-@onready var animator = get_node("AnimatedSprite2D")
 
 @export var gameTime = 180.0
 var actualGameTime = 0
@@ -13,17 +11,23 @@ var actualGameTime = 0
 @export var pageTime = 3.0
 var actualPageTime = 0
 
-var endScreen = preload("res://Scenes/MainMap/endScreen.tscn")
+@export var bookSpot : Vector2
 
+# - - - Game connectors - - -
+@onready var animator = get_node("AnimatedSprite2D")
+var endScreen = preload("res://Scenes/MainMap/endScreen.tscn")
 @onready var soundPlayer : AudioStreamPlayer2D = $AudioStreamPlayer2D
 
+
+
+# - - - Audio - - -
 @export var walkWoodSounds : Array
 @export var walkKitchenSounds : Array
 @export var angrySounds : Array
 @export var happySounds : Array
 @export var mumblingSounds : Array
 
-@export var pages = 40
+@export var pages = 21
 var stackPage = 0
 var actualProgress = 0
 var cleaning = false
@@ -39,47 +43,58 @@ var walk = true
 @onready var gui = get_node("/root/Map/Dynamics/Player/Gui")
 @onready var pageCounterLabel = get_node("PageCounterLabel")
 
-func updatePageCounterLabel():
-	pageCounterLabel.text = "Pages left: " + str(pages)
+
+var anger : Stat
+var reading : Stat
+var enemyState : EnemyStates
+
+enum EnemyStates {
+	READING,
+	WALKING,
+	CLEANING,
+	WATCHING,
+	IDLE,
+	OTHER
+}
+
+
+
+# - - - - - - - Methods - - - - - - - -
+
+
+func UpdateStats(delta):
+	anger.Update(delta)
+	reading.Update(delta)
+	#print("Anger: %.2f" % anger.Value())
+
+func UpdateGUI():
+	gui.PissMeter = anger.Value()
+	pageCounterLabel.text = "Pages left: %d" % reading.Value()
 
 func _ready():
+	enemyState = EnemyStates.OTHER
 	triggered = true
+	#Stat.new(name, max, updateAmount, value = max, min = 0, mods = [], mults = [])
+	anger = Stat.new("Anger", 100, -1, 0, 0)
+	reading = Stat.new("Reading", pages, -0.5, pages, 0)
 
 func _process(delta):
-	#print(actualAnger)
-	updatePageCounterLabel()
-	var rng = RandomNumberGenerator.new()
-	if actualGameTime > gameTime:
-		var end = endScreen.instantiate()
-		get_tree().get_root().get_node("Map").queue_free()
-		get_tree().get_root().add_child(end)
-		end.scoreLabel.text = "Score: " + str(gui.Score)
-		end.label.text = "You Win"
-		end.SongPlay(true);
-		
+	CheckGameOverConditions()
+	
+	if state == "Reading" or enemyState == EnemyStates.READING:
+		UpdateStats(delta)
+		print("Reading...")
+	
+	UpdateGUI()
+	
+	# IDK co je tohle
 	if state == "Reading" && actualPageTime > pageTime && triggered:
-		stackPage += 2
-		pages -= 1
 		if !objedno:
 			objedno = true
+			var rng = RandomNumberGenerator.new()
 			my_random_number = rng.randi_range(0, happySounds.size()-1)
 			soundPlayer.stream = happySounds[my_random_number]
 			soundPlayer.playing = true
-		else:
-			objedno = false
-			
-		if actualAnger > 0:
-			actualAnger -= stackPage
-		else:
-			actualAnger = 0
-			
-		if pages <= 0:
-			var end = endScreen.instantiate()
-			get_tree().get_root().get_node("Map").queue_free()
-			get_tree().get_root().add_child(end)
-			end.scoreLabel.text = "Score: " + str(gui.Score)
-			end.label.text = "You Lose"
-			end.SongPlay(false);
 		actualPageTime = 0
 
 func _physics_process(delta):
@@ -91,7 +106,7 @@ func _physics_process(delta):
 		elif abs(global_position.x - target.global_position.x) < abs(global_position.x - nearest.global_position.x):
 			nearest = target
 	
-	if actualAnger >= 100:
+	if anger.Value() >= 100:
 		player = get_node("/root/Map/Dynamics/Player")
 	
 	if nearest != null:
@@ -107,10 +122,12 @@ func _physics_process(delta):
 			soundPlayer.stream = angrySounds[my_random_number]
 			soundPlayer.playing = true
 			state = "Watching"
+			#enemyState = EnemyStates.WATCHING
 			
 		
 		if abs(global_position.x - nearest.global_position.x) <= 2 && !cleaning:
 			state = "StartCleaning"
+			#enemyState = EnemyStates.CLEANING
 			cleaning = true
 		
 		if cleaning && state == "StartCleaning":
@@ -124,6 +141,7 @@ func _physics_process(delta):
 		elif actualProgress >= 100 && cleaning == true:
 			revert = true
 			state = "StartCleaning"
+			enemyState = EnemyStates.CLEANING
 			actualProgress = 0
 			cleaning = false
 			if nearest.itemTypeEnum != Enums.ItemTypeEnum.Laptop:
@@ -149,6 +167,7 @@ func _physics_process(delta):
 		if state == "Walking" && abs(bookSpot.x - global_position.x) <= 2:
 			pageCounterLabel.visible = true
 			state = "Reading"
+			#enemyState = EnemyStates.READING
 			actualPageTime = 0
 	
 	move(delta)
@@ -186,21 +205,45 @@ func _on_animated_sprite_2d_animation_finished():
 	if nearest != null:
 		if state == "Watching":
 			state = "StartWalking"
+			#enemyState = EnemyStates.WALKING
 		elif state == "StartWalking":
 			state = "Walking"
 		elif !revert && state == "StartCleaning":
 			state = "Cleaning"
+			#enemyState = EnemyStates.CLEANING
 	if revert && state == "StartCleaning":
 		state = "Walking"
+		#enemyState = EnemyStates.WALKING
 		revert = false
 
 func makeHimAngry(angerDamage):
 	if !triggered:
 		triggered = true
-	actualAnger += angerDamage
-	gui.PissMeter = actualAnger
+	anger.Add(angerDamage) 
+	
 	#print(gui.PissMeter)
 
+func CheckGameOverConditions():
+	if actualGameTime > gameTime:
+		GameOverWin()
+	if reading.Value() <= reading.minValue:			# going updating max --> min
+		GameOverLose()
+
+func GameOverWin():
+	var end = endScreen.instantiate()
+	get_tree().get_root().get_node("Map").queue_free()
+	get_tree().get_root().add_child(end)
+	end.scoreLabel.text = "Score: " + str(gui.Score)
+	end.label.text = "You Win"
+	end.SongPlay(true);
+
+func GameOverLose():
+	var end = endScreen.instantiate()
+	get_tree().get_root().get_node("Map").queue_free()
+	get_tree().get_root().add_child(end)
+	end.scoreLabel.text = "Score: " + str(gui.Score)
+	end.label.text = "You Lose"
+	end.SongPlay(false);
 
 func _on_timer_timeout():
 	if triggered:

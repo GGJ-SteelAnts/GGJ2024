@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Scenes/GUI/gui.gd" id="1_lab6h"]
 [ext_resource type="PackedScene" uid="uid://cmx51vutnwy6u" path="res://Scenes/Tasks/task.tscn" id="2_tj81g"]
-[ext_resource type="Texture2D" uid="uid://48cu1dwvdjdw" path="res://Scenes/Assets/Tasks/PissBar1.png" id="3_u0jqy"]
-[ext_resource type="Texture2D" uid="uid://dfjdbpnuidsno" path="res://Scenes/Assets/Tasks/PissBar2.png" id="4_r82lk"]
-[ext_resource type="Texture2D" uid="uid://c8linnwamekj2" path="res://Scenes/Assets/Tasks/TimeBar2.png" id="5_w17np"]
+[ext_resource type="Texture2D" uid="uid://dnkfuonisnkt2" path="res://Scenes/Assets/Tasks/PissBar1.png" id="3_u0jqy"]
+[ext_resource type="Texture2D" uid="uid://u1fl7e7dkp2s" path="res://Scenes/Assets/Tasks/PissBar2.png" id="4_r82lk"]
+[ext_resource type="Texture2D" uid="uid://bfec8266a1ffx" path="res://Scenes/Assets/Tasks/TimeBar2.png" id="5_w17np"]
 
 [node name="Gui" type="CanvasLayer"]
 script = ExtResource("1_lab6h")
