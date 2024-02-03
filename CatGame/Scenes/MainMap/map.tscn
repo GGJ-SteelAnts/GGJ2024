@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://co6k5kudklti2" path="res://Scenes/Player/player.tscn" id="2_gmhjk"]
 [ext_resource type="PackedScene" uid="uid://btspmkwde2lyp" path="res://Scenes/StorageMap/map.tscn" id="4_6quks"]
 [ext_resource type="PackedScene" uid="uid://coq6sqjnkcerx" path="res://Scenes/Enemy/enemy.tscn" id="4_51o6s"]
-[ext_resource type="Texture2D" uid="uid://crp8urcjntncp" path="res://Scenes/Assets/Furniture/DoorFrame1.png" id="4_mlvbi"]
+[ext_resource type="Texture2D" uid="uid://21feuqmfohy8" path="res://Scenes/Assets/Furniture/DoorFrame1.png" id="4_mlvbi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4ge6"]
 size = Vector2(28, 1637)

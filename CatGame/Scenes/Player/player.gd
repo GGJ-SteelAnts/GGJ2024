@@ -2,6 +2,13 @@ extends CharacterBody2D
 
 class_name Player
 
+var playerName = "Kocka voe"
+
+var playerStats : PlayerStats
+
+signal on_player_loaded
+
+
 @export var SPEED = 300.0
 @export var JUMP_VELOCITY = 540.0
 @export var JUMP_LIMIT = 500.0
@@ -29,7 +36,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var indicator = get_node("Sprite2D") 
 
-var playerStats : PlayerStats
 
 func _ready():
 	musicPlayer.stream = music
@@ -38,6 +44,7 @@ func _ready():
 	# specific stats and their values are initialized within the PlayerStats class.
 	# currently the player has Hunger, Stamina and Needs (potty potty)
 	playerStats = PlayerStats.new()
+	on_player_loaded.emit()
 
 func _process(delta):
 	playerStats.UpdateStats(delta)
@@ -145,3 +152,7 @@ func _on_timer_timeout():
 
 func _on_music_finished():
 	musicPlayer.play()
+
+func GetPlayerStats():
+	return playerStats
+
