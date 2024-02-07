@@ -118,6 +118,7 @@ func Interaction(delta):
 				player.show()
 				player.canMove = true
 				
+				
 				for Task in [gui.Task1, gui.Task2, gui.Task3]:
 					if Task.TaskType == Enums.TaskTypeEnum.Sleep:
 						Task.currentAmount += 1

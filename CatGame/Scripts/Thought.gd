@@ -45,6 +45,7 @@ func _on_think_interval_timeout():
 		bubbleItem.texture = _icon
 		bubbleGUI.visible = true
 		bubbleDuration.start()
+		worstStat.Print()
 	else:
 		thinkInterval.start()
 
@@ -58,4 +59,4 @@ func _on_player_on_player_loaded():
 	player = get_node("/root/Map/Dynamics/Player")
 	stats = player.playerStats
 	thinkInterval.start()
-	print("Bubble initialized %s" % stats)
+	print("Bubble initialized")

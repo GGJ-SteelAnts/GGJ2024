@@ -30,7 +30,9 @@ func Interact():
 	$Food.visible = false
 	isFilled = false
 	isInteracting = false
-	player.playerStats.Feed(feedAmount)
+	#player.playerStats.Feed(feedAmount)
+	player.playerStats.FeedFull()
+	print("Cat fed itself.")
 	super.Interact()
 	label.visible = false
 

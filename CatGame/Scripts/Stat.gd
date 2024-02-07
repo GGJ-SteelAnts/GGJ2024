@@ -37,7 +37,7 @@ func _init(_name, _max, _updateAmount, _value = _max, _min = 0, _criticalTreshol
 	modifiers = _mods
 	multipliers = _mults
 	
-	print("Stat %s created with default value: %.2f min: %d max: %d (±%.2f) CT: %.2f" % [name, baseValue, minValue, maxValue, updateAmount, criticalTreshold])
+	Print(true)
 
 
 func Value():
@@ -117,3 +117,8 @@ func Update(delta):
 	elif type == StatType.DEPRECATE:
 		Take(updateAmount * delta)
 	
+func Print(full = false):
+	if full:
+		print("Stat %s. \nVal: %.2f (Min: %d | Max: %d | UpA: %.2f | CT: %.2f)" % [name, baseValue, minValue, maxValue, updateAmount, criticalTreshold])
+	else:
+		print("%s: %.2f (CV %.2f)" % [name, Value(), CriticalValue()])

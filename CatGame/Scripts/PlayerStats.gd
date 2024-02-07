@@ -63,5 +63,5 @@ func Feed(_amount):
 func FeedFull():
 	stats["Hunger"].Min()
 
-func Relief():
+func Relieve():
 	stats["Needs"].Min()

@@ -14,7 +14,7 @@ signal on_player_loaded
 @export var jumpLimit : float = 460.0
 
 # if Needs (stat) hit critical value, the total jump strenght gets lowered by 30% with value 0.3
-@export var jumpNeedsPenalty : float = 0.3		# <0, 1>
+@export var jumpNeedsPenalty : float = 0.2		# <0, 1>
 
 @onready var fallparticle : CPUParticles2D = $FallParticlesFX
 @onready var soundPlayer : AudioStreamPlayer2D = $Sounds
@@ -75,7 +75,7 @@ func _physics_process(delta):
 		$CatAnimator.play("charge")
 		isCharging = true
 		
-	if Input.is_action_pressed("Jump") and is_on_floor() and isCharging and jumpCoeficient <= jumpLimit:
+	if Input.is_action_pressed("Jump") and isCharging and jumpCoeficient <= jumpLimit:
 		jumpCoeficient += 5
 		
 	if Input.is_action_just_released("Jump") and isCharging:

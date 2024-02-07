@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
 # - - - Modificable parameters - - -
-@export var speed = 200.0
-@export var actualAnger = 0.0
-@export var progress = 25
+@export var speed : float = 200.0
+@export var actualAnger : float = 0.0
+@export var progress : float = 25
 
-@export var gameTime = 180.0
-var actualGameTime = 0
+@export var gameTime : float = 240.0
+var actualGameTime : float = 0
 
 @export var pageTime = 3.0
 var actualPageTime = 0
@@ -27,7 +27,7 @@ var endScreen = preload("res://Scenes/MainMap/endScreen.tscn")
 @export var happySounds : Array[AudioStreamWAV]
 @export var mumblingSounds : Array[AudioStreamWAV]
 
-@export var pages = 21
+@export var pages = 41	# reads 1 page per 2 seconds
 var stackPage = 0
 var actualProgress = 0
 var cleaning = false
@@ -74,9 +74,24 @@ func UpdateGUI():
 func _ready():
 	enemyState = EnemyStates.OTHER
 	triggered = true
-	#Stat.new(name, max, updateAmount, value = max, min = 0, mods = [], mults = [])
-	anger = Stat.new("Anger", 100, -1, 0, 0)
-	reading = Stat.new("Reading", pages, -0.5, pages, 0)
+	#Stat.new(name, max, updateAmount, value = max, min = 0, criticalTreshold = 0, mods = [], mults = [])
+	
+	anger = Stat.new(
+				"Anger", 		# Name
+				100, 			# Max value
+				-1,  			# Update amount
+				0,  			# Value
+				0,  			# Min value
+				0.95 			# Critical value
+				)
+	reading = Stat.new(
+				"Reading", 		# Name
+				pages, 			# Max value
+				-0.5,  			# Update amount
+				pages,  		# Value
+				0,  			# Min value
+				-0.1 			# Critical value
+				)
 
 func _process(delta):
 	CheckGameOverConditions()

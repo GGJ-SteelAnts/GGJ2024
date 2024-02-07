@@ -58,6 +58,8 @@ func Interaction(delta):
 				sprite.texture = spriteNormal
 				player.show()
 				player.canMove = true
+				player.playerStats.Relieve()
+				print("Cat relieved itself.")
 					
 	elif type == ObjectsTypes.Drop:
 		onGround = false
