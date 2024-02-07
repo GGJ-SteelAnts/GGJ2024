@@ -11,7 +11,8 @@ enum ItemType {
 	BOWL,
 	CAN,
 	NOTEBOOK,
-	DORITOS
+	DORITOS,
+	POOP
 }
 
 

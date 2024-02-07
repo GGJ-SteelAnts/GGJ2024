@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://ceaievgt2str4"]
+
+[ext_resource type="Script" path="res://Scripts/Objects/Poop.gd" id="1_1soe1"]
+[ext_resource type="Texture2D" uid="uid://bl1gpkac378ep" path="res://Scenes/Assets/Objects/Plant3.png" id="2_3slxv"]
+[ext_resource type="LabelSettings" uid="uid://b5smbjexhppw" path="res://Scenes/Assets/Fonts/Interact_Font.tres" id="3_x7fo4"]
+[ext_resource type="Texture2D" uid="uid://1uefcgsh27gn" path="res://Scenes/Assets/Objects/Plant3Breaks10.png" id="13_5a8nb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ngk8i"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pywpt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_5a8nb")
+}],
+"loop": false,
+"name": &"default",
+"speed": 24.0
+}]
+
+[node name="Plant3" type="Node2D"]
+script = ExtResource("1_1soe1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("2_3slxv")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ngk8i")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+z_index = 5
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -48.0
+offset_right = 28.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Press E"
+label_settings = ExtResource("3_x7fo4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -30)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_pywpt")
+speed_scale = 1.5
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

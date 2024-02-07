@@ -3,13 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://dbv3sbh5yvyre" path="res://Scenes/Assets/Objects/Fish1.png" id="1_0kdg7"]
 [ext_resource type="Script" path="res://Scenes/Objects/Fish1/FishTank.gd" id="1_c84cg"]
 [ext_resource type="LabelSettings" uid="uid://b5smbjexhppw" path="res://Scenes/Assets/Fonts/Interact_Font.tres" id="3_7xg4f"]
-[ext_resource type="Texture2D" uid="uid://xq7jjkkpy2aa" path="res://Scenes/Assets/Objects/FishTankBreaks1.png" id="4_erqyw"]
-[ext_resource type="Texture2D" uid="uid://wsbauxf32bhw" path="res://Scenes/Assets/Objects/FishTankBreaks2.png" id="5_8trx7"]
-[ext_resource type="Texture2D" uid="uid://rgs3iix0qtap" path="res://Scenes/Assets/Objects/FishTankBreaks3.png" id="6_2se8i"]
-[ext_resource type="Texture2D" uid="uid://duyfdkrb0xp15" path="res://Scenes/Assets/Objects/FishTankBreaks4.png" id="7_0m241"]
-[ext_resource type="Texture2D" uid="uid://b77drfcsxpy3i" path="res://Scenes/Assets/Objects/FishTankBreaks5.png" id="8_pnfhf"]
-[ext_resource type="Texture2D" uid="uid://bys0bayf3sr34" path="res://Scenes/Assets/Objects/FishTankBreaks6.png" id="9_nu52d"]
-[ext_resource type="Texture2D" uid="uid://ds5elsb0kpuqd" path="res://Scenes/Assets/Objects/FishTankBreaks7.png" id="10_cctud"]
+[ext_resource type="Texture2D" uid="uid://bpm66ler5ulni" path="res://Scenes/Assets/Objects/FishTankBreaks1.png" id="4_erqyw"]
+[ext_resource type="Texture2D" uid="uid://bq37surrdwluw" path="res://Scenes/Assets/Objects/FishTankBreaks2.png" id="5_8trx7"]
+[ext_resource type="Texture2D" uid="uid://c7dv87rm3li3" path="res://Scenes/Assets/Objects/FishTankBreaks3.png" id="6_2se8i"]
+[ext_resource type="Texture2D" uid="uid://bg8sfw7i24q64" path="res://Scenes/Assets/Objects/FishTankBreaks4.png" id="7_0m241"]
+[ext_resource type="Texture2D" uid="uid://uficdw4aa4wy" path="res://Scenes/Assets/Objects/FishTankBreaks5.png" id="8_pnfhf"]
+[ext_resource type="Texture2D" uid="uid://b8mfj6tjjgrbc" path="res://Scenes/Assets/Objects/FishTankBreaks6.png" id="9_nu52d"]
+[ext_resource type="Texture2D" uid="uid://htomi0h2hfft" path="res://Scenes/Assets/Objects/FishTankBreaks7.png" id="10_cctud"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_30w6k"]
 radius = 34.0
@@ -46,7 +46,6 @@ animations = [{
 
 [node name="Fish1" type="Node2D"]
 script = ExtResource("1_c84cg")
-angerDamage = 20
 itemTypeEnum = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

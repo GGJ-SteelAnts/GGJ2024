@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://36uyxcoevafq"]
+[gd_scene load_steps=23 format=3 uid="uid://36uyxcoevafq"]
 
 [ext_resource type="Texture2D" uid="uid://bwkowdxxp1fil" path="res://Scenes/Assets/Backgrounds/KitchenRoom1.png" id="1_0a1lg"]
 [ext_resource type="PackedScene" uid="uid://bsbiocpmc16yf" path="res://Scenes/Furniture/Fridge1/fridge1.tscn" id="2_v6usi"]
@@ -7,14 +7,20 @@
 [ext_resource type="Texture2D" uid="uid://by06dgrwjw10h" path="res://Scenes/Assets/Furniture/Appliances1.png" id="4_roxyi"]
 [ext_resource type="PackedScene" uid="uid://b2xvpqdlvnnw2" path="res://Scenes/Furniture/Shelf2/Shelf2.tscn" id="5_llwkv"]
 [ext_resource type="PackedScene" uid="uid://kgugbx4uh4id" path="res://Scenes/Furniture/Garbage1/Garbage1.tscn" id="6_opv6y"]
-[ext_resource type="PackedScene" uid="uid://ie41gy7deuev" path="res://Scenes/Objects/Glass1/Glass1.tscn" id="7_da81i"]
 [ext_resource type="Texture2D" uid="uid://clcyrjkeupojm" path="res://Scenes/Assets/Objects/Can1.png" id="8_sajbd"]
-[ext_resource type="PackedScene" uid="uid://vk4bcdu70mea" path="res://Scenes/Objects/Plant2/Plant2.tscn" id="8_tofcy"]
 [ext_resource type="Texture2D" uid="uid://blj3y67r51wjt" path="res://Scenes/Assets/Objects/Can2.png" id="9_ia8wd"]
 [ext_resource type="PackedScene" uid="uid://bsud0knigcr7p" path="res://Scenes/Objects/Bowl/bowl.tscn" id="10_nvf6u"]
 [ext_resource type="Texture2D" uid="uid://cxrek4meamtb0" path="res://Scenes/Assets/Objects/Pan1.png" id="12_6di6v"]
+[ext_resource type="Texture2D" uid="uid://dmy8vfl11bpp5" path="res://Scenes/Assets/Objects/Clocks1.png" id="12_7nega"]
+[ext_resource type="Texture2D" uid="uid://c06tp5jfc2s5u" path="res://Scenes/Assets/Objects/Cucumber1.png" id="13_nqejk"]
+[ext_resource type="Texture2D" uid="uid://ka3l6nag5jyt" path="res://Scenes/Assets/Objects/Mug1.png" id="14_u7wl7"]
 [ext_resource type="PackedScene" uid="uid://cluugt1hcuiar" path="res://Scenes/Objects/Glass1/Glass1_1.tscn" id="14_vfiqw"]
+[ext_resource type="Texture2D" uid="uid://cmihnjmpkqw58" path="res://Scenes/Assets/Objects/Mug2.png" id="15_5ukv3"]
+[ext_resource type="Texture2D" uid="uid://cnqmujex2qrcm" path="res://Scenes/Assets/Objects/Pepper1.png" id="16_41kww"]
 [ext_resource type="PackedScene" uid="uid://btd8wu7lao1ln" path="res://Scenes/Objects/Doritos1/Doritos1.tscn" id="16_ifdrg"]
+[ext_resource type="Texture2D" uid="uid://da642d118ss7g" path="res://Scenes/Assets/Objects/Salt1.png" id="17_74e8s"]
+[ext_resource type="Texture2D" uid="uid://c6vvok4tifqa2" path="res://Scenes/Assets/Objects/Pot1.png" id="18_404wn"]
+[ext_resource type="PackedScene" uid="uid://vk4bcdu70mea" path="res://Scenes/Objects/Plant2/Plant2.tscn" id="19_ujnwj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_02rqc"]
 
@@ -117,6 +123,48 @@ position = Vector2(389, 352)
 scale = Vector2(4, 4)
 texture = ExtResource("12_6di6v")
 
+[node name="Clocks1" type="Sprite2D" parent="Environment"]
+texture_filter = 1
+position = Vector2(716, 144)
+scale = Vector2(4, 4)
+texture = ExtResource("12_7nega")
+
+[node name="Cucumber1" type="Sprite2D" parent="Environment"]
+texture_filter = 1
+position = Vector2(819, 564)
+scale = Vector2(4, 4)
+texture = ExtResource("13_nqejk")
+
+[node name="Mug1" type="Sprite2D" parent="Environment"]
+texture_filter = 1
+position = Vector2(784, 319)
+scale = Vector2(4, 4)
+texture = ExtResource("14_u7wl7")
+
+[node name="Mug2" type="Sprite2D" parent="Environment"]
+texture_filter = 1
+position = Vector2(760, 320)
+scale = Vector2(4, 4)
+texture = ExtResource("15_5ukv3")
+
+[node name="Pepper1" type="Sprite2D" parent="Environment"]
+texture_filter = 1
+position = Vector2(478, 335)
+scale = Vector2(4, 4)
+texture = ExtResource("16_41kww")
+
+[node name="Salt1" type="Sprite2D" parent="Environment"]
+texture_filter = 1
+position = Vector2(500, 335)
+scale = Vector2(4, 4)
+texture = ExtResource("17_74e8s")
+
+[node name="Pot1" type="Sprite2D" parent="Environment"]
+texture_filter = 1
+position = Vector2(311, 334)
+scale = Vector2(4, 4)
+texture = ExtResource("18_404wn")
+
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(601, 600)
 scale = Vector2(7.5, 1)
@@ -129,20 +177,20 @@ shape = SubResource("RectangleShape2D_02rqc")
 
 [node name="Interactables" type="Node2D" parent="."]
 
-[node name="Glass2" parent="Interactables" instance=ExtResource("7_da81i")]
-position = Vector2(602, 358)
-
-[node name="Glass1" parent="Interactables" instance=ExtResource("7_da81i")]
-position = Vector2(702, 358)
-
-[node name="Plant2" parent="Interactables" instance=ExtResource("8_tofcy")]
-position = Vector2(168, 136)
+[node name="Plant2" parent="Interactables" instance=ExtResource("19_ujnwj")]
+position = Vector2(168, 168)
 
 [node name="Glass3" parent="Interactables" instance=ExtResource("14_vfiqw")]
-position = Vector2(933, 250)
+position = Vector2(933, 261)
 
 [node name="Glass4" parent="Interactables" instance=ExtResource("14_vfiqw")]
-position = Vector2(957, 250)
+position = Vector2(957, 261)
+
+[node name="Glass5" parent="Interactables" instance=ExtResource("14_vfiqw")]
+position = Vector2(621, 358)
+
+[node name="Glass6" parent="Interactables" instance=ExtResource("14_vfiqw")]
+position = Vector2(694, 358)
 
 [node name="Doritos1" parent="." instance=ExtResource("16_ifdrg")]
 position = Vector2(545, 360)

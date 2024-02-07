@@ -1,6 +1,6 @@
 extends "res://Scripts/Fallable.gd"
 
-@export var angerMultiplier : float
+@export var angerMultiplier : float = 2
 
 var fishSprite : Sprite2D
 var isUsed : bool
@@ -13,8 +13,7 @@ func _ready():
 	fallingAccel = 10
 	fallingRotation = false
 	
-	anger = 15
-	angerMultiplier = 2
+	anger = 25
 	
 	#print("FallingSpeed " + str(fallingSpeed))
 	itemName = "Fish tank"
@@ -34,6 +33,7 @@ func Use():
 	fishSprite.hide()
 	breakAnimation.show()
 	isUsed = true
+	get_node("/root/Map/Dynamics/Enemy").makeHimAngry(anger) #když dropne item call
 
 func Interact():
 	# Cat eats fish for first time
@@ -52,3 +52,4 @@ func Break():
 	super.Break()
 	PlayAnimation()
 	add_to_group("Issues")
+	get_node("/root/Map/Dynamics/Enemy").makeHimAngry(anger * angerMultiplier) #když dropne item call

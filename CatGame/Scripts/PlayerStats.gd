@@ -15,16 +15,16 @@ func _init():
 	stats = {
 		"Hunger": Stat.new(
 			"Hunger", 			# Name
-			10, 				# Max value
-			0.3,  				# Update amount
+			100, 				# Max value
+			3,  				# Update amount
 			0,  				# Value
 			0,  				# Min value
 			0.5 				# Critical value
 			),
 		"Needs": Stat.new(
 			"Needs", 			# Name
-			10, 				# Max value
-			0.2,  				# Update amount
+			100, 				# Max value
+			2,  				# Update amount
 			0,  				# Value
 			0,  				# Min value
 			0.65 				# Critical value

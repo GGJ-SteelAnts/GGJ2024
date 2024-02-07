@@ -46,7 +46,7 @@ itemTypeEnum = 2
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 1
-position = Vector2(0, -34)
+position = Vector2(0, -30)
 scale = Vector2(4, 4)
 texture = ExtResource("1_1nbwn")
 
@@ -79,7 +79,7 @@ vertical_alignment = 1
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -34)
+position = Vector2(0, -30)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_8kfa4")
 

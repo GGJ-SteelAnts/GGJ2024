@@ -9,8 +9,8 @@ var groundHeight : float		# Y-axis position at where the item stops falling
 # Set for each item separately
 @export var canFall : bool
 @export var fallingRotation : bool
-var fallingSpeed : float		# Falling speed
-var fallingAccel : float		# Falling speed increment
+@export var fallingSpeed : float		# Falling speed
+@export var fallingAccel : float		# Falling speed increment
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

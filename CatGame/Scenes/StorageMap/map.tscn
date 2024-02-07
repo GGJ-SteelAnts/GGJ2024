@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://cgkvlbflcnjbc" path="res://Scenes/Assets/Backgrounds/StorageRoom1.png" id="1_1qsvr"]
 [ext_resource type="PackedScene" uid="uid://bf4un0m43cuas" path="res://Scenes/Furniture/Shelf1/shelf1.tscn" id="2_c7wwp"]
-[ext_resource type="Texture2D" uid="uid://clcyrjkeupojm" path="res://Scenes/Assets/Objects/Can1.png" id="3_10qwk"]
+[ext_resource type="PackedScene" uid="uid://cfk16an1n02lr" path="res://Scenes/Objects/Cans/HumanCan1.tscn" id="3_1tekx"]
 [ext_resource type="PackedScene" uid="uid://btd8wu7lao1ln" path="res://Scenes/Objects/Doritos1/Doritos1.tscn" id="3_upka7"]
-[ext_resource type="Texture2D" uid="uid://blj3y67r51wjt" path="res://Scenes/Assets/Objects/Can2.png" id="4_btjqw"]
+[ext_resource type="PackedScene" uid="uid://6x32ib5n0khs" path="res://Scenes/Objects/Cans/CatCan1.tscn" id="4_mimoa"]
 [ext_resource type="PackedScene" uid="uid://cjs3npd0tviji" path="res://Scenes/Objects/Plant3/Plant3_1.tscn" id="4_o5ja4"]
 [ext_resource type="Texture2D" uid="uid://dirikx1dt5vbj" path="res://Scenes/Assets/Backgrounds/SmallImage.png" id="5_bm3mh"]
 [ext_resource type="Texture2D" uid="uid://bf5dtgrrq65ko" path="res://Scenes/Assets/Furniture/Painting1.png" id="6_2e7jg"]
@@ -35,82 +35,6 @@ position = Vector2(706, 150)
 
 [node name="Shelf4" parent="Environment" instance=ExtResource("2_c7wwp")]
 position = Vector2(225, 430)
-
-[node name="CanStash" type="Node2D" parent="Environment/Shelf4"]
-
-[node name="Can2" type="Sprite2D" parent="Environment/Shelf4/CanStash"]
-texture_filter = 1
-position = Vector2(-101, -189)
-scale = Vector2(6, 6)
-texture = ExtResource("4_btjqw")
-
-[node name="Can4" type="Sprite2D" parent="Environment/Shelf4/CanStash"]
-texture_filter = 1
-position = Vector2(-17, -188)
-scale = Vector2(6, 6)
-texture = ExtResource("4_btjqw")
-
-[node name="Can6" type="Sprite2D" parent="Environment/Shelf4/CanStash"]
-texture_filter = 1
-position = Vector2(-54, -188)
-scale = Vector2(6, 6)
-texture = ExtResource("4_btjqw")
-
-[node name="Can8" type="Sprite2D" parent="Environment/Shelf4/CanStash"]
-texture_filter = 1
-position = Vector2(-32, -230)
-scale = Vector2(6, 6)
-texture = ExtResource("4_btjqw")
-
-[node name="Can10" type="Sprite2D" parent="Environment/Shelf4/CanStash"]
-texture_filter = 1
-position = Vector2(82, -189)
-scale = Vector2(6, 6)
-texture = ExtResource("4_btjqw")
-
-[node name="Blue cans" type="Node2D" parent="Environment/Shelf4/CanStash"]
-
-[node name="Can1" type="Sprite2D" parent="Environment/Shelf4/CanStash/Blue cans"]
-texture_filter = 1
-position = Vector2(-101, -49)
-scale = Vector2(6, 6)
-texture = ExtResource("3_10qwk")
-
-[node name="Can3" type="Sprite2D" parent="Environment/Shelf4/CanStash/Blue cans"]
-texture_filter = 1
-position = Vector2(-62, -49)
-scale = Vector2(6, 6)
-texture = ExtResource("3_10qwk")
-
-[node name="Can5" type="Sprite2D" parent="Environment/Shelf4/CanStash/Blue cans"]
-texture_filter = 1
-position = Vector2(-78, -91)
-scale = Vector2(6, 6)
-texture = ExtResource("3_10qwk")
-
-[node name="Can7" type="Sprite2D" parent="Environment/Shelf4/CanStash/Blue cans"]
-texture_filter = 1
-position = Vector2(-13, -49)
-scale = Vector2(6, 6)
-texture = ExtResource("3_10qwk")
-
-[node name="Can9" type="Sprite2D" parent="Environment/Shelf4/CanStash/Blue cans"]
-texture_filter = 1
-position = Vector2(33, -49)
-scale = Vector2(6, 6)
-texture = ExtResource("3_10qwk")
-
-[node name="Can11" type="Sprite2D" parent="Environment/Shelf4/CanStash/Blue cans"]
-texture_filter = 1
-position = Vector2(13, -91)
-scale = Vector2(6, 6)
-texture = ExtResource("3_10qwk")
-
-[node name="Can13" type="Sprite2D" parent="Environment/Shelf4/CanStash/Blue cans"]
-texture_filter = 1
-position = Vector2(85, -49)
-scale = Vector2(6, 6)
-texture = ExtResource("3_10qwk")
 
 [node name="Shelf5" parent="Environment" instance=ExtResource("2_c7wwp")]
 position = Vector2(225, 290)
@@ -157,19 +81,60 @@ position = Vector2(579, 255)
 rotation = 1.29154
 
 [node name="Plant3" parent="Interactable" instance=ExtResource("4_o5ja4")]
-position = Vector2(616, 92)
+position = Vector2(616, 122)
 
 [node name="Plant5" parent="Interactable" instance=ExtResource("4_o5ja4")]
-position = Vector2(781, 92)
+position = Vector2(781, 122)
 
 [node name="Plant4" parent="Interactable" instance=ExtResource("4_o5ja4")]
-position = Vector2(100, 92)
+position = Vector2(100, 122)
 
 [node name="Plant2" parent="Interactable" instance=ExtResource("8_24dwx")]
-position = Vector2(258, 91)
+position = Vector2(258, 122)
 
 [node name="Plant1" parent="Interactable" instance=ExtResource("9_0v444")]
-position = Vector2(680, 90)
+position = Vector2(680, 122)
+
+[node name="CanStash" type="Node2D" parent="Interactable"]
+
+[node name="Blue cans" type="Node2D" parent="Interactable/CanStash"]
+
+[node name="HumanCan1" parent="Interactable/CanStash/Blue cans" instance=ExtResource("3_1tekx")]
+position = Vector2(197, 402)
+
+[node name="HumanCan2" parent="Interactable/CanStash/Blue cans" instance=ExtResource("3_1tekx")]
+position = Vector2(154, 402)
+
+[node name="HumanCan3" parent="Interactable/CanStash/Blue cans" instance=ExtResource("3_1tekx")]
+position = Vector2(289, 399)
+fallingRotation = true
+
+[node name="Cat cans" type="Node2D" parent="Interactable/CanStash"]
+
+[node name="CatCan1" parent="Interactable/CanStash/Cat cans" instance=ExtResource("4_mimoa")]
+position = Vector2(162, 262)
+
+[node name="CatCan2" parent="Interactable/CanStash/Cat cans" instance=ExtResource("4_mimoa")]
+position = Vector2(191, 122)
+
+[node name="CatCan3" parent="Interactable/CanStash/Cat cans" instance=ExtResource("4_mimoa")]
+position = Vector2(217, 262)
+
+[node name="CatCan4" parent="Interactable/CanStash/Cat cans" instance=ExtResource("4_mimoa")]
+position = Vector2(245, 262)
+
+[node name="CatCan5" parent="Interactable/CanStash/Cat cans" instance=ExtResource("4_mimoa")]
+position = Vector2(273, 262)
+
+[node name="CatCan6" parent="Interactable/CanStash/Cat cans" instance=ExtResource("4_mimoa")]
+position = Vector2(117, 252)
+rotation = -1.5708
+
+[node name="CatCan8" parent="Interactable/CanStash/Cat cans" instance=ExtResource("4_mimoa")]
+position = Vector2(229, 230)
+
+[node name="CatCan9" parent="Interactable/CanStash/Cat cans" instance=ExtResource("4_mimoa")]
+position = Vector2(257, 230)
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(480, 600)
