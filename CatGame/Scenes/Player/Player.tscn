@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://co6k5kudklti2"]
+[gd_scene load_steps=53 format=3 uid="uid://co6k5kudklti2"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_mr8sf"]
 [ext_resource type="Texture2D" uid="uid://c1prm7lj6db6c" path="res://Scenes/Assets/Cat/CatIdle1.png" id="2_2nexp"]
@@ -48,6 +48,7 @@
 [ext_resource type="PackedScene" uid="uid://c3x1jgpmvfttv" path="res://Scenes/GUI/gui.tscn" id="20_dll6w"]
 [ext_resource type="Script" path="res://Scripts/Thought.gd" id="22_8u45b"]
 [ext_resource type="Texture2D" uid="uid://cv8jrnyka3am6" path="res://Scenes/Assets/Cat/CatBubble1.png" id="23_n1i5i"]
+[ext_resource type="Script" path="res://Scenes/Player/HighJumpIcon.gd" id="46_v77ew"]
 [ext_resource type="AudioStream" uid="uid://dtxll377laqdg" path="res://Scenes/Sounds/GGJ2024ThemeSong.wav" id="47_ia2ti"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mgvdp"]
@@ -133,7 +134,7 @@ catSounds = Array[AudioStreamWAV]([ExtResource("2_h20a8"), ExtResource("3_5dk8i"
 dropSofaSounds = Array[AudioStreamWAV]([ExtResource("6_gtnk2"), ExtResource("7_7qlq6"), ExtResource("8_tx8xf"), ExtResource("9_bd6fu"), ExtResource("10_eml4w")])
 dropClosetSounds = Array[AudioStreamWAV]([ExtResource("6_88esu"), ExtResource("7_miypk"), ExtResource("8_n1nxk"), ExtResource("9_hk1l2"), ExtResource("10_ytyfm"), ExtResource("11_vgsxk")])
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="CatAnimator" type="AnimatedSprite2D" parent="."]
 z_index = 2
 texture_filter = 1
 scale = Vector2(3, 3)
@@ -152,7 +153,7 @@ limit_top = 0
 limit_right = 4080
 limit_bottom = 600
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="FallParticlesFX" type="CPUParticles2D" parent="."]
 position = Vector2(0, 50)
 emitting = false
 amount = 50
@@ -169,11 +170,11 @@ gravity = Vector2(0, 9.8)
 initial_velocity_max = 80.0
 color = Color(0.870588, 0.870588, 0.870588, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
+[node name="HighJumpIcon" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(288, 128)
 texture = ExtResource("19_3ckti")
+script = ExtResource("46_v77ew")
 
 [node name="Gui" parent="." instance=ExtResource("20_dll6w")]
 
@@ -200,13 +201,14 @@ texture = ExtResource("23_n1i5i")
 
 [node name="BubbleItem" type="Sprite2D" parent="Thought/BubbleGUI"]
 position = Vector2(1, -2.75)
+scale = Vector2(0.5, 0.5)
 
 [node name="ThinkInterval" type="Timer" parent="Thought"]
-wait_time = 3.0
+wait_time = 5.0
 one_shot = true
 
 [node name="BubbleDuration" type="Timer" parent="Thought"]
-wait_time = 3.5
+wait_time = 2.5
 one_shot = true
 
 [connection signal="on_player_loaded" from="." to="Thought" method="_on_player_on_player_loaded"]

@@ -17,8 +17,9 @@ var updateAmount : float		# how fast stat changes in time, 0 for time resilience
 var modifiers : Array			# modifiers are add to base value
 var multipliers : Array			# multipliers multiply the base value after applying modifiers
 
+var criticalTreshold : float	# <-1, 1>. See Critical() for more detail
 
-func _init(_name, _max, _updateAmount, _value = _max, _min = 0, _mods = [], _mults = []):
+func _init(_name, _max, _updateAmount, _value = _max, _min = 0, _criticalTreshold = 0, _mods = [], _mults = []):
 	name = _name
 	baseValue = _value
 	if _updateAmount > 0:
@@ -32,10 +33,11 @@ func _init(_name, _max, _updateAmount, _value = _max, _min = 0, _mods = [], _mul
 		updateAmount = 0
 	maxValue = _max
 	minValue = _min
+	criticalTreshold = _criticalTreshold
 	modifiers = _mods
 	multipliers = _mults
 	
-	print("Stat %s created with default value: %.2f min: %d max: %d (%.2f)" % [name, baseValue, minValue, maxValue, updateAmount])
+	print("Stat %s created with default value: %.2f min: %d max: %d (±%.2f) CT: %.2f" % [name, baseValue, minValue, maxValue, updateAmount, criticalTreshold])
 
 
 func Value():
@@ -46,9 +48,28 @@ func Value():
 		total_value *= mod
 	return total_value
 
-func Frac():
-	return baseValue / maxValue
+# Returns whether the stat reached critical level
+# The value criticalTreshold (CT) should be between -1 and 1,
+# Where the sign represents if the critical range is below or above CT 
+# And absolute value represents the value in %
+# -0.25 means when the Stat's value goes below 25%, it will become critical.
+# 0.75 means when Stat's value goes above 75% of maxValue, it will become critical.
+func Critical() -> bool:
+	var _val = abs(criticalTreshold)
+	var _frac = Value() / maxValue
+	if criticalTreshold < 0:
+		return _frac < _val
+	if criticalTreshold > 0:
+		return _frac > _val
+	return false
 
+func CriticalValue() -> float:
+	var _frac = Value() / maxValue
+	if criticalTreshold < 0:
+		return 1 - _frac
+	if criticalTreshold > 0:
+		return _frac
+	return 0
 
 func Add(_amount):
 	baseValue += _amount

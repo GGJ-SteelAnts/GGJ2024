@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://btd8wu7lao1ln"]
 
 [ext_resource type="Texture2D" uid="uid://c35gn5q6ncdn5" path="res://Scenes/Assets/Objects/doritos.png" id="1_88k31"]
-[ext_resource type="Script" path="res://Scripts/Plant2.gd" id="1_578if"]
+[ext_resource type="Script" path="res://Scripts/Objects/Plant2.gd" id="1_578if"]
 [ext_resource type="LabelSettings" uid="uid://b5smbjexhppw" path="res://Scenes/Assets/Fonts/Interact_Font.tres" id="2_w8vu6"]
 [ext_resource type="Texture2D" uid="uid://ba77ookdcb18x" path="res://Scenes/Assets/Objects/doritos-1.png" id="4_2ffw3"]
 [ext_resource type="Texture2D" uid="uid://bxgin5nk32x8v" path="res://Scenes/Assets/Objects/doritos-2.png" id="5_0brd2"]

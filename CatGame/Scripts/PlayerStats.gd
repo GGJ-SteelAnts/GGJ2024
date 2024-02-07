@@ -6,15 +6,29 @@ var stats : Dictionary
 
 # Called when the node enters the scene tree for the first time.
 func _init():
-	#Stat.new(_name, _max, _updateAmount, _value = _max, _change = 0, _min = 0, _mods = [], _mults = [])
+	#Stat.new(_name, _max, _updateAmount, _value = _max, _min = 0, criticalTreshold = 0, _mods = [], _mults = [])
 	
 	# Each stat can have its own icon for bubble. It must be saved in: 
 	# "res://Scenes/Objects/ThoughtIcons/"
 	# with the same name as the stat and of type PNG
 	# Example: "res://Scenes/Objects/ThoughtIcons/Needs.png"
 	stats = {
-		"Hunger": Stat.new("Hunger", 10, 0.5, 0),
-		"Needs": Stat.new("Needs", 10, 0.2, 0)
+		"Hunger": Stat.new(
+			"Hunger", 			# Name
+			10, 				# Max value
+			0.3,  				# Update amount
+			0,  				# Value
+			0,  				# Min value
+			0.5 				# Critical value
+			),
+		"Needs": Stat.new(
+			"Needs", 			# Name
+			10, 				# Max value
+			0.2,  				# Update amount
+			0,  				# Value
+			0,  				# Min value
+			0.65 				# Critical value
+			)
 		}
 	#test()
 	print("Stats initialized")

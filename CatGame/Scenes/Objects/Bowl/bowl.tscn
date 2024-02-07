@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bsud0knigcr7p"]
 
-[ext_resource type="Script" path="res://Scripts/Bowl.gd" id="1_2unow"]
+[ext_resource type="Script" path="res://Scripts/Objects/Bowl.gd" id="1_2unow"]
 [ext_resource type="Texture2D" uid="uid://c7laavr377gcc" path="res://Scenes/Assets/Objects/bowl.png" id="1_53sy5"]
 [ext_resource type="Texture2D" uid="uid://s0dxifl8luc6" path="res://Scenes/Assets/Objects/food.png" id="2_qw6np"]
 [ext_resource type="LabelSettings" uid="uid://b5smbjexhppw" path="res://Scenes/Assets/Fonts/Interact_Font.tres" id="4_j5x65"]

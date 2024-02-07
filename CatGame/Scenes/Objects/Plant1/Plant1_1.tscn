@@ -1,14 +1,14 @@
 [gd_scene load_steps=12 format=3 uid="uid://b68wnm54acy7o"]
 
-[ext_resource type="Script" path="res://Scripts/Plant2.gd" id="1_ob5ax"]
-[ext_resource type="Texture2D" uid="uid://brd2unb1t4y2k" path="res://Scenes/Assets/Objects/Plant1.png" id="2_nphit"]
+[ext_resource type="Script" path="res://Scripts/Objects/Plant2.gd" id="1_ob5ax"]
+[ext_resource type="Texture2D" uid="uid://48336v5fxkit" path="res://Scenes/Assets/Objects/Plant1.png" id="2_nphit"]
 [ext_resource type="LabelSettings" uid="uid://b5smbjexhppw" path="res://Scenes/Assets/Fonts/Interact_Font.tres" id="3_mcjdh"]
-[ext_resource type="Texture2D" uid="uid://bunn1m0f5xndk" path="res://Scenes/Assets/Objects/Plant1Breaks1.png" id="4_icqo8"]
-[ext_resource type="Texture2D" uid="uid://bp8qi54p10p4x" path="res://Scenes/Assets/Objects/Plant1Breaks2.png" id="5_8ncca"]
-[ext_resource type="Texture2D" uid="uid://d04dav3hmmpu1" path="res://Scenes/Assets/Objects/Plant1Breaks3.png" id="6_usbcv"]
-[ext_resource type="Texture2D" uid="uid://jvgg217a6w0s" path="res://Scenes/Assets/Objects/Plant1Breaks4.png" id="7_goapy"]
-[ext_resource type="Texture2D" uid="uid://cq4iudy3t8mxp" path="res://Scenes/Assets/Objects/Plant1Breaks5.png" id="8_4lfgq"]
-[ext_resource type="Texture2D" uid="uid://ccvjvavlimjfx" path="res://Scenes/Assets/Objects/Plant1Breaks6.png" id="9_52a3i"]
+[ext_resource type="Texture2D" uid="uid://rxssgl4b5h0x" path="res://Scenes/Assets/Objects/Plant1Breaks1.png" id="4_icqo8"]
+[ext_resource type="Texture2D" uid="uid://evq3nq3eusrw" path="res://Scenes/Assets/Objects/Plant1Breaks2.png" id="5_8ncca"]
+[ext_resource type="Texture2D" uid="uid://bhujc3rhhks0e" path="res://Scenes/Assets/Objects/Plant1Breaks3.png" id="6_usbcv"]
+[ext_resource type="Texture2D" uid="uid://i2vjr3hu5a3p" path="res://Scenes/Assets/Objects/Plant1Breaks4.png" id="7_goapy"]
+[ext_resource type="Texture2D" uid="uid://cli43jqn1jf0a" path="res://Scenes/Assets/Objects/Plant1Breaks5.png" id="8_4lfgq"]
+[ext_resource type="Texture2D" uid="uid://c17wr7kleeule" path="res://Scenes/Assets/Objects/Plant1Breaks6.png" id="9_52a3i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ngk8i"]
 

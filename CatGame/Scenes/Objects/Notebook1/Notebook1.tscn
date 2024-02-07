@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://df1sgmx4ey6i0"]
 
 [ext_resource type="Texture2D" uid="uid://o4kd204ye5l8" path="res://Scenes/Assets/Objects/Laptop1.png" id="1_1nbwn"]
-[ext_resource type="Script" path="res://Scripts/Plant2.gd" id="1_omtgn"]
+[ext_resource type="Script" path="res://Scripts/Objects/Plant2.gd" id="1_omtgn"]
 [ext_resource type="LabelSettings" uid="uid://b5smbjexhppw" path="res://Scenes/Assets/Fonts/Interact_Font.tres" id="3_4482i"]
 [ext_resource type="Texture2D" uid="uid://daoo31bbfk76e" path="res://Scenes/Assets/Objects/LaptopBreaks1.png" id="4_xrayw"]
 [ext_resource type="Texture2D" uid="uid://cygp85sa4plw1" path="res://Scenes/Assets/Objects/LaptopBreaks2.png" id="5_n1jt3"]
@@ -41,7 +41,6 @@ animations = [{
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_omtgn")
-angerDamage = 40
 itemTypeEnum = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

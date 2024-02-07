@@ -1,12 +1,10 @@
 extends "res://Scripts/Item.gd"
 
 var player : Player
-var canInteract : bool
-var isInteracting : bool
+var canInteract : bool			# whether is player close enough to interact with the item
+var isInteracting : bool	# set to true when the Interact() is called. Must be reset to interact again
 
-var anger : int = 10
-
-@export var angerDamage = 15
+var anger : int
 
 @export var itemTypeEnum : Enums.ItemTypeEnum = Enums.ItemTypeEnum.Empty
 
@@ -21,10 +19,7 @@ func _ready():
 	canInteract = false
 	isInteracting = false
 	player = null
-	#print("Created new interactable object")
-	#var area = get_node("Area2D")
-	#area.connect("body_entered", _on_area_2d_body_entered.bind(area))
-	#area.connect("body_exited", _on_area_2d_body_exited.bind(area))
+	anger = 10
 	
 func _process(delta):
 	if Input.is_action_just_released("Interact") && canInteract:

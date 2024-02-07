@@ -35,7 +35,7 @@ func Interaction(delta):
 	elif type == ObjectsTypes.HideAndJail:
 		if spriteAction != null && spriteAction2 != null && player != null:
 			if player.visible:
-				if !player.get_node("AnimatedSprite2D").flip_h:
+				if !player.get_node("CatAnimator").flip_h:
 					sprite.texture = spriteAction
 				else:
 					sprite.texture = spriteAction2

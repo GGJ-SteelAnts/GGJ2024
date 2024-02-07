@@ -1,4 +1,4 @@
-extends "res://Scripts/Breakable.gd"
+extends "res://Scripts/Fallable.gd"
 
 @export var angerMultiplier : float
 
@@ -9,20 +9,16 @@ func _ready():
 	super._ready()
 	canFall = true
 	isUsed = false
-	isFalling = false
-	isGrounded = false
 	fallingSpeed = randi() % 50
 	fallingAccel = 10
-	groundHeight = 580
 	fallingRotation = false
 	
 	anger = 15
 	angerMultiplier = 2
-	angerDamage = 35
 	
 	#print("FallingSpeed " + str(fallingSpeed))
 	itemName = "Fish tank"
-	itemType = ItemType.TANK
+	itemType = ItemType.FISHTANK
 	if has_node("Sprite2D"):
 		fishSprite = $Sprite2D
 	if  has_node("Animation"):
@@ -40,7 +36,6 @@ func Use():
 	isUsed = true
 
 func Interact():
-	super.Interact()
 	# Cat eats fish for first time
 	if !isUsed:
 		Use()
@@ -50,6 +45,7 @@ func Interact():
 	if not isGrounded:
 		isFalling = true
 		canInteract = false
+	
 
 
 func Break():

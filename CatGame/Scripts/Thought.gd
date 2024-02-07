@@ -18,26 +18,35 @@ func _ready():
 	thinkInterval = $ThinkInterval
 	bubbleDuration = $BubbleDuration
 	bubbleGUI.visible = false
+	
+	worstStat = null
 
 # TO DO: implement critical treshold for  each stat
-func EvaluateWorseStat():
-	worstStat = stats.stats["Needs"]
+func EvaluateWorseStat() -> Variant:
+	var _stat = null
 	for s in stats.stats.values():
-		if s == worstStat:
-			continue
-		if s.Frac() < worstStat.Frac():
-			worstStat = s
-	return
+		if s.Critical():
+			if _stat != null:
+				if s.CriticalValue() > _stat.CriticalValue():
+					_stat = s
+			else:
+				_stat = s
+	if _stat != null:
+		print("The worst stat is %s" % _stat.name)
+	return _stat
 
 
 func _on_think_interval_timeout():
-	EvaluateWorseStat()
+	worstStat = EvaluateWorseStat()
 	
-	# For more info see PlayerStats.gd file.
-	var _icon = load("res://Scenes/Objects/ThoughtIcons/" + worstStat.name + ".png")
-	bubbleItem.texture = _icon
-	bubbleGUI.visible = true
-	bubbleDuration.start()
+	if worstStat != null:
+		# For more info see PlayerStats.gd file.
+		var _icon = load("res://Scenes/Objects/ThoughtIcons/" + worstStat.name + ".png")
+		bubbleItem.texture = _icon
+		bubbleGUI.visible = true
+		bubbleDuration.start()
+	else:
+		thinkInterval.start()
 
 
 func _on_bubble_duration_timeout():
@@ -49,4 +58,4 @@ func _on_player_on_player_loaded():
 	player = get_node("/root/Map/Dynamics/Player")
 	stats = player.playerStats
 	thinkInterval.start()
-	print("Bubble initialized")
+	print("Bubble initialized %s" % stats)

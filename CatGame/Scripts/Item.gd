@@ -6,9 +6,12 @@ enum ItemType {
 	DEFAULT,
 	PLANT, 
 	GLASS,
-	TANK,
+	FISHTANK,
 	MOUSE,
-	BOWL
+	BOWL,
+	CAN,
+	NOTEBOOK,
+	DORITOS
 }
 
 
@@ -17,3 +20,9 @@ enum ItemType {
 
 var startPosition : Vector2
 var startRotation : float
+
+func _ready():
+	itemName = "Defualt item"
+	itemType = ItemType.DEFAULT
+	startPosition = global_position
+	startRotation = global_rotation
